@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnu316i877s3h"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_bullet.gd" id="1_kygt1"]
+[ext_resource type="Texture2D" uid="uid://dxsmnd4navv63" path="res://Game assets for demo/enemy_bullet.png" id="2_icbnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tntsh"]
+size = Vector2(42, 18.5)
+
+[node name="Area2D" type="Area2D" groups=["EnemyProjectile"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_kygt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_tntsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_icbnn")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

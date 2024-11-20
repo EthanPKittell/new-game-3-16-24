@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://baojgffpvq38c"]
+
+[ext_resource type="Script" path="res://Scripts/gun_type.gd" id="1_ieoe5"]
+[ext_resource type="Texture2D" uid="uid://0jl4cpbw47ul" path="res://Game assets for demo/gun_type.png" id="1_stpkb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhwn8"]
+atlas = ExtResource("1_stpkb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdigq"]
+atlas = ExtResource("1_stpkb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2syd"]
+atlas = ExtResource("1_stpkb")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h272l"]
+atlas = ExtResource("1_stpkb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi545"]
+atlas = ExtResource("1_stpkb")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q77uq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhwn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdigq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2syd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h272l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi545")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="gun_type" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ieoe5")
+
+[node name="gunIcon" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q77uq")
+frame = 2
+frame_progress = 0.830252
+
+[node name="Ammo" type="Label" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 30.0
+offset_right = 27.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 23
+text = "XX"

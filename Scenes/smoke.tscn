@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8honi0v7pb4p"]
+
+[ext_resource type="Script" path="res://Scripts/smoke.gd" id="1_3h1yx"]
+[ext_resource type="SpriteFrames" uid="uid://c4hk2b3432nue" path="res://smoke.tres" id="2_yeo0w"]
+
+[node name="Smoke" type="Node2D"]
+script = ExtResource("1_3h1yx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(53, 0)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_yeo0w")
+animation = &"smoke"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

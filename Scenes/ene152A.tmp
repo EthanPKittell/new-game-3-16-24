@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://c2afbnmomfdy6"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_seeker.gd" id="1_jlinh"]
+[ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_8cvb7"]
+[ext_resource type="Shader" path="res://WhiteColor.gdshader" id="2_x6m0k"]
+[ext_resource type="Texture2D" uid="uid://c31gms55mqeii" path="res://Game assets for demo/enemy_seeker.png" id="3_cmhps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uvs"]
+size = Vector2(59, 61)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpyji"]
+resource_local_to_scene = true
+shader = ExtResource("2_x6m0k")
+shader_parameter/active = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1k3p"]
+radius = 16.1245
+
+[sub_resource type="Animation" id="Animation_bbmd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gpa0k"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6xkd"]
+_data = {
+"RESET": SubResource("Animation_bbmd2"),
+"blink": SubResource("Animation_gpa0k")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cab1g"]
+radius = 189.011
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mo8et"]
+radius = 317.002
+
+[node name="Enemy_Seeker" type="CharacterBody2D" groups=["Enemy"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_jlinh")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["EnemyArea"]]
+position = Vector2(0, 17)
+collision_layer = 4
+collision_mask = 6
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -38)
+shape = SubResource("RectangleShape2D_v4uvs")
+metadata/_edit_lock_ = true
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_8cvb7")]
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+exclude_parent = false
+target_position = Vector2(0, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_tpyji")
+position = Vector2(106, 108)
+texture = ExtResource("3_cmhps")
+offset = Vector2(-106, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e1k3p")
+
+[node name="Blink" type="AnimationPlayer" parent="."]
+reset_on_save = false
+root_node = NodePath("../Hurtbox")
+libraries = {
+"": SubResource("AnimationLibrary_x6xkd")
+}
+speed_scale = 3.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 60.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="." groups=["EnemyArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_cab1g")
+debug_color = Color(1, 0.0114042, 0.0220368, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="." groups=["EnemyArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+modulate = Color(1, 1, 1, 0.254902)
+shape = SubResource("CircleShape2D_mo8et")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

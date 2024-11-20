@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://vid5liu0ymkg"]
+
+[ext_resource type="Texture2D" uid="uid://d1g5pdl8ic4ij" path="res://Game assets for demo/shop_keeper.png" id="1_ampac"]
+[ext_resource type="Script" path="res://Scripts/shop_keeper.gd" id="1_j0j2j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nob5"]
+radius = 3.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34g38"]
+atlas = ExtResource("1_ampac")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjclw"]
+atlas = ExtResource("1_ampac")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wode"]
+atlas = ExtResource("1_ampac")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ve7h"]
+atlas = ExtResource("1_ampac")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuxx6"]
+atlas = ExtResource("1_ampac")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rp2j"]
+atlas = ExtResource("1_ampac")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wae7"]
+atlas = ExtResource("1_ampac")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ninno"]
+atlas = ExtResource("1_ampac")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axgj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34g38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjclw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wode")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ve7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuxx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rp2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wae7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ninno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Shop_Keeper" type="StaticBody2D"]
+script = ExtResource("1_j0j2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2nob5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_axgj7")
+frame_progress = 0.0787155
+metadata/_edit_lock_ = true

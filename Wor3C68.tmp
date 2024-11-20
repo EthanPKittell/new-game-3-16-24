@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpfonkpugm3yi"]
+
+[ext_resource type="Texture2D" uid="uid://xtnma306ibll" path="res://Game assets for demo/ground.png" id="1_xbpm8"]
+[ext_resource type="TileSet" uid="uid://bix2l3kfg4mqk" path="res://Wall_tiles_new.tres" id="2_mjgek"]
+[ext_resource type="PackedScene" uid="uid://c66jnigbwsp2o" path="res://Player.tscn" id="2_q6ahj"]
+[ext_resource type="PackedScene" uid="uid://d2hhk2ijp5jl0" path="res://player_bullet.tscn" id="4_pjh6u"]
+[ext_resource type="PackedScene" uid="uid://cibkb84fmspum" path="res://health_ui.tscn" id="5_x7siu"]
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(496, 320)
+scale = Vector2(1.38667, 1.49333)
+texture = ExtResource("1_xbpm8")
+region_enabled = true
+region_rect = Rect2(0, 0, 900, 600)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_mjgek")
+format = 2
+layer_0/tile_data = PackedInt32Array(196612, 0, 0, 262148, 0, 1, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 262149, 0, 1, 262150, 0, 1, 262151, 0, 1, 327704, 0, 0, 393240, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 393244, 0, 0, 393243, 0, 0, 327707, 0, 0, 327706, 0, 0, 327705, 0, 0, 393241, 0, 0, 393242, 0, 0, 524312, 0, 1, 524313, 0, 1, 524314, 0, 1, 524315, 0, 1, 524316, 0, 1, 851977, 0, 0, 917513, 0, 0, 917514, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 917517, 0, 0, 917518, 0, 0, 983049, 0, 1, 1048586, 0, 1, 1048587, 0, 1, 1048588, 0, 1, 1048589, 0, 1, 983054, 0, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("4_pjh6u")]
+position = Vector2(416, 128)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(355, 211)
+limit_left = -100
+limit_top = -100
+limit_right = 1100
+limit_bottom = 700
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("5_x7siu")]
+
+[node name="Player" parent="." instance=ExtResource("2_q6ahj")]
+position = Vector2(355, 211)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

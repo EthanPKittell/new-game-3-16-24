@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c4hk2b3432nue"]
+
+[ext_resource type="Texture2D" uid="uid://670xhm4jvcgt" path="res://Game assets for demo/Smoke.png" id="1_061sg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xpiy"]
+atlas = ExtResource("1_061sg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jahd1"]
+atlas = ExtResource("1_061sg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1b0x"]
+atlas = ExtResource("1_061sg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hetm6"]
+atlas = ExtResource("1_061sg")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xpiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jahd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1b0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hetm6")
+}],
+"loop": false,
+"name": &"smoke",
+"speed": 20.0
+}]

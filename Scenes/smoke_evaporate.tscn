@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbu75prpvyajk"]
+
+[ext_resource type="Texture2D" uid="uid://bhcoihjkar0x4" path="res://Game assets for demo/Evaporate.png" id="1_4o6j1"]
+[ext_resource type="Script" path="res://Scripts/smoke_evaporate.gd" id="1_ec3nc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcfbn"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3qvp"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3yc"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ykk"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2csk6"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl6c0"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yudu"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dywph"]
+atlas = ExtResource("1_4o6j1")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suc4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcfbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3qvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2csk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl6c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yudu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dywph")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="SmokeEvaporate" type="Node2D"]
+script = ExtResource("1_ec3nc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_suc4a")
+frame = 7
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

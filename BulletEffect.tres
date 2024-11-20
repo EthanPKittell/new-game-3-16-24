@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://jsxdwhj7yn68"]
+
+[ext_resource type="Texture2D" uid="uid://crbvwojr4isgc" path="res://Game assets for demo/bulletEffect.png" id="1_bemkc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhl5e"]
+atlas = ExtResource("1_bemkc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfp2t"]
+atlas = ExtResource("1_bemkc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by7ps"]
+atlas = ExtResource("1_bemkc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g1jj"]
+atlas = ExtResource("1_bemkc")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhl5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfp2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by7ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g1jj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]

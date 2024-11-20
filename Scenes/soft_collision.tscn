@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm5on2wh0fj5p"]
+
+[ext_resource type="Script" path="res://Scripts/soft_collision.gd" id="1_73ks7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fs06y"]
+radius = 43.0116
+
+[node name="SoftCollision" type="Area2D"]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_73ks7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fs06y")

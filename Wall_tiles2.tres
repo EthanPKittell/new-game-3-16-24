@@ -1,0 +1,35 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bdsob4xbij6pp"]
+
+[ext_resource type="Texture2D" uid="uid://bviypssjqskgc" path="res://Game assets for demo/wallTile.png" id="1_g66qa"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2mp3q"]
+vertices = PackedVector2Array(8, 8, -7, 8, -7, -7, 8, -7)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7.3125, -6.5, 7.6875, -6.75, 7.8125, 8.25, -7.0625, 8.25)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m67of"]
+vertices = PackedVector2Array(8, 8, -7, 8, -7, -7, 8, -7)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7.3125, -6.5, 7.6875, -6.75, 7.8125, 8.25, -7.0625, 8.25)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfbpg"]
+texture = ExtResource("1_g66qa")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2mp3q")
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_m67of")
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 5
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_cfbpg")

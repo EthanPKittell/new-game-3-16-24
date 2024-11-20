@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c66jnigbwsp2o"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ml8ai"]
+[ext_resource type="PackedScene" uid="uid://vuwkik87hph6" path="res://Scenes/playerHands.tscn" id="3_61yc3"]
+[ext_resource type="SpriteFrames" uid="uid://b3ptis5ga616i" path="res://Scenes/player_animation.tres" id="4_tu2if"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_akhj4"]
+radius = 8.01561
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_os7rs"]
+size = Vector2(21, 33.5)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_ml8ai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("4_tu2if")
+animation = &"player_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_akhj4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_os7rs")
+
+[node name="playerHands" parent="." instance=ExtResource("3_61yc3")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
