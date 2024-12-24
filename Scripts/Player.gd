@@ -78,9 +78,9 @@ func _physics_process(delta):
 			rollTimer.start()
 			
 	
-	if state == ROLLING:
+	if state == ROLLING: 
 		position = position.move_toward(global_position + (rollingVector * 12), delta * 350)
-		
+		##explaination for these values the rolling vector multiplication is the target position and the delta mult is acceleration
 	
 	
 	
