@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpfonkpugm3yi"]
+[gd_scene load_steps=13 format=3 uid="uid://bpfonkpugm3yi"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_hyavj"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_j88b8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bsd8m8rlqypw4" path="res://Scenes/Shot_pickup.tscn" id="9_dngxm"]
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_ygna2"]
 [ext_resource type="PackedScene" uid="uid://e3uxkslaljhm" path="res://Scenes/room_change.tscn" id="11_r82w0"]
+[ext_resource type="PackedScene" uid="uid://cit58do7s84dv" path="res://Scenes/enemy_boxer.tscn" id="12_sk04a"]
 [ext_resource type="Script" path="res://Scripts/Globals.gd" id="12_xk54o"]
 
 [node name="World" type="Node2D"]
@@ -67,3 +68,6 @@ position = Vector2(866, -615)
 
 [node name="Initializer" type="Node" parent="."]
 script = ExtResource("12_xk54o")
+
+[node name="Enemy_Boxer" parent="." instance=ExtResource("12_sk04a")]
+position = Vector2(1798, -276)

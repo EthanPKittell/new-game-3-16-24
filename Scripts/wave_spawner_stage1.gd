@@ -40,7 +40,15 @@ func spawnEnemy():
 func _on_timer_timeout():
 	var world = get_tree().current_scene.get_node("Y_Sort")
 	#preload different enemies depending on the wave number
-	var enemy = preload("res://Scenes/enemy_seeker.tscn")
+	
+	var pick = randi_range(0,1)
+	var enemy
+	if pick == 0:
+		enemy = preload("res://Scenes/enemy_seeker.tscn")
+	elif pick == 1:
+		enemy = preload("res://Scenes/enemy_boxer.tscn")
+	
+	
 	var enemyInstance = enemy.instantiate()
 	world.add_child(enemyInstance)
 	var pickSpawn = randi_range(1,3)
@@ -62,7 +70,7 @@ func startWave():
 	
 	#sets the wave enemies depending on the current wave
 	if wave == 1:
-		enemies = 1
+		enemies = 30
 	if wave == 2:
 		enemies = 2
 	if wave == 3:
