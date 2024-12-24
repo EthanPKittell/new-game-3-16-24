@@ -8,8 +8,10 @@ var canFire = false #I set it to false because when You start you have no gun
 var fireRate = 0.2
 var isShotgun = false
 var stats = PlayerStats
+var rollingVector = Vector2.ZERO
 
 @onready var shotTimer = $Timer
+@onready var rollTimer = $RollActive
 @onready var playerSprite = $AnimatedSprite2D
 @onready var playerHandsWeapon = $playerHands/AnimatedSprite2D
 @onready var AR_pickup = get_node_or_null("/root/World/AR_pickup")
@@ -18,6 +20,14 @@ var stats = PlayerStats
 @onready var Mini_pickup = get_node_or_null("/root/World/Mini_pickup")
 
 signal ammo_changed(value)
+
+enum {
+	MOVING,
+	ROLLING,
+	
+}
+
+var state = MOVING
 
 func _ready():
 	stats.no_health.connect(death)
@@ -34,21 +44,46 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if Input.is_action_pressed(("MOVE_RIGHT")):
-		position.x += speed
-		playerSprite.play("player_run")
-	if Input.is_action_pressed(("MOVE_LEFT")):
-		position.x -= speed
-		playerSprite.play("player_run")
-	if Input.is_action_pressed(("MOVE_UP")):
-		position.y -= speed
-		playerSprite.play("player_run")
-	if Input.is_action_pressed(("MOVE_DOWN")):
-		position.y += speed
-		playerSprite.play("player_run")
-	if !Input.is_action_pressed(("MOVE_RIGHT")) && !Input.is_action_pressed(("MOVE_LEFT")) && !Input.is_action_pressed(("MOVE_UP")) && !Input.is_action_pressed(("MOVE_DOWN")):
-		playerSprite.play("player_idle")
-
+	if state == MOVING:
+		if Input.is_action_pressed(("MOVE_RIGHT")): #Change logic for rolling movement later
+			position.x += speed
+			rollingVector.x = 1 
+			if !(Input.is_action_pressed("MOVE_UP") || Input.is_action_pressed("MOVE_DOWN")):
+				rollingVector.y = 0
+			playerSprite.play("player_run")
+		if Input.is_action_pressed(("MOVE_LEFT")):
+			position.x -= speed
+			rollingVector.x = -1
+			if !(Input.is_action_pressed("MOVE_UP") || Input.is_action_pressed("MOVE_DOWN")):
+				rollingVector.y = 0
+			playerSprite.play("player_run")
+		if Input.is_action_pressed(("MOVE_UP")):
+			position.y -= speed
+			rollingVector.y = -1
+			if !(Input.is_action_pressed("MOVE_LEFT") || Input.is_action_pressed("MOVE_RIGHT")):
+				rollingVector.x = 0
+			playerSprite.play("player_run")
+		if Input.is_action_pressed(("MOVE_DOWN")):
+			position.y += speed
+			rollingVector.y = 1
+			if !(Input.is_action_pressed("MOVE_LEFT") || Input.is_action_pressed("MOVE_RIGHT")):
+				rollingVector.x = 0
+			playerSprite.play("player_run")
+		if !Input.is_action_pressed(("MOVE_RIGHT")) && !Input.is_action_pressed(("MOVE_LEFT")) && !Input.is_action_pressed(("MOVE_UP")) && !Input.is_action_pressed(("MOVE_DOWN")):
+			playerSprite.play("player_idle")
+		if Input.is_action_just_pressed("ROLL_BUTTON"): #this is going to be an implementation of a roll (need to figure out vectoring and roll ability)
+			state = ROLLING
+			playerSprite.play("player_roll")
+			rollTimer.wait_time = 0.7
+			rollTimer.start()
+			
+	
+	if state == ROLLING:
+		position = position.move_toward(global_position + (rollingVector * 12), delta * 350)
+		
+	
+	
+	
 	move_and_slide()
 	
 	
@@ -159,3 +194,7 @@ func _on_hurtbox_area_entered(area):
 		
 func death():
 	queue_free()
+
+
+func _on_roll_active_timeout() -> void:
+	state = MOVING

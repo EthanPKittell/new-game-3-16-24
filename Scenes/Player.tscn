@@ -32,5 +32,8 @@ shape = SubResource("RectangleShape2D_os7rs")
 
 [node name="playerHands" parent="." instance=ExtResource("3_61yc3")]
 
+[node name="RollActive" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="RollActive" to="." method="_on_roll_active_timeout"]

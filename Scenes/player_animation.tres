@@ -1,10 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b3ptis5ga616i"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b3ptis5ga616i"]
 
 [ext_resource type="Texture2D" uid="uid://toer8ga83yfy" path="res://Game assets for demo/player_idle.png" id="1_81hlx"]
 [ext_resource type="Texture2D" uid="uid://bv1m1jx35kngb" path="res://Game assets for demo/player_run.png" id="2_8mt20"]
+[ext_resource type="Texture2D" uid="uid://ddsbt5aah6kci" path="res://Game assets for demo/PlayerRollingTEMP.png" id="2_huk0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k666"]
 atlas = ExtResource("1_81hlx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yga4"]
+atlas = ExtResource("2_huk0t")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gn2xp"]
@@ -35,6 +40,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yga4")
+}],
+"loop": true,
+"name": &"player_roll",
 "speed": 5.0
 }, {
 "frames": [{

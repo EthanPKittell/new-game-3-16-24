@@ -20,6 +20,7 @@ var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
 @onready var softCollision = $SoftCollision
 @onready var playerSight = $RayCast2D
 @onready var boxerSprite = $AnimatedSprite2D
+@onready var chaseTimer = $ChaseTimer
 
 
 enum {
@@ -109,7 +110,8 @@ func _on_attack_range_body_entered(body):
 
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("Player"):
-		state = CHASE
+		chaseTimer.wait_time = 0.5
+		chaseTimer.start()
 		attackAble = false
 		
 func shoot():
@@ -128,3 +130,8 @@ func shoot():
 func _on_shot_timer_timeout():
 	canFire = true
 	$ShotTimer.stop()
+
+
+func _on_chase_timer_timeout():
+	state = CHASE
+	$ChaseTimer.stop()

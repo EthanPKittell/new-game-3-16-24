@@ -5,7 +5,6 @@ res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
 res://Scenes/Player.tscn
-res://Scenes/player_bullet.tscn
 res://Scenes/health_ui.tscn
 res://Scenes/player_stats.tscn
 res://Scenes/enemy_bullet.tscn
@@ -13,9 +12,9 @@ res://Scenes/gun_type.tscn
 res://Scenes/playerHands.tscn
 res://Scenes/smoke_evaporate.tscn
 res://Scenes/Explosion.tscn
-res://Scenes/enemy_seeker.tscn
 res://Scenes/enemy_boxer.tscn
+res://Scenes/enemy_seeker.tscn
 res://Scenes/wave_spawner_stage1.tscn
-res://Scenes/enemy_punch.tscn
 res://Scripts/enemy_boxer.gd
-res://Scripts/wave_spawner_stage1.gd
+res://Scripts/Player.gd
+res://Scripts/enemy_seeker.gd
