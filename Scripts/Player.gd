@@ -79,7 +79,7 @@ func _physics_process(delta):
 			
 	
 	if state == ROLLING: 
-		position = position.move_toward(global_position + (rollingVector * 12), delta * 350)
+		position = position.move_toward(global_position + (rollingVector * 100), delta * 400)
 		##explaination for these values the rolling vector multiplication is the target position and the delta mult is acceleration
 	
 	
@@ -197,4 +197,9 @@ func death():
 
 
 func _on_roll_active_timeout() -> void:
+	#state = MOVING
+	pass
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
 	state = MOVING

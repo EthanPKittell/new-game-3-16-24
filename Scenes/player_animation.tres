@@ -1,16 +1,36 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b3ptis5ga616i"]
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://b3ptis5ga616i"]
 
 [ext_resource type="Texture2D" uid="uid://toer8ga83yfy" path="res://Game assets for demo/player_idle.png" id="1_81hlx"]
 [ext_resource type="Texture2D" uid="uid://bv1m1jx35kngb" path="res://Game assets for demo/player_run.png" id="2_8mt20"]
-[ext_resource type="Texture2D" uid="uid://ddsbt5aah6kci" path="res://Game assets for demo/PlayerRollingTEMP.png" id="2_huk0t"]
+[ext_resource type="Texture2D" uid="uid://dser2h4ullt3c" path="res://Game assets for demo/player_roll.png" id="2_wpn7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k666"]
 atlas = ExtResource("1_81hlx")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yga4"]
-atlas = ExtResource("2_huk0t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx4xv"]
+atlas = ExtResource("2_wpn7c")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4712h"]
+atlas = ExtResource("2_wpn7c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spkkl"]
+atlas = ExtResource("2_wpn7c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqgw3"]
+atlas = ExtResource("2_wpn7c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30lx"]
+atlas = ExtResource("2_wpn7c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lryx"]
+atlas = ExtResource("2_wpn7c")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gn2xp"]
 atlas = ExtResource("2_8mt20")
@@ -44,11 +64,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4yga4")
+"texture": SubResource("AtlasTexture_cx4xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4712h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spkkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqgw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g30lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lryx")
 }],
-"loop": true,
+"loop": false,
 "name": &"player_roll",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
