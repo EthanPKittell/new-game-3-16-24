@@ -3,9 +3,12 @@ extends Area2D
 var direction = Vector2.RIGHT
 var speed = 570
 
+
 func _ready():
 	$Timer.wait_time = 0.05
 	$Sprite2D.visible = false
+	self.monitoring = false
+	self.monitorable = false
 	$Timer.start()
 
 func _process(delta):
@@ -30,7 +33,8 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	$Sprite2D.visible = true
-
+	self.monitoring = true
+	self.monitorable = true
 
 
 

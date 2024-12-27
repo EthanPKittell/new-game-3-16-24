@@ -9,6 +9,7 @@ var fireRate = 0.2
 var isShotgun = false
 var stats = PlayerStats
 var rollingVector = Vector2.ZERO
+var can_roll = true
 
 @onready var shotTimer = $Timer
 @onready var rollTimer = $RollActive
@@ -18,8 +19,13 @@ var rollingVector = Vector2.ZERO
 @onready var Pistol_pickup = get_node_or_null("/root/World/Pistol_pickup")
 @onready var Shot_pickup = get_node_or_null("/root/World/Shot_pickup")
 @onready var Mini_pickup = get_node_or_null("/root/World/Mini_pickup")
+@onready var ammo_pickup #= get_node_or_null("/root/World/ammo_pickup")
+@onready var hurtBox = $Hurtbox
 
 signal ammo_changed(value)
+
+signal roll_started()
+signal roll_ended()
 
 enum {
 	MOVING,
@@ -40,10 +46,19 @@ func _ready():
 		Shot_pickup.Shot_picked.connect(change_gun)
 	if Mini_pickup != null:
 		Mini_pickup.Mini_picked.connect(change_gun)
+	if ammo_pickup != null:
+		ammo_pickup.ammo_picked.connect(ammo_picked_up)
 	change_gun(Globals.globalCurrentGun)
 	
 
 func _physics_process(delta):
+	ammo_pickup = get_tree().get_nodes_in_group("ammo_add")
+	#print(ammo_pickup)
+	
+	for ammo_pick in ammo_pickup:
+		if ammo_pickup != null && ammo_pick.ammo_picked.is_connected(ammo_picked_up) == false:
+			ammo_pick.ammo_picked.connect(ammo_picked_up)
+	
 	if state == MOVING:
 		if Input.is_action_pressed(("MOVE_RIGHT")): #Change logic for rolling movement later
 			position.x += speed
@@ -71,11 +86,14 @@ func _physics_process(delta):
 			playerSprite.play("player_run")
 		if !Input.is_action_pressed(("MOVE_RIGHT")) && !Input.is_action_pressed(("MOVE_LEFT")) && !Input.is_action_pressed(("MOVE_UP")) && !Input.is_action_pressed(("MOVE_DOWN")):
 			playerSprite.play("player_idle")
-		if Input.is_action_just_pressed("ROLL_BUTTON"): #this is going to be an implementation of a roll (need to figure out vectoring and roll ability)
+		if Input.is_action_just_pressed("ROLL_BUTTON") && can_roll == true: #this is going to be an implementation of a roll (need to figure out vectoring and roll ability)
 			state = ROLLING
+			hurtBox.monitorable = false
+			hurtBox.monitoring = false
+			can_roll = false
+			emit_signal("roll_started")
 			playerSprite.play("player_roll")
-			rollTimer.wait_time = 0.7
-			rollTimer.start()
+			
 			
 	
 	if state == ROLLING: 
@@ -87,7 +105,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-	if Input.is_action_pressed("BUTTON_LEFT"):
+	if Input.is_action_pressed("BUTTON_LEFT") && state == MOVING:
 		if canFire == true and Globals.ammo > 0:
 			if isShotgun == true: #shotgun has multiple projectiles
 				shoot()
@@ -105,11 +123,17 @@ func _physics_process(delta):
 			shotTimer.start()
 	
 	var mouse_position = get_global_mouse_position()
-
-	if mouse_position.x > self.global_position.x:
-		playerSprite.flip_h = false
-	elif mouse_position.x < self.global_position.x:
-		playerSprite.flip_h = true
+	
+	if state == MOVING:
+		if mouse_position.x > self.global_position.x:
+			playerSprite.flip_h = false
+		elif mouse_position.x < self.global_position.x:
+			playerSprite.flip_h = true
+	if state == ROLLING:
+		if rollingVector.x == 1:
+			playerSprite.flip_h = false
+		elif rollingVector.x == -1:
+			playerSprite.flip_h = true
 			
 			
 func shoot():
@@ -183,23 +207,35 @@ func change_gun(value):
 		emit_signal("ammo_changed", Globals.ammo)
 		playerHandsWeapon.frame = value
 		
+		
+func ammo_picked_up(ammoAdded):
+	print("Ammo got registered as picked up")
+	emit_signal("ammo_changed", Globals.ammo + ammoAdded)
+	Globals.ammo = Globals.ammo + ammoAdded
+	#ammo_pickup.ammo_picked.disconnect(ammo_picked_up)
 
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("EnemyProjectile"):
 		stats.health = stats.health - 1
 		stats.change_health(stats.health)
+	if area.is_in_group("ammo_add"):
+		emit_signal("ammo_changed", Globals.ammo)
 		
 		
 		
 func death():
 	queue_free()
 
-
+#not using this anymore
 func _on_roll_active_timeout() -> void:
-	#state = MOVING
-	pass
+	can_roll = true
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	state = MOVING
+	hurtBox.monitorable = true
+	hurtBox.monitoring = true
+	emit_signal("roll_ended")
+	rollTimer.wait_time = 1.0
+	rollTimer.start()

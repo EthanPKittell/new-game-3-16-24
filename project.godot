@@ -26,6 +26,10 @@ window/size/viewport_width=1045
 window/size/viewport_height=538
 window/stretch/mode="viewport"
 
+[global_group]
+
+ammo_add=""
+
 [input]
 
 BUTTON_LEFT={

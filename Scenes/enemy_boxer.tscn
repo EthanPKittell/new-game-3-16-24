@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cit58do7s84dv"]
+[gd_scene load_steps=25 format=3 uid="uid://cit58do7s84dv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_qsqvp"]
 [ext_resource type="Shader" path="res://WhiteColor.gdshader" id="3_jg37k"]
 [ext_resource type="Texture2D" uid="uid://dp0foiaww5e81" path="res://Game assets for demo/enemy_boxer.png" id="4_btppj"]
 [ext_resource type="Texture2D" uid="uid://dxgrl0od7630j" path="res://Game assets for demo/enemy_boxer_run.png" id="5_a0qpx"]
+[ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="6_b6gdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uvs"]
 size = Vector2(59, 61)
@@ -154,6 +155,11 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_t6wtl")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(1, -10)
+scale = Vector2(2.04688, 1.5625)
+texture = ExtResource("6_b6gdb")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["EnemyArea"]]
 position = Vector2(0, 17)

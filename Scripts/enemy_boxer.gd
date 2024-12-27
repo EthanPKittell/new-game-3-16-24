@@ -62,6 +62,11 @@ func _physics_process(_delta: float) -> void:
 				velocity += softCollision.get_push_vector() * 20
 			move_and_slide()
 			boxerSprite.play("boxer_run")
+			
+			if player.global_position.x > self.global_position.x:
+				boxerSprite.flip_h = false
+			elif player.global_position.x < self.global_position.x:
+				boxerSprite.flip_h = true
 		ATTACK:
 			if canFire == true:
 				shoot()
@@ -73,9 +78,19 @@ func _physics_process(_delta: float) -> void:
 				velocity += softCollision.get_push_vector() * 20
 				move_and_slide()
 			boxerSprite.play("boxer_idle")
+			
+			if player.global_position.x > self.global_position.x:
+				boxerSprite.flip_h = false
+			elif player.global_position.x < self.global_position.x:
+				boxerSprite.flip_h = true
 	#print(chase)
 	
 	if health < 1:
+		var world = get_tree().current_scene
+		var ammo = preload("res://Scenes/ammoPickup.tscn")
+		var ammoPickup = ammo.instantiate()
+		world.add_child(ammoPickup)
+		ammoPickup.global_position = global_position
 		queue_free()
 		
 func _on_hurtbox_area_entered(area):
@@ -111,8 +126,10 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("Player"):
 		chaseTimer.wait_time = 0.5
-		chaseTimer.start()
-		attackAble = false
+		if chaseTimer != null:
+			await get_tree().physics_frame
+			chaseTimer.start()
+			attackAble = false
 		
 func shoot():
 	#create bullet

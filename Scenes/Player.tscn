@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c66jnigbwsp2o"]
+[gd_scene load_steps=7 format=3 uid="uid://c66jnigbwsp2o"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ml8ai"]
 [ext_resource type="PackedScene" uid="uid://vuwkik87hph6" path="res://Scenes/playerHands.tscn" id="3_61yc3"]
+[ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="4_0ecuo"]
 [ext_resource type="SpriteFrames" uid="uid://b3ptis5ga616i" path="res://Scenes/player_animation.tres" id="4_tu2if"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akhj4"]
@@ -13,26 +14,34 @@ size = Vector2(21, 33.5)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ml8ai")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-2, 10)
+scale = Vector2(0.625, 0.8125)
+texture = ExtResource("4_0ecuo")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_tu2if")
-animation = &"player_roll"
-frame = 5
-frame_progress = 1.0
+animation = &"player_idle"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_akhj4")
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_os7rs")
+metadata/_edit_lock_ = true
 
 [node name="playerHands" parent="." instance=ExtResource("3_61yc3")]
+metadata/_edit_lock_ = true
 
 [node name="RollActive" type="Timer" parent="."]
 

@@ -15,4 +15,7 @@ res://Scenes/Explosion.tscn
 res://Scenes/enemy_boxer.tscn
 res://Scenes/enemy_seeker.tscn
 res://Scenes/wave_spawner_stage1.tscn
-res://Scripts/Player.gd
+res://Scenes/Pistol_pickup.tscn
+res://Scenes/ammoPickup.tscn
+res://Scenes/Stage1.tscn
+res://Scripts/enemy_boxer.gd

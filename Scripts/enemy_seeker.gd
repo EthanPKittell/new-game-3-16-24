@@ -19,6 +19,8 @@ var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
 @onready var shotTimer = $ShotTimer
 @onready var softCollision = $SoftCollision
 @onready var playerSight = $RayCast2D
+@onready var seekerSprite = $Sprite2D
+
 
 
 enum {
@@ -59,6 +61,11 @@ func _physics_process(_delta: float) -> void:
 			if softCollision.is_colliding():
 				velocity += softCollision.get_push_vector() * 20
 			move_and_slide()
+			
+			if player.global_position.x > self.global_position.x:
+				seekerSprite.flip_h = false
+			elif player.global_position.x < self.global_position.x:
+				seekerSprite.flip_h = true
 		ATTACK:
 			if canFire == true:
 				shoot()
@@ -69,6 +76,11 @@ func _physics_process(_delta: float) -> void:
 				velocity = Vector2(0,0)
 				velocity += softCollision.get_push_vector() * 20
 				move_and_slide()
+				
+			if player.global_position.x > self.global_position.x:
+				seekerSprite.flip_h = false
+			elif player.global_position.x < self.global_position.x:
+				seekerSprite.flip_h = true
 	#print(chase)
 	
 	if health < 1:
