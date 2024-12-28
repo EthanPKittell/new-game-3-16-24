@@ -1,9 +1,13 @@
-res://Scenes/World.tscn
+res://Scenes/ammoPickup.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
+res://Scripts/Globals.gd
+res://Scripts/ammo_pickup.gd
+res://Scripts/Player.gd
+res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/health_ui.tscn
 res://Scenes/player_stats.tscn
@@ -16,6 +20,4 @@ res://Scenes/enemy_boxer.tscn
 res://Scenes/enemy_seeker.tscn
 res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Pistol_pickup.tscn
-res://Scenes/ammoPickup.tscn
 res://Scenes/Stage1.tscn
-res://Scripts/enemy_boxer.gd

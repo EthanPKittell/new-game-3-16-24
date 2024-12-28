@@ -1,14 +1,21 @@
-extends Area2D
+extends Node2D
 
-#var AR_stat = 1 #change all of this
+var followPlayer = false
 
-signal ammo_picked(value)
 
-func ammo_was_pickedup():
-	emit_signal("ammo_picked", 50)
-	pass
+@onready var player = get_node("/root/World/Y_Sort/Player")
 
-func _on_body_entered(body):
+func _on_ammo_pickup_area_body_entered(body):
 	if body.is_in_group("Player"):
-		ammo_was_pickedup()
+		Globals.emit_signal("ammo_picked", 50)
 		queue_free()
+
+func _on_attract_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		followPlayer = true
+
+
+func _process(_delta: float) -> void:
+	if followPlayer == true:
+		position = position.move_toward(player.global_position, _delta * 300)
+		##	velocity += softCollision.get_push_vector() * 20

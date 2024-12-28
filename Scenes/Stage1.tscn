@@ -67,7 +67,7 @@ position = Vector2(-1132, 733)
 position = Vector2(-1082, 733)
 
 [node name="ammo_pickup" parent="." instance=ExtResource("11_8kfdi")]
-position = Vector2(-462, 550)
+position = Vector2(544, 531)
 
 [node name="Mini_pickup" parent="." instance=ExtResource("10_7ypsa")]
 position = Vector2(-1031, 733)

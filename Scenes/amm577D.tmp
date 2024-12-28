@@ -7,7 +7,7 @@
 size = Vector2(35, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djl45"]
-radius = 195.003
+radius = 176.045
 
 [node name="ammo_pickup" type="Node2D" groups=["ammo_add"]]
 script = ExtResource("1_4p31q")
@@ -27,4 +27,4 @@ shape = SubResource("CircleShape2D_djl45")
 debug_color = Color(0, 0.6, 0.701961, 0.329412)
 
 [connection signal="body_entered" from="ammo_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
-[connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]
+[connection signal="area_entered" from="AttractZone" to="." method="_on_attract_zone_area_entered"]

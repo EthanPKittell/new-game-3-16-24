@@ -37,6 +37,7 @@ var state = MOVING
 
 func _ready():
 	stats.no_health.connect(death)
+	Globals.ammo_picked.connect(ammo_picked_up)
 	randomize()
 	if AR_pickup != null:
 		AR_pickup.AR_picked.connect(change_gun)
@@ -52,12 +53,6 @@ func _ready():
 	
 
 func _physics_process(delta):
-	ammo_pickup = get_tree().get_nodes_in_group("ammo_add")
-	#print(ammo_pickup)
-	
-	for ammo_pick in ammo_pickup:
-		if ammo_pickup != null && ammo_pick.ammo_picked.is_connected(ammo_picked_up) == false:
-			ammo_pick.ammo_picked.connect(ammo_picked_up)
 	
 	if state == MOVING:
 		if Input.is_action_pressed(("MOVE_RIGHT")): #Change logic for rolling movement later
