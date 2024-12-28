@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3ayarfqsgv3s"]
+[gd_scene load_steps=14 format=3 uid="uid://d3ayarfqsgv3s"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_v565l"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_rlcvl"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b5s0fv1w3gij0" path="res://Scenes/wave_lever.tscn" id="10_6kop3"]
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_7ypsa"]
 [ext_resource type="PackedScene" uid="uid://dfhaal0w7ywna" path="res://Scenes/ammoPickup.tscn" id="11_8kfdi"]
+[ext_resource type="PackedScene" uid="uid://b3ls8yyy0kxsg" path="res://Scenes/healthPickup.tscn" id="13_hps8j"]
 
 [node name="World" type="Node2D"]
 
@@ -71,3 +72,15 @@ position = Vector2(544, 531)
 
 [node name="Mini_pickup" parent="." instance=ExtResource("10_7ypsa")]
 position = Vector2(-1031, 733)
+
+[node name="health_pickup" parent="." instance=ExtResource("13_hps8j")]
+position = Vector2(676, 708)
+
+[node name="health_pickup2" parent="." instance=ExtResource("13_hps8j")]
+position = Vector2(816, 717)
+
+[node name="health_pickup3" parent="." instance=ExtResource("13_hps8j")]
+position = Vector2(673, 784)
+
+[node name="health_pickup4" parent="." instance=ExtResource("13_hps8j")]
+position = Vector2(819, 796)

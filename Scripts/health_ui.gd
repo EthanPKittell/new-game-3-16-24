@@ -22,8 +22,8 @@ func set_max_health(value):
 		heartUIEmpty.size.x = maxhealth * 64
 		
 func _ready():
-	health = PlayerStats.health
-	maxhealth = PlayerStats.maxhealth
+	health = Globals.globalHealth
+	maxhealth = Globals.globalMaxhealth
 	set_health(health)
 	set_max_health(maxhealth)
 	PlayerStats.health_changed.connect(set_health)

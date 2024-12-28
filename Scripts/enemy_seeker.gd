@@ -84,6 +84,11 @@ func _physics_process(_delta: float) -> void:
 	#print(chase)
 	
 	if health < 1:
+		var world = get_tree().current_scene
+		var health = preload("res://Scenes/healthPickup.tscn")
+		var healthPickup = health.instantiate()
+		world.add_child(healthPickup)
+		healthPickup.global_position = global_position
 		queue_free()
 		
 func _on_hurtbox_area_entered(area):

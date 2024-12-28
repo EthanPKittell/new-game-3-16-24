@@ -10,5 +10,6 @@ func Shot_was_pickedup():
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		Globals.ammo = 15
-		Shot_was_pickedup()
+		#Shot_was_pickedup()
+		Globals.emit_signal("weapon_picked", 3)
 		queue_free()

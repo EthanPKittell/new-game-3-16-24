@@ -70,7 +70,7 @@ func startWave():
 	
 	#sets the wave enemies depending on the current wave
 	if wave == 1:
-		enemies = 20
+		enemies = 1
 	if wave == 2:
 		spawnTimer = 2
 		enemies = 50

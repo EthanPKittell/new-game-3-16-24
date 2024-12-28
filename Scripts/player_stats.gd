@@ -5,12 +5,6 @@ extends Node
 @onready var currentGun = Globals.globalCurrentGun
 
 
-
-@onready var AR_pickup = get_node_or_null("/root/World/AR_pickup")
-@onready var Pistol_pickup = get_node_or_null("/root/World/Pistol_pickup")
-@onready var Shot_pickup = get_node_or_null("/root/World/Shot_pickup")
-@onready var Mini_pickup = get_node_or_null("/root/World/Mini_pickup")
-
 signal no_health
 signal health_changed(value)
 signal maxhealth_changed(value)
@@ -19,31 +13,36 @@ signal changed_current_gun(value)
 
 func _process(delta):
 	if Input.is_action_just_pressed(("ui_up")):
-		if health < maxhealth:
-			health = health+1
-			Globals.globalHealth = Globals.globalHealth+1
-			change_health(health)
+		pass
+		#if Globals.globalHealth < Globals.globalMaxhealth:#health < maxhealth:
+		#	#health = health+1
+		#	change_health(Globals.globalHealth+1)#health)
+			
 			
 		
 	if Input.is_action_just_pressed(("ui_down")):
-		if health > 0:
-			health = health-1
-			Globals.globalHealth = Globals.globalHealth-1
-			change_health(health)
+		pass
+		#if Globals.globalHealth > 0:#health > 0:
+		#	#health = health-1
+		#	change_health(Globals.globalHealth-1)#health)
 		
 		
 func change_max_health(value):
-	maxhealth = value
+	#maxhealth = value
 	Globals.globalMaxhealth = value
-	self.health = min(health,maxhealth)
-	emit_signal("maxhealth_changed", maxhealth)
+	#self.health = min(health,maxhealth)
+	Globals.globalHealth = min(Globals.globalHealth,Globals.globalMaxhealth)
+	emit_signal("maxhealth_changed", Globals.globalMaxhealth)
+	emit_signal("health_changed", Globals.globalHealth)
+	print("This is the maxHealth: ", Globals.globalMaxhealth)
 
 func change_health(value):
-	health = value
+	#health = value
 	Globals.globalHealth = value
-	emit_signal("health_changed", health)
-	if health <= 0:
+	emit_signal("health_changed", Globals.globalHealth)
+	if Globals.globalHealth <= 0:#health <= 0:
 		emit_signal("no_health")
+	print("This is the Health: ", Globals.globalHealth)
 		
 func current_gun_changed(value):
 	currentGun = value
@@ -54,15 +53,10 @@ func current_gun_changed(value):
 		
 func _ready():
 	#Engine.max_fps = 60 #sets the game to run at 60fps max
-	health = Globals.globalHealth
+	#health = Globals.globalHealth
 	
-	change_health(health)
-	change_max_health(maxhealth)
-	if AR_pickup != null:
-		AR_pickup.AR_picked.connect(current_gun_changed)
-	if Pistol_pickup != null:
-		Pistol_pickup.Pistol_picked.connect(current_gun_changed)
-	if Shot_pickup != null:
-		Shot_pickup.Shot_picked.connect(current_gun_changed)
-	if Mini_pickup != null:
-		Mini_pickup.Mini_picked.connect(current_gun_changed)
+	change_health(Globals.globalHealth)#might need to flip these
+	change_max_health(Globals.globalHealth)
+	Globals.weapon_picked.connect(current_gun_changed)
+	Globals.health_picked.connect(change_health)
+	

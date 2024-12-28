@@ -28,7 +28,8 @@ func _physics_process(delta):
 				1:
 					player.fireRate -= 0.005
 				2:
-					Globals.globalHealth += 1
+					if Globals.globalHealth < Globals.globalMaxhealth+1:
+						Globals.globalHealth += 1
 					Globals.globalMaxhealth += 1
 					PlayerStats.change_max_health(Globals.globalMaxhealth)
 					PlayerStats.change_health(Globals.globalHealth)

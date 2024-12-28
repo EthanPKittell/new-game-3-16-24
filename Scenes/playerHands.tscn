@@ -3,47 +3,67 @@
 [ext_resource type="Script" path="res://Scripts/playerHands.gd" id="1_b0y80"]
 [ext_resource type="Texture2D" uid="uid://ddmknqtr460rf" path="res://Game assets for demo/playerHandsWeapons.png" id="2_e7o1t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6i241"]
-atlas = ExtResource("2_e7o1t")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dsg4"]
-atlas = ExtResource("2_e7o1t")
-region = Rect2(64, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yf7l4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrf73"]
 atlas = ExtResource("2_e7o1t")
 region = Rect2(128, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_baguv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_np013"]
 atlas = ExtResource("2_e7o1t")
-region = Rect2(192, 0, 64, 32)
+region = Rect2(0, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ai8q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p4io"]
 atlas = ExtResource("2_e7o1t")
 region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vbw1"]
+atlas = ExtResource("2_e7o1t")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jm0t"]
+atlas = ExtResource("2_e7o1t")
+region = Rect2(192, 0, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e60go"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6i241")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3dsg4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yf7l4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_baguv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ai8q")
+"texture": SubResource("AtlasTexture_nrf73")
 }],
-"loop": true,
+"loop": false,
+"name": &"AR",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np013")
+}],
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p4io")
+}],
+"loop": false,
+"name": &"mini_gun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vbw1")
+}],
+"loop": false,
+"name": &"pistol",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jm0t")
+}],
+"loop": false,
+"name": &"shotgun",
+"speed": 0.0
 }]
 
 [node name="playerHands" type="Node2D"]

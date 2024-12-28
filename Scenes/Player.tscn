@@ -21,7 +21,7 @@ texture = ExtResource("4_0ecuo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_tu2if")
-animation = &"player_idle"
+animation = &"player_roll"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

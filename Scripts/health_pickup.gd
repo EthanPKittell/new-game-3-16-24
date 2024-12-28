@@ -7,7 +7,8 @@ var followPlayer = false
 
 func _on_ammo_pickup_area_body_entered(body):
 	if body.is_in_group("Player"):
-		Globals.emit_signal("ammo_picked", 50)
+		if Globals.globalHealth < Globals.globalMaxhealth:
+			Globals.emit_signal("health_picked", Globals.globalHealth+1)
 		queue_free()
 
 func _on_attract_zone_body_entered(body: Node2D) -> void:

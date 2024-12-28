@@ -15,11 +15,6 @@ var can_roll = true
 @onready var rollTimer = $RollActive
 @onready var playerSprite = $AnimatedSprite2D
 @onready var playerHandsWeapon = $playerHands/AnimatedSprite2D
-@onready var AR_pickup = get_node_or_null("/root/World/AR_pickup")
-@onready var Pistol_pickup = get_node_or_null("/root/World/Pistol_pickup")
-@onready var Shot_pickup = get_node_or_null("/root/World/Shot_pickup")
-@onready var Mini_pickup = get_node_or_null("/root/World/Mini_pickup")
-@onready var ammo_pickup #= get_node_or_null("/root/World/ammo_pickup")
 @onready var hurtBox = $Hurtbox
 
 signal ammo_changed(value)
@@ -38,17 +33,8 @@ var state = MOVING
 func _ready():
 	stats.no_health.connect(death)
 	Globals.ammo_picked.connect(ammo_picked_up)
+	Globals.weapon_picked.connect(change_gun)
 	randomize()
-	if AR_pickup != null:
-		AR_pickup.AR_picked.connect(change_gun)
-	if Pistol_pickup != null:
-		Pistol_pickup.Pistol_picked.connect(change_gun)
-	if Shot_pickup != null:
-		Shot_pickup.Shot_picked.connect(change_gun)
-	if Mini_pickup != null:
-		Mini_pickup.Mini_picked.connect(change_gun)
-	if ammo_pickup != null:
-		ammo_pickup.ammo_picked.connect(ammo_picked_up)
 	change_gun(Globals.globalCurrentGun)
 	
 
@@ -177,7 +163,7 @@ func change_gun(value):
 		canFire = true
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
-		playerHandsWeapon.frame = value
+		playerHandsWeapon.play("pistol")
 	#assault rifle
 	elif value == 2:
 		accuracyValue = 0.1
@@ -185,7 +171,7 @@ func change_gun(value):
 		canFire = true
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
-		playerHandsWeapon.frame = value
+		playerHandsWeapon.play("AR")
 	#shotgun
 	elif value == 3:
 		accuracyValue = 0.2
@@ -193,14 +179,14 @@ func change_gun(value):
 		canFire = true
 		isShotgun = true #adds more bullets to each shot
 		emit_signal("ammo_changed", Globals.ammo)
-		playerHandsWeapon.frame = value
+		playerHandsWeapon.play("shotgun")
 	elif value == 4:
 		accuracyValue = 0.13
 		fireRate = 0.04
 		canFire = true
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
-		playerHandsWeapon.frame = value
+		playerHandsWeapon.play("mini_gun")
 		
 		
 func ammo_picked_up(ammoAdded):
@@ -212,8 +198,8 @@ func ammo_picked_up(ammoAdded):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("EnemyProjectile"):
-		stats.health = stats.health - 1
-		stats.change_health(stats.health)
+		#stats.health = stats.health - 1
+		stats.change_health(Globals.globalHealth - 1)
 	if area.is_in_group("ammo_add"):
 		emit_signal("ammo_changed", Globals.ammo)
 		
