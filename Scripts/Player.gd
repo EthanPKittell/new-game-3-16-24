@@ -25,6 +25,7 @@ signal roll_ended()
 enum {
 	MOVING,
 	ROLLING,
+	SWORDSLASH,
 	
 }
 
@@ -94,6 +95,11 @@ func _physics_process(delta):
 				shoot()
 				shoot()
 				shoot()
+			elif Globals.globalCurrentGun == 5:
+				playerHandsWeapon.play("sword")
+				slash()
+				state = SWORDSLASH
+				playerSprite.play("player_idle")
 			else:
 				shoot()
 			Globals.ammo -=1
@@ -145,6 +151,18 @@ func shoot():
 		playerHandsWeapon.position.x -= 2
 	else:
 		playerHandsWeapon.position.x -= 5
+		
+func slash():
+	
+	var world = get_tree().current_scene
+	#create slash
+	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
+	var slash = preload("res://Scenes/player_slash.tscn")
+	var slashShot = slash.instantiate()
+
+	world.add_child(slashShot)
+	slashShot.global_position = global_position
+	slashShot.direction = (get_global_mouse_position() - self.global_position).normalized() + accuracy
 	
 	
 	
@@ -153,6 +171,11 @@ func _on_timer_timeout():
 	$Timer.stop()
 	playerHandsWeapon.position = Vector2.ZERO
 	playerHandsWeapon.rotation_degrees = 0
+	if Globals.globalCurrentGun == 5:
+		playerHandsWeapon.play("sword")
+		playerHandsWeapon.stop()
+		playerHandsWeapon.frame = 0
+		state = MOVING
 	
 func change_gun(value):
 	#Gun changing mechanics
@@ -187,6 +210,17 @@ func change_gun(value):
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
 		playerHandsWeapon.play("mini_gun")
+	elif value == 5:
+		accuracyValue = 0.13
+		fireRate = 0.4
+		Globals.playerDamage = 4
+		canFire = true
+		isShotgun = false
+		emit_signal("ammo_changed", Globals.ammo)
+		playerHandsWeapon.play("sword")
+		playerHandsWeapon.stop()
+		playerHandsWeapon.frame = 0
+		
 		
 		
 func ammo_picked_up(ammoAdded):

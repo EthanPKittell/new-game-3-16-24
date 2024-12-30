@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://vuwkik87hph6"]
+[gd_scene load_steps=16 format=3 uid="uid://vuwkik87hph6"]
 
 [ext_resource type="Script" path="res://Scripts/playerHands.gd" id="1_b0y80"]
 [ext_resource type="Texture2D" uid="uid://ddmknqtr460rf" path="res://Game assets for demo/playerHandsWeapons.png" id="2_e7o1t"]
+[ext_resource type="Texture2D" uid="uid://b3h4meijwhr55" path="res://Game assets for demo/playerSword.png" id="3_yj4dl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrf73"]
 atlas = ExtResource("2_e7o1t")
@@ -22,6 +23,30 @@ region = Rect2(64, 0, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jm0t"]
 atlas = ExtResource("2_e7o1t")
 region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jixsk"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mamun"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aci5v"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr182"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(288, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv1xm"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(384, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barm2"]
+atlas = ExtResource("3_yj4dl")
+region = Rect2(480, 0, 96, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e60go"]
 animations = [{
@@ -64,6 +89,29 @@ animations = [{
 "loop": false,
 "name": &"shotgun",
 "speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jixsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mamun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aci5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr182")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv1xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barm2")
+}],
+"loop": false,
+"name": &"sword",
+"speed": 12.0
 }]
 
 [node name="playerHands" type="Node2D"]
@@ -71,3 +119,4 @@ script = ExtResource("1_b0y80")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e60go")
+animation = &"sword"

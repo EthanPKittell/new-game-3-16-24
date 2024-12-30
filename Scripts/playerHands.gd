@@ -25,6 +25,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 
 func _ready() -> void:
+	playerSprite.play("default")
 	if Player != null:
 		Player.roll_started.connect(roll_start_hide)
 		Player.roll_ended.connect(roll_start_unhide)
