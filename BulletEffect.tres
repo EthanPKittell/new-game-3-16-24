@@ -2,19 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://crbvwojr4isgc" path="res://Game assets for demo/bulletEffect.png" id="1_bemkc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhl5e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5n6"]
 atlas = ExtResource("1_bemkc")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfp2t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_20lhg"]
 atlas = ExtResource("1_bemkc")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_by7ps"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfqa7"]
 atlas = ExtResource("1_bemkc")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4g1jj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_loyf4"]
 atlas = ExtResource("1_bemkc")
 region = Rect2(96, 0, 32, 32)
 
@@ -22,18 +22,23 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yhl5e")
+"texture": SubResource("AtlasTexture_oe5n6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pfp2t")
+"texture": SubResource("AtlasTexture_20lhg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_by7ps")
+"texture": SubResource("AtlasTexture_kfqa7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4g1jj")
+"texture": SubResource("AtlasTexture_loyf4")
 }],
 "loop": false,
 "name": &"default",
-"speed": 15.0
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]

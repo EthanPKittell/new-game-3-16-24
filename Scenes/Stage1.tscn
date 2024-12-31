@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3ayarfqsgv3s"]
+[gd_scene load_steps=15 format=3 uid="uid://d3ayarfqsgv3s"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_v565l"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_rlcvl"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_7ypsa"]
 [ext_resource type="PackedScene" uid="uid://dfhaal0w7ywna" path="res://Scenes/ammoPickup.tscn" id="11_8kfdi"]
 [ext_resource type="PackedScene" uid="uid://b3ls8yyy0kxsg" path="res://Scenes/healthPickup.tscn" id="13_hps8j"]
+[ext_resource type="PackedScene" uid="uid://cit58do7s84dv" path="res://Scenes/enemy_boxer.tscn" id="14_4net3"]
 
 [node name="World" type="Node2D"]
 
@@ -29,6 +30,9 @@ position = Vector2(874, 443)
 
 [node name="Y_Sort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Enemy_Boxer" parent="Y_Sort" instance=ExtResource("14_4net3")]
+position = Vector2(1677, 337)
 
 [node name="WaveLever" parent="Y_Sort" instance=ExtResource("10_6kop3")]
 position = Vector2(879, 246)

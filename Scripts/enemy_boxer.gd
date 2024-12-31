@@ -8,7 +8,7 @@ var health = 10
 var speed = 200
 var accuracyValue = 0.2
 var canFire = true #I set it to false because when You start you have no gun
-var fireRate = 0.5
+var fireRate = 2.0
 var inRange = false
 var attackAble = false
 var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
@@ -135,7 +135,7 @@ func shoot():
 	#create bullet
 	var world = get_tree().current_scene
 	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
-	var bullet = preload("res://Scenes/enemy_punch.tscn")
+	var bullet = preload("res://Scenes/enemy_spit.tscn")
 	var shot = bullet.instantiate()
 	
 	world.add_child(shot)

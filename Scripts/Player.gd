@@ -10,6 +10,7 @@ var isShotgun = false
 var stats = PlayerStats
 var rollingVector = Vector2.ZERO
 var can_roll = true
+var isPoisoned = false
 
 @onready var shotTimer = $Timer
 @onready var rollTimer = $RollActive
@@ -37,6 +38,7 @@ func _ready():
 	Globals.weapon_picked.connect(change_gun)
 	randomize()
 	change_gun(Globals.globalCurrentGun)
+	Globals.poisoned.connect(poisonEffect)
 	
 
 func _physics_process(delta):
@@ -254,3 +256,22 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	emit_signal("roll_ended")
 	rollTimer.wait_time = 1.0
 	rollTimer.start()
+
+func poisonEffect():
+	if isPoisoned == false:
+		isPoisoned = true
+		playerSprite.modulate = Color(0.376, 1, 0.153)
+		playerHandsWeapon.modulate = Color(0.376, 1, 0.153)
+		var poison = preload("res://Scenes/poison_effect.tscn")
+		var poisonEffect = poison.instantiate()
+		self.add_child(poisonEffect)
+		poisonEffect.global_position = global_position
+		for i in range(3):
+			await get_tree().create_timer(5).timeout
+			stats.change_health(Globals.globalHealth - 1)
+		await get_tree().create_timer(5).timeout
+		poisonEffect.queue_free()
+		isPoisoned = false
+		playerSprite.modulate = Color(1, 1, 1)
+		playerHandsWeapon.modulate = Color(1, 1, 1)
+		

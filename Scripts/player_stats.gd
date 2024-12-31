@@ -49,7 +49,7 @@ func current_gun_changed(value):
 	Globals.globalCurrentGun = value
 	emit_signal("changed_current_gun", currentGun)
 
-	
+
 		
 func _ready():
 	#Engine.max_fps = 60 #sets the game to run at 60fps max

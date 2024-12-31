@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bd6pet6i18ij1"]
+
+[ext_resource type="Texture2D" uid="uid://dr5ih1xko67po" path="res://Game assets for demo/poison_explosion.png" id="1_et63i"]
+[ext_resource type="Script" path="res://Scripts/poison_explosion.gd" id="1_v4git"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kod6"]
+atlas = ExtResource("1_et63i")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_royju"]
+atlas = ExtResource("1_et63i")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nptwh"]
+atlas = ExtResource("1_et63i")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38wsy"]
+atlas = ExtResource("1_et63i")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5en6h"]
+atlas = ExtResource("1_et63i")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enm3j"]
+atlas = ExtResource("1_et63i")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uqmr"]
+atlas = ExtResource("1_et63i")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ckkd"]
+atlas = ExtResource("1_et63i")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nmjy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kod6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_royju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nptwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38wsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5en6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enm3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uqmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ckkd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="PoisonEffect" type="Node2D"]
+script = ExtResource("1_v4git")
+metadata/_edit_lock_ = true
+
+[node name="PoisonCloud" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(2, -4)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_5nmjy")
+
+[connection signal="animation_finished" from="PoisonCloud" to="." method="_on_poison_cloud_animation_finished"]

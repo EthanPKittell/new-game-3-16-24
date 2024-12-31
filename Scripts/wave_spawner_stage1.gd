@@ -41,12 +41,15 @@ func _on_timer_timeout():
 	var world = get_tree().current_scene.get_node("Y_Sort")
 	#preload different enemies depending on the wave number
 	
-	var pick = randi_range(0,1)
+	#THIS IS THE RANDOM ENEMY GENERATOR UNCOMMENT WHEN DONE DEBUGGING
+	#var pick = randi_range(0,1)
 	var enemy
-	if pick == 0:
-		enemy = preload("res://Scenes/enemy_seeker.tscn")
-	elif pick == 1:
-		enemy = preload("res://Scenes/enemy_boxer.tscn")
+	#if pick == 0:
+	#	enemy = preload("res://Scenes/enemy_seeker.tscn")
+	#elif pick == 1:
+	#	enemy = preload("res://Scenes/enemy_boxer.tscn")
+	#	
+	enemy = preload("res://Scenes/enemy_boxer.tscn")
 	
 	
 	var enemyInstance = enemy.instantiate()

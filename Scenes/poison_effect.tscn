@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfwfgdi70xb2i"]
+
+[ext_resource type="Texture2D" uid="uid://7lj0ndf57x03" path="res://Game assets for demo/bubble_effect.png" id="1_rsg5d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_liwip"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6b2um"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 75.54
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, -98, 0)
+scale_max = 2.0
+color = Color(0.450838, 0.792334, 0.306379, 1)
+anim_speed_min = 0.78
+anim_speed_max = 1.0
+
+[node name="PoisonEffect" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_liwip")
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_6b2um")
+texture = ExtResource("1_rsg5d")

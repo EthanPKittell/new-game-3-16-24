@@ -6,6 +6,7 @@ var globalCurrentGun = 0
 var ammo = 0
 var playerDamage = 1
 
+
 #for ammo packs with varying ammo additions
 signal ammo_picked(value)
 
@@ -19,6 +20,4 @@ signal health_picked(value)
 #4 is minigun
 signal weapon_picked(value)
 
-#func ammo_was_pickedup():
-#	emit_signal("ammo_picked", 50)
-#	pass
+signal poisoned()
