@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uh84dsde0agq"
-path="res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"
+uid="uid://cwymbrdigmn17"
+path="res://.godot/imported/enemy_boxer_spitting.png-771cbe0a5aac5a248c4e3e1a7eb81063.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game assets for demo/poison_puddle.png"
-dest_files=["res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"]
+source_file="res://Game assets for demo/enemy_boxer_spitting.png"
+dest_files=["res://.godot/imported/enemy_boxer_spitting.png-771cbe0a5aac5a248c4e3e1a7eb81063.ctex"]
 
 [params]
 

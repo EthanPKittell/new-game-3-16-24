@@ -6,7 +6,7 @@ var speed = 200
 var end_position
 @onready var sceneName = get_parent().get_parent().name
 @onready var player = get_node("/root/World/Y_Sort/Player")
-@onready var world = get_tree().current_scene.get_node("Y_Sort")
+@onready var world = get_tree().current_scene#.get_node("Y_Sort")
 var total_distance
 var current_distance
 var translation
@@ -67,6 +67,7 @@ func _on_body_entered(body):
 		explosionEffect.global_position = global_position
 		var poison = preload("res://Scenes/poison_puddle.tscn")
 		var poisonEffect = poison.instantiate()
+		await get_tree().physics_frame
 		world.add_child(poisonEffect)
 		poisonEffect.global_position = global_position
 		queue_free()

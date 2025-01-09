@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cit58do7s84dv"]
+[gd_scene load_steps=34 format=3 uid="uid://cit58do7s84dv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_qsqvp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dp0foiaww5e81" path="res://Game assets for demo/enemy_boxer.png" id="4_btppj"]
 [ext_resource type="Texture2D" uid="uid://dxgrl0od7630j" path="res://Game assets for demo/enemy_boxer_run.png" id="5_a0qpx"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="6_b6gdb"]
+[ext_resource type="Texture2D" uid="uid://cwymbrdigmn17" path="res://Game assets for demo/enemy_boxer_spitting.png" id="7_fpen2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uvs"]
 size = Vector2(59, 61)
@@ -117,6 +118,38 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("5_a0qpx")
 region = Rect2(320, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouidr"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odco"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08dsh"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfsud"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ervsu"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kls2l"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_071se"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxpp7"]
+atlas = ExtResource("7_fpen2")
+region = Rect2(448, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d3k3w"]
 animations = [{
 "frames": [{
@@ -149,9 +182,39 @@ animations = [{
 "loop": true,
 "name": &"boxer_run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouidr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3odco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08dsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfsud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ervsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kls2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_071se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxpp7")
+}],
+"loop": false,
+"name": &"boxer_spitting",
+"speed": 5.0
 }]
 
 [node name="Enemy_Boxer" type="CharacterBody2D" groups=["Enemy"]]
+visibility_layer = 4
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_t6wtl")
@@ -219,11 +282,10 @@ shape = SubResource("CircleShape2D_mo8et")
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_j0l3l")
+material = SubResource("ShaderMaterial_6e6yc")
 position = Vector2(1, -18)
 sprite_frames = SubResource("SpriteFrames_d3k3w")
-animation = &"boxer_idle"
-frame_progress = 0.258245
+animation = &"boxer_spitting"
 
 [node name="ChaseTimer" type="Timer" parent="."]
 
@@ -233,4 +295,5 @@ frame_progress = 0.258245
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]

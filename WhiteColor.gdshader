@@ -10,6 +10,5 @@ void fragment() {
 		new_color = white_color;
 	}
 	COLOR = new_color;
-	
+
 }
-	

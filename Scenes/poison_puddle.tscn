@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1lyqcxl84srd"]
 
-[ext_resource type="Texture2D" uid="uid://c5nr7njnrxby8" path="res://Game assets for demo/poison_puddle.png" id="1_aipqf"]
+[ext_resource type="Texture2D" uid="uid://uh84dsde0agq" path="res://Game assets for demo/poison_puddle.png" id="1_aipqf"]
 [ext_resource type="Script" path="res://Scripts/poison_puddle.gd" id="1_c6pf0"]
 [ext_resource type="PackedScene" uid="uid://cfwfgdi70xb2i" path="res://Scenes/poison_effect.tscn" id="2_541tq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piqgi"]
-size = Vector2(67.5, 15.5)
+size = Vector2(68, 30)
 
 [node name="PoisonPuddle" type="Node2D"]
+z_index = -1
 script = ExtResource("1_c6pf0")
 
 [node name="Expire" type="Timer" parent="."]
@@ -22,7 +23,8 @@ texture = ExtResource("1_aipqf")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 10)
+z_index = 100
+position = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_piqgi")
 metadata/_edit_lock_ = true
 

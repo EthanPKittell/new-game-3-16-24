@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uh84dsde0agq"
-path="res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"
+uid="uid://3mrb30qxqsu3"
+path="res://.godot/imported/playerGreatsword.png-dd9ea856031d042879ed7db2dedcd679.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game assets for demo/poison_puddle.png"
-dest_files=["res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"]
+source_file="res://Game assets for demo/playerGreatsword.png"
+dest_files=["res://.godot/imported/playerGreatsword.png-dd9ea856031d042879ed7db2dedcd679.ctex"]
 
 [params]
 

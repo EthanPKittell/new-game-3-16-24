@@ -102,6 +102,11 @@ func _physics_process(delta):
 				slash()
 				state = SWORDSLASH
 				playerSprite.play("player_idle")
+			elif Globals.globalCurrentGun == 6:
+				playerHandsWeapon.play("greatsword")
+				slash()
+				state = SWORDSLASH
+				playerSprite.play("player_idle")
 			else:
 				shoot()
 			Globals.ammo -=1
@@ -156,6 +161,8 @@ func shoot():
 		
 func slash():
 	
+	if Globals.globalCurrentGun == 6: #This is a crutch for the current frame system change to anim player
+		await get_tree().create_timer(0.5).timeout
 	var world = get_tree().current_scene
 	#create slash
 	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
@@ -175,6 +182,11 @@ func _on_timer_timeout():
 	playerHandsWeapon.rotation_degrees = 0
 	if Globals.globalCurrentGun == 5:
 		playerHandsWeapon.play("sword")
+		playerHandsWeapon.stop()
+		playerHandsWeapon.frame = 0
+		state = MOVING
+	if Globals.globalCurrentGun == 6:
+		playerHandsWeapon.play("greatsword")
 		playerHandsWeapon.stop()
 		playerHandsWeapon.frame = 0
 		state = MOVING
@@ -212,6 +224,7 @@ func change_gun(value):
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
 		playerHandsWeapon.play("mini_gun")
+	#sword
 	elif value == 5:
 		accuracyValue = 0.13
 		fireRate = 0.4
@@ -220,6 +233,17 @@ func change_gun(value):
 		isShotgun = false
 		emit_signal("ammo_changed", Globals.ammo)
 		playerHandsWeapon.play("sword")
+		playerHandsWeapon.stop()
+		playerHandsWeapon.frame = 0
+	#greatsword
+	elif value == 6:
+		accuracyValue = 0.13
+		fireRate = 1.2
+		Globals.playerDamage = 8
+		canFire = true
+		isShotgun = false
+		emit_signal("ammo_changed", Globals.ammo)
+		playerHandsWeapon.play("greatsword")
 		playerHandsWeapon.stop()
 		playerHandsWeapon.frame = 0
 		

@@ -63,6 +63,12 @@ ROLL_BUTTON={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_2="groundObjects"
+2d_render/layer_3="enitities"
+2d_render/layer_4="projectiles"
+
 [navigation]
 
 2d/default_edge_connection_margin=64.0

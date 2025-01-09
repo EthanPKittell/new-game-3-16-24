@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uh84dsde0agq"
-path="res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"
+uid="uid://d3mu7yqkfb3me"
+path="res://.godot/imported/playerClub.png-5da28a33480a9712c742412df62a3606.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game assets for demo/poison_puddle.png"
-dest_files=["res://.godot/imported/poison_puddle.png-ced9e4c215375e684d24789f4444ec37.ctex"]
+source_file="res://Game assets for demo/playerClub.png"
+dest_files=["res://.godot/imported/playerClub.png-5da28a33480a9712c742412df62a3606.ctex"]
 
 [params]
 

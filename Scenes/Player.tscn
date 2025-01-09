@@ -12,6 +12,7 @@ radius = 8.01561
 size = Vector2(21, 33.5)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+visibility_layer = 4
 script = ExtResource("1_ml8ai")
 
 [node name="Shadow" type="Sprite2D" parent="."]
