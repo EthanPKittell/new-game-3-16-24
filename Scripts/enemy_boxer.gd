@@ -95,7 +95,7 @@ func _physics_process(_delta: float) -> void:
 	#print(chase)
 	
 	if health < 1:
-		var world = get_tree().current_scene
+		var world = get_tree().current_scene.get_node("Y_Sort")
 		var pick = randi_range(1,5)
 		var drop
 		if pick == 1:
@@ -108,6 +108,14 @@ func _physics_process(_delta: float) -> void:
 			var dropPickup = drop.instantiate()
 			world.add_child(dropPickup)
 			dropPickup.global_position = global_position
+		drop = preload("res://Scenes/enemy_boxer_corpse.tscn")
+		var dropCorpse = drop.instantiate()
+		world.add_child(dropCorpse)
+		dropCorpse.global_position = global_position
+		if player.global_position.x > self.global_position.x:
+			dropCorpse.get_node("Sprite2D").flip_h = false
+		elif player.global_position.x < self.global_position.x:
+			dropCorpse.get_node("Sprite2D").flip_h = true
 		queue_free()
 	
 	#print("can fire: ", canFire)
@@ -118,8 +126,8 @@ func _on_hurtbox_area_entered(area):
 	if area.is_in_group("PlayerProjectile"):
 		health = health - Globals.playerDamage
 		anim.play("blink")
-		if state != CHASE:
-			state = CHASE
+		#if state != CHASE:
+		#	state = CHASE
 
 
 func _on_timer_timeout():

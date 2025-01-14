@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cit58do7s84dv"]
+[gd_scene load_steps=36 format=3 uid="uid://cit58do7s84dv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_qsqvp"]
 [ext_resource type="Shader" path="res://WhiteColor.gdshader" id="3_jg37k"]
 [ext_resource type="Texture2D" uid="uid://dp0foiaww5e81" path="res://Game assets for demo/enemy_boxer.png" id="4_btppj"]
 [ext_resource type="Texture2D" uid="uid://dxgrl0od7630j" path="res://Game assets for demo/enemy_boxer_run.png" id="5_a0qpx"]
+[ext_resource type="Texture2D" uid="uid://lklpqwq6eyy4" path="res://Game assets for demo/enemy_boxer_dead.png" id="5_wrc7e"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="6_b6gdb"]
 [ext_resource type="Texture2D" uid="uid://cwymbrdigmn17" path="res://Game assets for demo/enemy_boxer_spitting.png" id="7_fpen2"]
 
@@ -90,6 +91,10 @@ radius = 184.003
 [sub_resource type="CircleShape2D" id="CircleShape2D_mo8et"]
 radius = 372.005
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uuos"]
+atlas = ExtResource("5_wrc7e")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m0ov"]
 atlas = ExtResource("4_btppj")
 region = Rect2(0, 0, 64, 64)
@@ -152,6 +157,14 @@ region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d3k3w"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uuos")
+}],
+"loop": true,
+"name": &"boxer_corpse",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8m0ov")
@@ -231,9 +244,8 @@ collision_mask = 6
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -38)
+position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_v4uvs")
-metadata/_edit_lock_ = true
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_qsqvp")]
 metadata/_edit_lock_ = true
@@ -283,9 +295,9 @@ metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_6e6yc")
-position = Vector2(1, -18)
+position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_d3k3w")
-animation = &"boxer_spitting"
+animation = &"boxer_idle"
 
 [node name="ChaseTimer" type="Timer" parent="."]
 

@@ -1,16 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1736382290
-BulletEffect.tres::SpriteFrames::670261407310685843::1736304003::0::1::::<><>::uid://crbvwojr4isgc::::res://Game assets for demo/bulletEffect.png
+::res://::1736820846
+BulletEffect.tres::SpriteFrames::670261407310685843::1736817456::0::1::::<><>::uid://crbvwojr4isgc::::res://Game assets for demo/bulletEffect.png
 ExplosionEffect.tres::SpriteFrames::7963451126201120906::1732920874::0::1::::<><>::uid://c0j7l2ind2vaf::::res://Game assets for demo/explosion.png
 icon.svg::CompressedTexture2D::8249339738987502919::1732920874::1732921328::1::::<><>::
-smoke.tres::SpriteFrames::6823423960664651928::1736304003::0::1::::<><>::uid://670xhm4jvcgt::::res://Game assets for demo/Smoke.png
-Wall_tiles2.tres::TileSet::2634999396637081521::1736304003::0::1::::<><>::uid://bviypssjqskgc::::res://Game assets for demo/wallTile.png
+smoke.tres::SpriteFrames::6823423960664651928::1736817456::0::1::::<><>::uid://670xhm4jvcgt::::res://Game assets for demo/Smoke.png
+Wall_tiles2.tres::TileSet::2634999396637081521::1736817456::0::1::::<><>::uid://bviypssjqskgc::::res://Game assets for demo/wallTile.png
 Wall_tiles.tres::TileSet::5263990477719191671::1732920874::0::1::::<><>::uid://ke5bi36sxbcv::::res://Game assets for demo/wall.png
 Wall_tiles_new.tres::TileSet::2997072610016580930::1732920874::0::1::::<><>::uid://bo0g4mpt0wi3x::::res://Game assets for demo/wallTile.png
-WhiteColor.gdshader::Shader::-1::1736305246::0::1::::<><>::
-::res://Game assets for demo/::1735950611
+WhiteColor.gdshader::Shader::-1::1736820686::0::1::::<><>::
+::res://Game assets for demo/::1736820846
 ammoPickup.png::CompressedTexture2D::8686129221406644916::1735254812::1735254813::1::::<><>::
 AR_pickup.png::CompressedTexture2D::6184742889923787866::1732920874::1732921328::1::::<><>::
+blood_effect.png::CompressedTexture2D::8977949292153129677::1736820835::1736820846::1::::<><>::
 Boxer_punch.png::CompressedTexture2D::5347853260487679934::1734493994::1734494002::1::::<><>::
 Boxer_spit-Sheet.png::CompressedTexture2D::4816161503105820453::1735589886::1735589935::1::::<><>::
 bubble_effect.png::CompressedTexture2D::2269342937200731914::1735605048::1735605125::1::::<><>::
@@ -18,6 +19,7 @@ bulletEffect.png::CompressedTexture2D::5969431181342449030::1732920874::17329213
 bullet_player.png::CompressedTexture2D::1101797831507470822::1732920874::1732921328::1::::<><>::
 enemy.png::CompressedTexture2D::5168333740823166352::1732920874::1732921328::1::::<><>::
 enemy_boxer.png::CompressedTexture2D::8264033156796748956::1734490986::1734491007::1::::<><>::
+enemy_boxer_dead.png::CompressedTexture2D::793416606515836989::1736817329::1736817337::1::::<><>::
 enemy_boxer_run.png::CompressedTexture2D::8787044888779726499::1734996599::1734996605::1::::<><>::
 enemy_boxer_spitting.png::CompressedTexture2D::6367272281130806344::1735950577::1735950611::1::::<><>::
 enemy_bullet.png::CompressedTexture2D::8811516276521974934::1732920874::1732921328::1::::<><>::
@@ -52,50 +54,53 @@ slash.png::CompressedTexture2D::8480024772754153906::1735432926::1735432939::1::
 Smoke.png::CompressedTexture2D::2243473626519477183::1732920874::1732921328::1::::<><>::
 wall.png::CompressedTexture2D::711969707848243989::1732920874::1732921328::1::::<><>::
 wallTile.png::CompressedTexture2D::3878386390517029414::1732920874::1732921328::1::::<><>::
-::res://Scenes/::1736305245
-ammoPickup.tscn::PackedScene::7524657530968156754::1736305115::0::1::::<><>::res://Scripts/ammo_pickup.gd<>uid://dv0vjq1maeyjc::::res://Game assets for demo/ammoPickup.png
+::res://Scenes/::1736821086
+ammoPickup.tscn::PackedScene::7524657530968156754::1736479449::0::1::::<><>::res://Scripts/ammo_pickup.gd<>uid://dv0vjq1maeyjc::::res://Game assets for demo/ammoPickup.png
 AR_pickup.tscn::PackedScene::574924115041813014::1732920874::0::1::::<><>::res://Scripts/AR_pickup.gd<>uid://cud62uo1u65sg::::res://Game assets for demo/AR_pickup.png
 enemy.tscn::PackedScene::697002726558027007::1732920874::0::1::::<><>::res://Scripts/enemy.gd<>res://WhiteColor.gdshader<>uid://cfvtx4caq1eui::::res://Game assets for demo/enemy.png
-enemy_boxer.tscn::PackedScene::5375455915476082967::1736305245::0::1::::<><>::res://Scripts/enemy_boxer.gd<>uid://cm5on2wh0fj5p::::res://Scenes/soft_collision.tscn<>res://WhiteColor.gdshader<>uid://dp0foiaww5e81::::res://Game assets for demo/enemy_boxer.png<>uid://dxgrl0od7630j::::res://Game assets for demo/enemy_boxer_run.png<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png<>uid://cwymbrdigmn17::::res://Game assets for demo/enemy_boxer_spitting.png
-enemy_bullet.tscn::PackedScene::3341911354633406887::1736305114::0::1::::<><>::res://Scripts/enemy_bullet.gd<>uid://dxsmnd4navv63::::res://Game assets for demo/enemy_bullet.png
-enemy_seeker.tscn::PackedScene::6668246218364351363::1736305115::0::1::::<><>::res://Scripts/enemy_seeker.gd<>uid://cm5on2wh0fj5p::::res://Scenes/soft_collision.tscn<>res://WhiteColor.gdshader<>uid://c31gms55mqeii::::res://Game assets for demo/enemy_seeker.png<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png
-enemy_spit.tscn::PackedScene::4109732699518127754::1736305116::0::1::::<><>::res://Scripts/enemy_spit.gd<>uid://cau8qgu0b6syf::::res://Game assets for demo/Boxer_spit-Sheet.png
-Explosion.tscn::PackedScene::6409109864217518810::1736305115::0::1::::<><>::res://Scripts/Explosion.gd<>uid://jsxdwhj7yn68::::res://BulletEffect.tres
-gun_type.tscn::PackedScene::2415879410999295044::1736305114::0::1::::<><>::res://Scripts/gun_type.gd<>uid://0jl4cpbw47ul::::res://Game assets for demo/gun_type.png
-healthPickup.tscn::PackedScene::4375569596681311526::1736305116::0::1::::<><>::res://Scripts/health_pickup.gd<>uid://cqivovv314ch3::::res://Game assets for demo/healthPickup.png
-health_ui.tscn::PackedScene::5337027228279911968::1736305114::0::1::::<><>::res://Scripts/health_ui.gd<>uid://bau1p8htxwsp2::::res://Game assets for demo/HeathbarEmpty.png<>uid://bcxut8t2ox4k1::::res://Game assets for demo/healthbarFull.png
+enemy_boxer.tscn::PackedScene::5375455915476082967::1736820513::0::1::::<><>::res://Scripts/enemy_boxer.gd<>uid://cm5on2wh0fj5p::::res://Scenes/soft_collision.tscn<>res://WhiteColor.gdshader<>uid://dp0foiaww5e81::::res://Game assets for demo/enemy_boxer.png<>uid://dxgrl0od7630j::::res://Game assets for demo/enemy_boxer_run.png<>uid://lklpqwq6eyy4::::res://Game assets for demo/enemy_boxer_dead.png<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png<>uid://cwymbrdigmn17::::res://Game assets for demo/enemy_boxer_spitting.png
+enemy_boxer_corpse.tscn::PackedScene::8990671604739453669::1736820514::0::1::::<><>::uid://lklpqwq6eyy4::::res://Game assets for demo/enemy_boxer_dead.png<>res://Scripts/enemy_boxer_corpse.gd
+enemy_bullet.tscn::PackedScene::3341911354633406887::1736479448::0::1::::<><>::res://Scripts/enemy_bullet.gd<>uid://dxsmnd4navv63::::res://Game assets for demo/enemy_bullet.png
+enemy_seeker.tscn::PackedScene::6668246218364351363::1736479449::0::1::::<><>::res://Scripts/enemy_seeker.gd<>uid://cm5on2wh0fj5p::::res://Scenes/soft_collision.tscn<>res://WhiteColor.gdshader<>uid://c31gms55mqeii::::res://Game assets for demo/enemy_seeker.png<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png
+enemy_spit.tscn::PackedScene::4109732699518127754::1736479449::0::1::::<><>::res://Scripts/enemy_spit.gd<>uid://cau8qgu0b6syf::::res://Game assets for demo/Boxer_spit-Sheet.png
+Explosion.tscn::PackedScene::6409109864217518810::1736479448::0::1::::<><>::res://Scripts/Explosion.gd<>uid://jsxdwhj7yn68::::res://BulletEffect.tres
+gun_type.tscn::PackedScene::2415879410999295044::1736820513::0::1::::<><>::res://Scripts/gun_type.gd<>uid://0jl4cpbw47ul::::res://Game assets for demo/gun_type.png
+healthPickup.tscn::PackedScene::4375569596681311526::1736387168::0::1::::<><>::res://Scripts/health_pickup.gd<>uid://cqivovv314ch3::::res://Game assets for demo/healthPickup.png
+health_ui.tscn::PackedScene::5337027228279911968::1736820513::0::1::::<><>::res://Scripts/health_ui.gd<>uid://bau1p8htxwsp2::::res://Game assets for demo/HeathbarEmpty.png<>uid://bcxut8t2ox4k1::::res://Game assets for demo/healthbarFull.png
 item_upgrade.tscn::PackedScene::2902923136095925039::1732921377::0::1::::<><>::uid://dvfsk7xrmwmkh::::res://Game assets for demo/ItemLevels.png<>res://Scripts/item_upgrade.gd
 Mini_pickup.tscn::PackedScene::3686711205811763070::1732920874::0::1::::<><>::res://Scripts/Mini_pickup.gd<>uid://d3db0vtr6laax::::res://Game assets for demo/Mini_pickup.png
-Pistol_pickup.tscn::PackedScene::6975232571004708876::1736305115::0::1::::<><>::res://Scripts/Pistol_pickup.gd<>uid://y2rh7m1a7o2u::::res://Game assets for demo/Pistol_pickup.png
-Player.tscn::PackedScene::7013261328327909104::1736305114::0::1::::<><>::res://Scripts/Player.gd<>uid://vuwkik87hph6::::res://Scenes/playerHands.tscn<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png<>uid://b3ptis5ga616i::::res://Scenes/player_animation.tres
-playerHands.tscn::PackedScene::1516607340437056545::1736305114::0::1::::<><>::res://Scripts/playerHands.gd<>uid://ddmknqtr460rf::::res://Game assets for demo/playerHandsWeapons.png<>uid://d3mu7yqkfb3me::::res://Game assets for demo/playerClub.png<>uid://3mrb30qxqsu3::::res://Game assets for demo/playerGreatsword.png<>uid://b3h4meijwhr55::::res://Game assets for demo/playerSword.png
-player_animation.tres::SpriteFrames::4383842873121003590::1736304003::0::1::::<><>::uid://toer8ga83yfy::::res://Game assets for demo/player_idle.png<>uid://bv1m1jx35kngb::::res://Game assets for demo/player_run.png<>uid://dser2h4ullt3c::::res://Game assets for demo/player_roll.png
-player_bullet.tscn::PackedScene::9069255781392053171::1736305116::0::1::::<><>::res://Scripts/player_bullet.gd<>uid://pxypjnxpy023::::res://Game assets for demo/bullet_player.png
+Pistol_pickup.tscn::PackedScene::6975232571004708876::1736479449::0::1::::<><>::res://Scripts/Pistol_pickup.gd<>uid://y2rh7m1a7o2u::::res://Game assets for demo/Pistol_pickup.png
+Player.tscn::PackedScene::7013261328327909104::1736820513::0::1::::<><>::res://Scripts/Player.gd<>uid://vuwkik87hph6::::res://Scenes/playerHands.tscn<>uid://bgj0wq6sk3u6n::::res://Game assets for demo/shadow.png<>uid://b3ptis5ga616i::::res://Scenes/player_animation.tres
+playerHands.tscn::PackedScene::1516607340437056545::1736820513::0::1::::<><>::res://Scripts/playerHands.gd<>uid://ddmknqtr460rf::::res://Game assets for demo/playerHandsWeapons.png<>uid://d3mu7yqkfb3me::::res://Game assets for demo/playerClub.png<>uid://3mrb30qxqsu3::::res://Game assets for demo/playerGreatsword.png<>uid://b3h4meijwhr55::::res://Game assets for demo/playerSword.png
+player_animation.tres::SpriteFrames::4383842873121003590::1736817456::0::1::::<><>::uid://toer8ga83yfy::::res://Game assets for demo/player_idle.png<>uid://bv1m1jx35kngb::::res://Game assets for demo/player_run.png<>uid://dser2h4ullt3c::::res://Game assets for demo/player_roll.png
+player_bullet.tscn::PackedScene::9069255781392053171::1736387168::0::1::::<><>::res://Scripts/player_bullet.gd<>uid://pxypjnxpy023::::res://Game assets for demo/bullet_player.png
 player_run.tres::SpriteFrames::6097857650066737738::1732920874::0::1::::<><>::uid://toer8ga83yfy::::res://Game assets for demo/player_idle.png<>uid://bv1m1jx35kngb::::res://Game assets for demo/player_run.png
-player_slash.tscn::PackedScene::2012274190430870975::1736305116::0::1::::<><>::res://Scripts/player_slash.gd<>uid://ds211fbe0msyk::::res://Game assets for demo/slash.png
-player_stats.tscn::PackedScene::3652547438435772375::1736305114::0::1::::<><>::res://Scripts/player_stats.gd
-PoisonExplosion.tscn::PackedScene::2661901869282292180::1736305116::0::1::::<><>::uid://dr5ih1xko67po::::res://Game assets for demo/poison_explosion.png<>res://Scripts/poison_explosion.gd
-poison_effect.tscn::PackedScene::5169516367309674602::1736305116::0::1::::<><>::uid://7lj0ndf57x03::::res://Game assets for demo/bubble_effect.png
-poison_puddle.tscn::PackedScene::4235524695227725861::1736305116::0::1::::<><>::uid://uh84dsde0agq::::res://Game assets for demo/poison_puddle.png<>res://Scripts/poison_puddle.gd<>uid://cfwfgdi70xb2i::::res://Scenes/poison_effect.tscn
+player_slash.tscn::PackedScene::2012274190430870975::1736820514::0::1::::<><>::res://Scripts/player_slash.gd<>uid://ds211fbe0msyk::::res://Game assets for demo/slash.png
+player_stats.tscn::PackedScene::3652547438435772375::1736820513::0::1::::<><>::res://Scripts/player_stats.gd
+PoisonExplosion.tscn::PackedScene::2661901869282292180::1736479450::0::1::::<><>::uid://dr5ih1xko67po::::res://Game assets for demo/poison_explosion.png<>res://Scripts/poison_explosion.gd
+poison_effect.tscn::PackedScene::5169516367309674602::1736479450::0::1::::<><>::uid://7lj0ndf57x03::::res://Game assets for demo/bubble_effect.png
+poison_puddle.tscn::PackedScene::4235524695227725861::1736479450::0::1::::<><>::uid://uh84dsde0agq::::res://Game assets for demo/poison_puddle.png<>res://Scripts/poison_puddle.gd<>uid://cfwfgdi70xb2i::::res://Scenes/poison_effect.tscn
+blood_effect.tscn::PackedScene::5414054563041371361::1736821120::0::1::::<><>::uid://7lj0ndf57x03::::res://Game assets for demo/bubble_effect.png
 room_change.tscn::PackedScene::339813918321158742::1732920874::0::1::::<><>::res://Scripts/room_change.gd
-shop_keeper.tscn::PackedScene::1490717054284965850::1736305116::0::1::::<><>::uid://d1g5pdl8ic4ij::::res://Game assets for demo/shop_keeper.png<>res://Scripts/shop_keeper.gd
-Shot_pickup.tscn::PackedScene::3658039852782377637::1736305116::0::1::::<><>::res://Scripts/Shot_pickup.gd<>uid://ise4qu1bma2c::::res://Game assets for demo/Shot_pickup.png
+shop_keeper.tscn::PackedScene::1490717054284965850::1736479450::0::1::::<><>::uid://d1g5pdl8ic4ij::::res://Game assets for demo/shop_keeper.png<>res://Scripts/shop_keeper.gd
+Shot_pickup.tscn::PackedScene::3658039852782377637::1736479450::0::1::::<><>::res://Scripts/Shot_pickup.gd<>uid://ise4qu1bma2c::::res://Game assets for demo/Shot_pickup.png
 smoke.tscn::PackedScene::4717976881050492229::1732920874::0::1::::<><>::res://Scripts/smoke.gd<>uid://c4hk2b3432nue::::res://smoke.tres
-smoke_evaporate.tscn::PackedScene::7272735782206670060::1736305114::0::1::::<><>::uid://bhcoihjkar0x4::::res://Game assets for demo/Evaporate.png<>res://Scripts/smoke_evaporate.gd
+smoke_evaporate.tscn::PackedScene::7272735782206670060::1736479448::0::1::::<><>::uid://bhcoihjkar0x4::::res://Game assets for demo/Evaporate.png<>res://Scripts/smoke_evaporate.gd
 soft_collision.tscn::PackedScene::5677913529351693511::1732920874::0::1::::<><>::res://Scripts/soft_collision.gd
-Stage1.tscn::PackedScene::9126007782142861486::1736305116::0::1::::<><>::uid://bsbk6murmo4el::::res://Scenes/player_stats.tscn<>uid://bdsob4xbij6pp::::res://Wall_tiles2.tres<>uid://b4kmbc1bpn71c::::res://Scenes/wave_spawner_stage1.tscn<>uid://c66jnigbwsp2o::::res://Scenes/Player.tscn<>uid://baojgffpvq38c::::res://Scenes/gun_type.tscn<>uid://cibkb84fmspum::::res://Scenes/health_ui.tscn<>uid://c6m4cc6kra845::::res://Scenes/Pistol_pickup.tscn<>uid://igq6fdow6cbu::::res://Scenes/AR_pickup.tscn<>uid://bsd8m8rlqypw4::::res://Scenes/Shot_pickup.tscn<>uid://b5s0fv1w3gij0::::res://Scenes/wave_lever.tscn<>uid://bsr4uhy58u3io::::res://Scenes/Mini_pickup.tscn<>uid://dfhaal0w7ywna::::res://Scenes/ammoPickup.tscn<>uid://b3ls8yyy0kxsg::::res://Scenes/healthPickup.tscn<>uid://cit58do7s84dv::::res://Scenes/enemy_boxer.tscn
+Stage1.tscn::PackedScene::9126007782142861486::1736820514::0::1::::<><>::uid://bsbk6murmo4el::::res://Scenes/player_stats.tscn<>uid://bdsob4xbij6pp::::res://Wall_tiles2.tres<>uid://b4kmbc1bpn71c::::res://Scenes/wave_spawner_stage1.tscn<>uid://c66jnigbwsp2o::::res://Scenes/Player.tscn<>uid://baojgffpvq38c::::res://Scenes/gun_type.tscn<>uid://cibkb84fmspum::::res://Scenes/health_ui.tscn<>uid://c6m4cc6kra845::::res://Scenes/Pistol_pickup.tscn<>uid://igq6fdow6cbu::::res://Scenes/AR_pickup.tscn<>uid://bsd8m8rlqypw4::::res://Scenes/Shot_pickup.tscn<>uid://b5s0fv1w3gij0::::res://Scenes/wave_lever.tscn<>uid://bsr4uhy58u3io::::res://Scenes/Mini_pickup.tscn<>uid://dfhaal0w7ywna::::res://Scenes/ammoPickup.tscn<>uid://b3ls8yyy0kxsg::::res://Scenes/healthPickup.tscn<>uid://cit58do7s84dv::::res://Scenes/enemy_boxer.tscn
 wall.tscn::PackedScene::3540477035516526671::1732920874::0::1::::<><>::uid://ke5bi36sxbcv::::res://Game assets for demo/wall.png
 wave_lever.tscn::PackedScene::4530772790388344603::1732928026::0::1::::<><>::res://Scripts/wave_lever.gd<>uid://r3cbjiwv26mc::::res://Game assets for demo/LeverAnimation.png
-wave_spawner_stage1.tscn::PackedScene::4443271461721384814::1736305115::0::1::::<><>::res://Scripts/wave_spawner_stage1.gd
-World.tscn::PackedScene::3450449029576178856::1736305114::0::1::::<><>::uid://bsbk6murmo4el::::res://Scenes/player_stats.tscn<>uid://bdsob4xbij6pp::::res://Wall_tiles2.tres<>uid://c66jnigbwsp2o::::res://Scenes/Player.tscn<>uid://baojgffpvq38c::::res://Scenes/gun_type.tscn<>uid://cibkb84fmspum::::res://Scenes/health_ui.tscn<>uid://c6m4cc6kra845::::res://Scenes/Pistol_pickup.tscn<>uid://igq6fdow6cbu::::res://Scenes/AR_pickup.tscn<>uid://bsd8m8rlqypw4::::res://Scenes/Shot_pickup.tscn<>uid://bsr4uhy58u3io::::res://Scenes/Mini_pickup.tscn<>uid://e3uxkslaljhm::::res://Scenes/room_change.tscn<>res://Scripts/Globals.gd
-::res://Scripts/::1736305167
+wave_spawner_stage1.tscn::PackedScene::4443271461721384814::1736820514::0::1::::<><>::res://Scripts/wave_spawner_stage1.gd
+World.tscn::PackedScene::3450449029576178856::1736820513::0::1::::<><>::uid://bsbk6murmo4el::::res://Scenes/player_stats.tscn<>uid://bdsob4xbij6pp::::res://Wall_tiles2.tres<>uid://c66jnigbwsp2o::::res://Scenes/Player.tscn<>uid://baojgffpvq38c::::res://Scenes/gun_type.tscn<>uid://cibkb84fmspum::::res://Scenes/health_ui.tscn<>uid://c6m4cc6kra845::::res://Scenes/Pistol_pickup.tscn<>uid://igq6fdow6cbu::::res://Scenes/AR_pickup.tscn<>uid://bsd8m8rlqypw4::::res://Scenes/Shot_pickup.tscn<>uid://bsr4uhy58u3io::::res://Scenes/Mini_pickup.tscn<>uid://e3uxkslaljhm::::res://Scenes/room_change.tscn<>res://Scripts/Globals.gd
+::res://Scripts/::1736819650
 ammo_pickup.gd::GDScript::-1::1735418882::0::1::::<>Node2D<>::
 AR_pickup.gd::GDScript::-1::1735421531::0::1::::<>Area2D<>::
 enemy.gd::GDScript::-1::1732920874::0::1::::<>CharacterBody2D<>::
-enemy_boxer.gd::GDScript::-1::1736305167::0::1::::<>CharacterBody2D<>::
+enemy_boxer.gd::GDScript::-1::1736819610::0::1::::<>CharacterBody2D<>::
+enemy_boxer_corpse.gd::GDScript::-1::1736819478::0::1::::<>Node2D<>::
 enemy_bullet.gd::GDScript::-1::1735263312::0::1::::<>Area2D<>::
 enemy_seeker.gd::GDScript::-1::1735423382::0::1::::<>CharacterBody2D<>::
-enemy_spit.gd::GDScript::-1::1735863482::0::1::::<>Area2D<>::
+enemy_spit.gd::GDScript::-1::1736387164::0::1::::<>Area2D<>::
 Explosion.gd::GDScript::-1::1732920874::0::1::::<>Node2D<>::
 Globals.gd::GDScript::-1::1735608541::0::1::::<>Node<>::
 gun_type.gd::GDScript::-1::1732920874::0::1::::<>Control<>::
