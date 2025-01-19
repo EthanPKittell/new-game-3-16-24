@@ -233,7 +233,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_t6wtl")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(1, -10)
+position = Vector2(-1, -2)
 scale = Vector2(2.04688, 1.5625)
 texture = ExtResource("6_b6gdb")
 
@@ -246,6 +246,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_v4uvs")
+metadata/_edit_lock_ = true
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_qsqvp")]
 metadata/_edit_lock_ = true
@@ -298,6 +299,7 @@ material = SubResource("ShaderMaterial_6e6yc")
 position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_d3k3w")
 animation = &"boxer_idle"
+metadata/_edit_lock_ = true
 
 [node name="ChaseTimer" type="Timer" parent="."]
 

@@ -22,7 +22,7 @@ gravity = Vector3(0, 200, 0)
 linear_accel_min = -4.32
 linear_accel_max = -4.32
 scale_max = 2.0
-color = Color(0.505882, 0.00392157, 0.823529, 1)
+color = Color(0.817553, 0.150977, 0.915255, 1)
 anim_speed_min = 0.05
 anim_speed_max = 0.55
 

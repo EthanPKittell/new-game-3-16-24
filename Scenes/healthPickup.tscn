@@ -10,6 +10,7 @@ size = Vector2(35, 36)
 radius = 195.003
 
 [node name="health_pickup" type="Node2D"]
+z_index = 1
 script = ExtResource("1_yqaj1")
 
 [node name="ammo_pickup_area" type="Area2D" parent="."]

@@ -105,6 +105,7 @@ func _physics_process(delta):
 			elif Globals.globalCurrentGun == 6:
 				playerHandsWeapon.play("greatsword")
 				slash()
+				slash()
 				state = SWORDSLASH
 				playerSprite.play("player_idle")
 			else:
@@ -237,7 +238,7 @@ func change_gun(value):
 		playerHandsWeapon.frame = 0
 	#greatsword
 	elif value == 6:
-		accuracyValue = 0.13
+		accuracyValue = 0.2
 		fireRate = 1.2
 		Globals.playerDamage = 8
 		canFire = true

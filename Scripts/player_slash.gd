@@ -8,6 +8,9 @@ func _ready():
 	$AnimatedSprite2D.visible = false
 	$Timer.start()
 	$AnimatedSprite2D.play("default")
+	if Globals.globalCurrentGun == 6:
+		$AnimatedSprite2D.set_speed_scale(0.8)
+		speed = 580
 
 func _process(delta):
 	translate(direction.normalized() * speed * delta)
