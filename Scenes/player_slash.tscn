@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://3w04km5aayt0"]
 
-[ext_resource type="Script" path="res://Scripts/player_slash.gd" id="1_bkwyl"]
+[ext_resource type="Script" uid="uid://cnik53v2g3ser" path="res://Scripts/player_slash.gd" id="1_bkwyl"]
 [ext_resource type="Texture2D" uid="uid://ds211fbe0msyk" path="res://Game assets for demo/slash.png" id="2_o6sij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tntsh"]

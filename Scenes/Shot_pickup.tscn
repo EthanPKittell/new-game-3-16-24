@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsd8m8rlqypw4"]
 
-[ext_resource type="Script" path="res://Scripts/Shot_pickup.gd" id="1_m1p3n"]
+[ext_resource type="Script" uid="uid://db33wppnxlcxq" path="res://Scripts/Shot_pickup.gd" id="1_m1p3n"]
 [ext_resource type="Texture2D" uid="uid://ise4qu1bma2c" path="res://Game assets for demo/Shot_pickup.png" id="2_egtqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]

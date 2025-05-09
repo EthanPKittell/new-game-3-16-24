@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfhaal0w7ywna"]
 
-[ext_resource type="Script" path="res://Scripts/ammo_pickup.gd" id="1_4p31q"]
+[ext_resource type="Script" uid="uid://cykskdwiema1d" path="res://Scripts/ammo_pickup.gd" id="1_4p31q"]
 [ext_resource type="Texture2D" uid="uid://dv0vjq1maeyjc" path="res://Game assets for demo/ammoPickup.png" id="2_jwfak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]

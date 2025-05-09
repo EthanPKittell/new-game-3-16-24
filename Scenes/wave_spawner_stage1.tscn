@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4kmbc1bpn71c"]
 
-[ext_resource type="Script" path="res://Scripts/wave_spawner_stage1.gd" id="1_rbok4"]
+[ext_resource type="Script" uid="uid://dxm0y51753twx" path="res://Scripts/wave_spawner_stage1.gd" id="1_rbok4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8rwc"]
 size = Vector2(64, 56)

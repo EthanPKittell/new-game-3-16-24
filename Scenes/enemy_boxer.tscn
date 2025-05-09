@@ -1,8 +1,8 @@
 [gd_scene load_steps=36 format=3 uid="uid://cit58do7s84dv"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
+[ext_resource type="Script" uid="uid://l1r8w7bhyhdi" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_qsqvp"]
-[ext_resource type="Shader" path="res://WhiteColor.gdshader" id="3_jg37k"]
+[ext_resource type="Shader" uid="uid://djex6djj71rmc" path="res://WhiteColor.gdshader" id="3_jg37k"]
 [ext_resource type="Texture2D" uid="uid://dp0foiaww5e81" path="res://Game assets for demo/enemy_boxer.png" id="4_btppj"]
 [ext_resource type="Texture2D" uid="uid://dxgrl0od7630j" path="res://Game assets for demo/enemy_boxer_run.png" id="5_a0qpx"]
 [ext_resource type="Texture2D" uid="uid://lklpqwq6eyy4" path="res://Game assets for demo/enemy_boxer_dead.png" id="5_wrc7e"]
@@ -81,8 +81,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6xkd"]
 _data = {
-"RESET": SubResource("Animation_bbmd2"),
-"blink": SubResource("Animation_gpa0k")
+&"RESET": SubResource("Animation_bbmd2"),
+&"blink": SubResource("Animation_gpa0k")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cab1g"]
@@ -263,7 +263,7 @@ metadata/_edit_lock_ = true
 reset_on_save = false
 root_node = NodePath("../Hurtbox")
 libraries = {
-"": SubResource("AnimationLibrary_x6xkd")
+&"": SubResource("AnimationLibrary_x6xkd")
 }
 speed_scale = 3.0
 

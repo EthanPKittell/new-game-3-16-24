@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dbu75prpvyajk"]
 
 [ext_resource type="Texture2D" uid="uid://bhcoihjkar0x4" path="res://Game assets for demo/Evaporate.png" id="1_4o6j1"]
-[ext_resource type="Script" path="res://Scripts/smoke_evaporate.gd" id="1_ec3nc"]
+[ext_resource type="Script" uid="uid://c4j2rt8kteos2" path="res://Scripts/smoke_evaporate.gd" id="1_ec3nc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcfbn"]
 atlas = ExtResource("1_4o6j1")

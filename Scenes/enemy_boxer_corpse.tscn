@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1dfbvh2ppoxx"]
 
 [ext_resource type="Texture2D" uid="uid://lklpqwq6eyy4" path="res://Game assets for demo/enemy_boxer_dead.png" id="1_2vmwn"]
-[ext_resource type="Script" path="res://Scripts/enemy_boxer_corpse.gd" id="1_ou2vu"]
+[ext_resource type="Script" uid="uid://c3ldu1y7j8edx" path="res://Scripts/enemy_boxer_corpse.gd" id="1_ou2vu"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="2_75uki"]
 [ext_resource type="PackedScene" uid="uid://cjeuxm6nqibuv" path="res://Scenes/blood_effect.tscn" id="3_v2v7g"]
 

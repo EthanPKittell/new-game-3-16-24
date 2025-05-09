@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8honi0v7pb4p"]
 
-[ext_resource type="Script" path="res://Scripts/smoke.gd" id="1_3h1yx"]
+[ext_resource type="Script" uid="uid://corm3wdayoiqx" path="res://Scripts/smoke.gd" id="1_3h1yx"]
 [ext_resource type="SpriteFrames" uid="uid://c4hk2b3432nue" path="res://smoke.tres" id="2_yeo0w"]
 
 [node name="Smoke" type="Node2D"]

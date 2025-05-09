@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1lyqcxl84srd"]
 
 [ext_resource type="Texture2D" uid="uid://uh84dsde0agq" path="res://Game assets for demo/poison_puddle.png" id="1_aipqf"]
-[ext_resource type="Script" path="res://Scripts/poison_puddle.gd" id="1_c6pf0"]
+[ext_resource type="Script" uid="uid://uk135cy4srwa" path="res://Scripts/poison_puddle.gd" id="1_c6pf0"]
 [ext_resource type="PackedScene" uid="uid://cfwfgdi70xb2i" path="res://Scenes/poison_effect.tscn" id="2_541tq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piqgi"]

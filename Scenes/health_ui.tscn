@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cibkb84fmspum"]
 
-[ext_resource type="Script" path="res://Scripts/health_ui.gd" id="1_v7bqm"]
+[ext_resource type="Script" uid="uid://dhr43cspdxwdp" path="res://Scripts/health_ui.gd" id="1_v7bqm"]
 [ext_resource type="Texture2D" uid="uid://bau1p8htxwsp2" path="res://Game assets for demo/HeathbarEmpty.png" id="1_wlbog"]
 [ext_resource type="Texture2D" uid="uid://bcxut8t2ox4k1" path="res://Game assets for demo/healthbarFull.png" id="2_v0ov2"]
 

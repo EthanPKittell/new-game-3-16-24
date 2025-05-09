@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjeuxm6nqibuv"]
 
 [ext_resource type="Texture2D" uid="uid://d058rpgy0prs4" path="res://Game assets for demo/blood_effect.png" id="1_vi5c7"]
-[ext_resource type="Script" path="res://Scenes/blood_effect.gd" id="2_liyqf"]
+[ext_resource type="Script" uid="uid://djo33ltdradhh" path="res://Scenes/blood_effect.gd" id="2_liyqf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_liwip"]
 particles_animation = true
@@ -29,9 +29,9 @@ anim_speed_max = 0.55
 [node name="BloodEffect" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_liwip")
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_6b2um")
 texture = ExtResource("1_vi5c7")
 lifetime = 1.2
+process_material = SubResource("ParticleProcessMaterial_6b2um")
 script = ExtResource("2_liyqf")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

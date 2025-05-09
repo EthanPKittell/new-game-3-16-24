@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bd6pet6i18ij1"]
 
 [ext_resource type="Texture2D" uid="uid://dr5ih1xko67po" path="res://Game assets for demo/poison_explosion.png" id="1_et63i"]
-[ext_resource type="Script" path="res://Scripts/poison_explosion.gd" id="1_v4git"]
+[ext_resource type="Script" uid="uid://dd337jx4vl766" path="res://Scripts/poison_explosion.gd" id="1_v4git"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kod6"]
 atlas = ExtResource("1_et63i")

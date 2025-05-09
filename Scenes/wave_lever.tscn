@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b5s0fv1w3gij0"]
 
-[ext_resource type="Script" path="res://Scripts/wave_lever.gd" id="1_ejfxn"]
+[ext_resource type="Script" uid="uid://bobwwi0yxeq77" path="res://Scripts/wave_lever.gd" id="1_ejfxn"]
 [ext_resource type="Texture2D" uid="uid://r3cbjiwv26mc" path="res://Game assets for demo/LeverAnimation.png" id="1_hymfy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3uo7"]

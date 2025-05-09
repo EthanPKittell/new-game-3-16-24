@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bsd8m8rlqypw4" path="res://Scenes/Shot_pickup.tscn" id="9_dngxm"]
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_ygna2"]
 [ext_resource type="PackedScene" uid="uid://e3uxkslaljhm" path="res://Scenes/room_change.tscn" id="11_r82w0"]
-[ext_resource type="Script" path="res://Scripts/Globals.gd" id="12_xk54o"]
+[ext_resource type="Script" uid="uid://d0x1refitwo8i" path="res://Scripts/Globals.gd" id="12_xk54o"]
 
 [node name="World" type="Node2D"]
 

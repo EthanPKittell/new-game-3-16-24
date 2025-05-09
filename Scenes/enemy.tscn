@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://j6vseh5xrapj"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_0bnjd"]
-[ext_resource type="Shader" path="res://WhiteColor.gdshader" id="1_inknv"]
+[ext_resource type="Script" uid="uid://81gkngn46teh" path="res://Scripts/enemy.gd" id="1_0bnjd"]
+[ext_resource type="Shader" uid="uid://djex6djj71rmc" path="res://WhiteColor.gdshader" id="1_inknv"]
 [ext_resource type="Texture2D" uid="uid://cfvtx4caq1eui" path="res://Game assets for demo/enemy.png" id="1_ny226"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uvs"]
@@ -47,8 +47,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6xkd"]
 _data = {
-"RESET": SubResource("Animation_bbmd2"),
-"blink": SubResource("Animation_gpa0k")
+&"RESET": SubResource("Animation_bbmd2"),
+&"blink": SubResource("Animation_gpa0k")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]

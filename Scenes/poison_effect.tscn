@@ -24,5 +24,5 @@ anim_speed_max = 1.0
 [node name="PoisonEffect" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_liwip")
 amount = 4
-process_material = SubResource("ParticleProcessMaterial_6b2um")
 texture = ExtResource("1_rsg5d")
+process_material = SubResource("ParticleProcessMaterial_6b2um")

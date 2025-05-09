@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bys1xx4wxs0be"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_spit.gd" id="1_37a4l"]
+[ext_resource type="Script" uid="uid://cqdqfo3ljfpju" path="res://Scripts/enemy_spit.gd" id="1_37a4l"]
 [ext_resource type="Texture2D" uid="uid://cau8qgu0b6syf" path="res://Game assets for demo/Boxer_spit-Sheet.png" id="2_44fac"]
 
 [sub_resource type="Curve" id="Curve_gmf4i"]

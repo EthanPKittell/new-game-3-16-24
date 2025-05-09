@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://vuwkik87hph6"]
 
-[ext_resource type="Script" path="res://Scripts/playerHands.gd" id="1_b0y80"]
+[ext_resource type="Script" uid="uid://bypnadhhykajc" path="res://Scripts/playerHands.gd" id="1_b0y80"]
 [ext_resource type="Texture2D" uid="uid://ddmknqtr460rf" path="res://Game assets for demo/playerHandsWeapons.png" id="2_e7o1t"]
 [ext_resource type="Texture2D" uid="uid://d3mu7yqkfb3me" path="res://Game assets for demo/playerClub.png" id="3_i0pe7"]
 [ext_resource type="Texture2D" uid="uid://3mrb30qxqsu3" path="res://Game assets for demo/playerGreatsword.png" id="3_jyknj"]

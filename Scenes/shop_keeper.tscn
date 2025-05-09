@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://vid5liu0ymkg"]
 
 [ext_resource type="Texture2D" uid="uid://d1g5pdl8ic4ij" path="res://Game assets for demo/shop_keeper.png" id="1_ampac"]
-[ext_resource type="Script" path="res://Scripts/shop_keeper.gd" id="1_j0j2j"]
+[ext_resource type="Script" uid="uid://cby8mf6xgpgr1" path="res://Scripts/shop_keeper.gd" id="1_j0j2j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nob5"]
 radius = 3.0

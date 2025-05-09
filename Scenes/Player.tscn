@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c66jnigbwsp2o"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ml8ai"]
+[ext_resource type="Script" uid="uid://ci8g5apw4mql8" path="res://Scripts/Player.gd" id="1_ml8ai"]
 [ext_resource type="PackedScene" uid="uid://vuwkik87hph6" path="res://Scenes/playerHands.tscn" id="3_61yc3"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="4_0ecuo"]
 [ext_resource type="SpriteFrames" uid="uid://b3ptis5ga616i" path="res://Scenes/player_animation.tres" id="4_tu2if"]

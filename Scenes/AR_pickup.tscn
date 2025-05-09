@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://igq6fdow6cbu"]
 
-[ext_resource type="Script" path="res://Scripts/AR_pickup.gd" id="1_kctou"]
+[ext_resource type="Script" uid="uid://dxmjrxr7f0qb6" path="res://Scripts/AR_pickup.gd" id="1_kctou"]
 [ext_resource type="Texture2D" uid="uid://cud62uo1u65sg" path="res://Game assets for demo/AR_pickup.png" id="2_tpqap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxkvdrfq3uqle"]
 
-[ext_resource type="Script" path="res://Scripts/Explosion.gd" id="1_wq76p"]
+[ext_resource type="Script" uid="uid://dylbnwg08d2a3" path="res://Scripts/Explosion.gd" id="1_wq76p"]
 [ext_resource type="SpriteFrames" uid="uid://jsxdwhj7yn68" path="res://BulletEffect.tres" id="2_6a1l2"]
 
 [node name="BulletEffect" type="Node2D"]
