@@ -40,6 +40,8 @@ func _ready():
 	change_gun(Globals.globalCurrentGun)
 	Globals.poisoned.connect(poisonEffect)
 	
+	Globals.playerRef = self
+	
 
 func _physics_process(delta):
 	
@@ -267,7 +269,9 @@ func _on_hurtbox_area_entered(area):
 		
 		
 func death():
-	queue_free()
+	Globals.playerRef = null
+	call_deferred("queue_free")
+	
 
 #not using this anymore
 func _on_roll_active_timeout() -> void:

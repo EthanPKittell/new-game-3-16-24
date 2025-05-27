@@ -76,15 +76,15 @@ func startWave():
 		enemies = 1
 	if wave == 2:
 		spawnTimer = 2
-		enemies = 50
+		enemies = 15
 	if wave == 3:
 		spawnTimer = 1
-		enemies = 200
+		enemies = 40
 	if wave == 4:
 		spawnTimer = 0.2
-		enemies = 300
+		enemies = 70
 	if wave == 5:
-		enemies = 500
+		enemies = 120
 	print(wave)
 	#increments the wave counter after pulling the wave level
 	#and setting the enemies of the current wave

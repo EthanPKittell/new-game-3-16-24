@@ -11,5 +11,5 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		Globals.ammo = INF
 		#Mini_was_pickedup()
-		Globals.emit_signal("weapon_picked", 6)
+		Globals.emit_signal("weapon_picked", 4)
 		queue_free()

@@ -5,7 +5,7 @@ var speed = 200
 @export var curve: Curve
 var end_position
 @onready var sceneName = get_parent().get_parent().name
-@onready var player = get_node("/root/World/Y_Sort/Player")
+@onready var player = Globals.playerRef#get_node("/root/World/Y_Sort/Player")
 @onready var world = get_tree().current_scene#.get_node("Y_Sort")
 var total_distance
 var current_distance

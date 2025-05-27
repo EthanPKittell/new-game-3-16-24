@@ -15,7 +15,7 @@ var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
 
 #@export var player: Node2D
 @onready var sceneName = get_parent().get_parent().name
-@onready var player = get_node("/root/"+ sceneName +"/Y_Sort/Player")
+@onready var player = Globals.playerRef#get_node("/root/"+ sceneName +"/Y_Sort/Player")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var shotTimer = $ShotTimer
 @onready var softCollision = $SoftCollision
@@ -32,12 +32,17 @@ enum {
 	ATTACKING #state for when enemy is currently issuing an attack
 }
 
-var state = CHASE
+var state = null
 
 func _ready():
 	randomize()
+	await get_tree().create_timer(0.1).timeout
+	player = Globals.playerRef
+	state = CHASE
 
 func _physics_process(_delta: float) -> void:
+	if Globals.playerRef == null:
+		state = null
 	#detecting if the player is actually able to be shot at
 	if player != null:
 		var direction_to_player = (player.global_position - self.global_position)

@@ -6,6 +6,8 @@ var globalCurrentGun = 0
 var ammo = 0
 var playerDamage = 1
 
+var playerRef: Node2D = null
+
 
 #for ammo packs with varying ammo additions
 signal ammo_picked(value)
