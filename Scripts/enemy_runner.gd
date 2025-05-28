@@ -8,7 +8,7 @@ var health = 10
 var speed = 200
 var accuracyValue = 0.4
 var canFire = true #I set it to false because when You start you have no gun
-var fireRate = 2.5
+var fireRate = 1.8
 var inRange = false
 var attackAble = false
 var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
@@ -70,7 +70,7 @@ func _physics_process(_delta: float) -> void:
 			if softCollision.is_colliding():
 				velocity += softCollision.get_push_vector() * 20
 			move_and_slide()
-			boxerSprite.play("boxer_run")
+			boxerSprite.play("runner_run")
 			
 			if player.global_position.x > self.global_position.x:
 				boxerSprite.flip_h = false
@@ -113,7 +113,7 @@ func _physics_process(_delta: float) -> void:
 			var dropPickup = drop.instantiate()
 			world.add_child(dropPickup)
 			dropPickup.global_position = global_position
-		drop = preload("res://Scenes/enemy_boxer_corpse.tscn")
+		drop = preload("res://Scenes/enemy_runner_corpse.tscn")
 		var dropCorpse = drop.instantiate()
 		world.add_child(dropCorpse)
 		dropCorpse.global_position = global_position
@@ -155,12 +155,12 @@ func _on_attack_range_body_entered(body):
 		attackAble = true
 		if state != ATTACK && state != ATTACKING && inRange == true:
 			state = ATTACK
-			boxerSprite.play("boxer_idle")
+			boxerSprite.play("runner_idle")
 
 
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("Player"):
-		chaseTimer.wait_time = 1.2
+		chaseTimer.wait_time = 0.8
 		if chaseTimer != null:
 			await get_tree().physics_frame
 			chaseTimer.start()
@@ -169,12 +169,12 @@ func _on_attack_range_body_exited(body):
 func shoot():
 	state = ATTACKING
 	canFire = false
-	boxerSprite.play("boxer_spitting")
+	boxerSprite.play("runner_attacking")
 	#create bullet
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.4).timeout
 	var world = get_tree().current_scene
 	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
-	var bullet = preload("res://Scenes/enemy_spit.tscn")
+	var bullet = preload("res://Scenes/runner_slash.tscn")
 	var shot = bullet.instantiate()
 	
 	world.add_child(shot)
@@ -202,7 +202,7 @@ func _on_chase_timer_timeout():
 
 #This is a function for when the spit animation is finished
 func _on_animated_sprite_2d_animation_finished() -> void:
-	boxerSprite.play("boxer_idle")
+	boxerSprite.play("runner_idle")
 	state = ATTACK
 	#pretty much a timer after spitting makes the enemy go into idle animation
 	#while waiting for the shot timer to be done

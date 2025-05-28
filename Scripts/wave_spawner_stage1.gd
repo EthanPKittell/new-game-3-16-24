@@ -1,7 +1,8 @@
 extends Area2D
 
 var wave = 1
-var enemies
+var enemyRunners = 0
+var enemyBoxers = 0
 var canSpawn = true
 var spawnTimer = 5
 var waveActive = false
@@ -19,7 +20,7 @@ func _ready():
 
 
 func _process(delta):
-	if waveActive == true && canSpawn == true && enemies > 0:
+	if waveActive == true && canSpawn == true && (enemyRunners > 0 || enemyBoxers > 0):
 		spawnEnemy()
 		canSpawn = false
 		
@@ -42,14 +43,20 @@ func _on_timer_timeout():
 	#preload different enemies depending on the wave number
 	
 	#THIS IS THE RANDOM ENEMY GENERATOR UNCOMMENT WHEN DONE DEBUGGING
-	#var pick = randi_range(0,1)
+	var pick = randi_range(0,1)
 	var enemy
-	#if pick == 0:
-	#	enemy = preload("res://Scenes/enemy_seeker.tscn")
-	#elif pick == 1:
-	#	enemy = preload("res://Scenes/enemy_boxer.tscn")
-	#	
-	enemy = preload("res://Scenes/enemy_boxer.tscn")
+	if enemyRunners <= 0 && pick == 0:
+		pick = 1
+	if enemyBoxers <= 0 && pick == 1:
+		pick = 0
+		
+	if pick == 0:
+		enemy = preload("res://Scenes/enemy_runner.tscn")
+		enemyRunners -= 1
+	elif pick == 1:
+		enemy = preload("res://Scenes/enemy_boxer.tscn")
+		enemyBoxers -= 1
+	#enemy = preload("res://Scenes/enemy_boxer.tscn")
 	
 	
 	var enemyInstance = enemy.instantiate()
@@ -64,8 +71,8 @@ func _on_timer_timeout():
 		enemyInstance.global_position = SpawnArea3.global_position + spawnLocationOffset
 	
 	canSpawn = true
-	enemies -= 1
-	if enemies <= 0:
+
+	if enemyRunners <= 0 && enemyBoxers <= 0:
 		waveActive = false
 	waveTimer.stop()
 	
@@ -73,18 +80,24 @@ func startWave():
 	
 	#sets the wave enemies depending on the current wave
 	if wave == 1:
-		enemies = 1
+		enemyRunners = 5
+		enemyBoxers = 0
 	if wave == 2:
 		spawnTimer = 2
-		enemies = 15
+		enemyRunners = 20
+		enemyBoxers = 0
 	if wave == 3:
 		spawnTimer = 1
-		enemies = 40
+		enemyRunners = 0
+		enemyBoxers = 10
 	if wave == 4:
 		spawnTimer = 0.2
-		enemies = 70
+		enemyRunners =40
+		enemyBoxers = 20
 	if wave == 5:
-		enemies = 120
+		spawnTimer = 0.1
+		enemyRunners = 100
+		enemyBoxers = 30
 	print(wave)
 	#increments the wave counter after pulling the wave level
 	#and setting the enemies of the current wave

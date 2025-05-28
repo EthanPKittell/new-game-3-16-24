@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bidcladiqg4j5"]
+
+[ext_resource type="Script" uid="uid://c3ldu1y7j8edx" path="res://Scripts/enemy_boxer_corpse.gd" id="1_8glrc"]
+[ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="2_psp8p"]
+[ext_resource type="Texture2D" uid="uid://ulh4f75mbvhv" path="res://Stuff for my game/enemy_runner_dead.png" id="3_8glrc"]
+[ext_resource type="PackedScene" uid="uid://cjeuxm6nqibuv" path="res://Scenes/blood_effect.tscn" id="4_fsjoe"]
+
+[node name="EnemyRunnerCorpse" type="Node2D"]
+script = ExtResource("1_8glrc")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-0.499999, 9)
+scale = Vector2(1.59375, 1.1875)
+texture = ExtResource("2_psp8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.355314, 0.355314, 0.355314, 1)
+position = Vector2(-1, -1)
+texture = ExtResource("3_8glrc")
+
+[node name="BloodEffect" parent="." instance=ExtResource("4_fsjoe")]
+position = Vector2(-1, -21)
