@@ -72,15 +72,9 @@ func _on_timer_timeout():
 	
 	
 	var enemyInstance = enemy.instantiate()
-	world.add_child(enemyInstance)
-	var pickSpawn = randi_range(1,3)
-	var spawnLocationOffset = Vector2(randf_range(-50,50), randf_range(-50,50))
-	if pickSpawn == 1:
-		enemyInstance.global_position = SpawnArea1.global_position + spawnLocationOffset
-	elif pickSpawn == 2:
-		enemyInstance.global_position = SpawnArea2.global_position + spawnLocationOffset
-	elif pickSpawn == 3:
-		enemyInstance.global_position = SpawnArea3.global_position + spawnLocationOffset
+	var spawnLocation = get_random_spawn_location()
+	enemyInstance.global_position = spawnLocation
+	get_tree().current_scene.get_node("Y_Sort").add_child(enemyInstance)
 	
 	canSpawn = true
 
@@ -88,6 +82,11 @@ func _on_timer_timeout():
 		waveActive = false
 	waveTimer.stop()
 	
+func get_random_spawn_location():
+	var areas = [SpawnArea1, SpawnArea2, SpawnArea3]
+	var chosen = areas[randi_range(0, areas.size() - 1)]
+	return chosen.global_position + Vector2(randf_range(-50, 50), randf_range(-50, 50))	
+
 func startWave():
 	
 	#sets the wave enemies depending on the current wave

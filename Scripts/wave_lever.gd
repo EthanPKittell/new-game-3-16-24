@@ -26,8 +26,10 @@ func _physics_process(delta):
 
 
 func _on_animated_sprite_2d_animation_finished():
-	waveSpawner.waveActive = true
-	waveSpawner.startWave()
+	#waveSpawner.waveActive = true
+	#Avoids pulling the lever multiple times and only triggers the wave when the spawner is ready
+	if waveSpawner and waveSpawner.state == waveSpawner.State.IDLE:
+		waveSpawner.start_wave()
 	
 	#create smoke for disapearing assets
 	

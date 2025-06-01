@@ -18,3 +18,5 @@ res://Scenes/enemy_runner.tscn
 res://Scenes/runner_slash.tscn
 res://Scenes/enemy_spit.tscn
 res://Scenes/enemy_runner_corpse.tscn
+res://Scripts/wave_spawner_stage1_STATE_VER.gd
+res://Scripts/wave_lever.gd
