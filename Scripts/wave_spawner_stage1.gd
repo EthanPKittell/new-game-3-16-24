@@ -8,11 +8,23 @@ var spawnTimer = 5
 var waveActive = false
 var noLever = false #this checks if there is no lever currently in the world
 
+const ENEMY_RUNNER = preload("res://Scenes/enemy_runner.tscn")
+const ENEMY_BOXER = preload("res://Scenes/enemy_boxer.tscn")
+
 
 @onready var SpawnArea1 = $SpawnArea1
 @onready var SpawnArea2 = $SpawnArea2
 @onready var SpawnArea3 = $SpawnArea3
 @onready var waveTimer = $Timer
+
+#Modify this to change the contents of the wave
+var wave_data = {
+	1: {"enemyRunners": 5, "enemyBoxers": 0, "spawnTimer": 5},
+	2: {"enemyRunners": 20, "enemyBoxers": 0, "spawnTimer": 2},
+	3: {"enemyRunners": 0, "enemyBoxers": 10, "spawnTimer": 1},
+	4: {"enemyRunners": 40, "enemyBoxers": 20, "spawnTimer": 0.2},
+	5: {"enemyRunners": 100, "enemyBoxers": 30, "spawnTimer": 0.1},
+	}
 
 
 func _ready():
@@ -51,10 +63,10 @@ func _on_timer_timeout():
 		pick = 0
 		
 	if pick == 0:
-		enemy = preload("res://Scenes/enemy_runner.tscn")
+		enemy = ENEMY_RUNNER
 		enemyRunners -= 1
 	elif pick == 1:
-		enemy = preload("res://Scenes/enemy_boxer.tscn")
+		enemy = ENEMY_BOXER
 		enemyBoxers -= 1
 	#enemy = preload("res://Scenes/enemy_boxer.tscn")
 	
@@ -79,27 +91,17 @@ func _on_timer_timeout():
 func startWave():
 	
 	#sets the wave enemies depending on the current wave
-	if wave == 1:
-		enemyRunners = 5
-		enemyBoxers = 0
-	if wave == 2:
-		spawnTimer = 2
-		enemyRunners = 20
-		enemyBoxers = 0
-	if wave == 3:
-		spawnTimer = 1
-		enemyRunners = 0
-		enemyBoxers = 10
-	if wave == 4:
-		spawnTimer = 0.2
-		enemyRunners =40
-		enemyBoxers = 20
-	if wave == 5:
-		spawnTimer = 0.1
-		enemyRunners = 100
-		enemyBoxers = 30
-	print(wave)
-	#increments the wave counter after pulling the wave level
-	#and setting the enemies of the current wave
-	wave = wave + 1
-	noLever = true
+	if wave_data.has(wave): 
+		var waveInfo = wave_data[wave]
+		enemyRunners = waveInfo.enemyRunners
+		enemyBoxers = waveInfo.enemyBoxers
+		spawnTimer = waveInfo.spawnTimer
+		#increments the wave counter after pulling the wave level
+		#and setting the enemies of the current wave
+		wave += 1
+		noLever = true
+		print("Wave started:", wave - 1)
+	else:
+		print("No more waves defined.")
+	
+	
