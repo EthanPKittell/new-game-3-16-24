@@ -5,7 +5,7 @@ extends CharacterBody2D
 #var target_position
 @onready var anim = $Blink
 var health = 10
-var speed = 200
+var speed = 280
 var accuracyValue = 0.4
 var canFire = true #I set it to false because when You start you have no gun
 var fireRate = 1.8

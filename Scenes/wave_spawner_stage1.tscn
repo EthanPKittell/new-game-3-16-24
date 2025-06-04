@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dy27rewx3tk65" path="res://Scripts/wave_spawner_stage1_STATE_VER.gd" id="1_y7kci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8rwc"]
-size = Vector2(64, 56)
+size = Vector2(263, 242)
 
 [node name="WaveSpawnerStage1" type="Area2D"]
 script = ExtResource("1_y7kci")
 
 [node name="SpawnArea1" type="CollisionShape2D" parent="."]
-position = Vector2(-1474, -938)
+position = Vector2(-1374.5, -845)
 shape = SubResource("RectangleShape2D_f8rwc")
 
 [node name="SpawnArea2" type="CollisionShape2D" parent="."]

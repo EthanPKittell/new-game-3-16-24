@@ -1,12 +1,12 @@
-res://Scenes/wave_spawner_stage1.tscn
+res://Scenes/Player.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
-res://Scripts/wave_spawner_stage1.gd
+res://Scenes/enemy_alien_gorilla.tscn
 res://Scenes/World.tscn
-res://Scenes/Player.tscn
+res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Stage1.tscn
 res://Scenes/player_slash.tscn
 res://Scenes/enemy_boxer_corpse.tscn
@@ -18,5 +18,5 @@ res://Scenes/enemy_runner.tscn
 res://Scenes/runner_slash.tscn
 res://Scenes/enemy_spit.tscn
 res://Scenes/enemy_runner_corpse.tscn
-res://Scripts/wave_spawner_stage1_STATE_VER.gd
-res://Scripts/wave_lever.gd
+res://Scenes/enemy_boxer.tscn
+res://Scripts/enemy_runner.gd

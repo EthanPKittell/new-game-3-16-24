@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bsd8m8rlqypw4" path="res://Scenes/Shot_pickup.tscn" id="9_dngxm"]
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_ygna2"]
 [ext_resource type="PackedScene" uid="uid://e3uxkslaljhm" path="res://Scenes/room_change.tscn" id="11_r82w0"]
-[ext_resource type="PackedScene" uid="uid://mmn651spfrdl" path="res://Scenes/enemy_runner.tscn" id="12_ti1bm"]
+[ext_resource type="PackedScene" uid="uid://bwa6a5tj8jpsr" path="res://Scenes/enemy_alien_gorilla.tscn" id="12_ti1bm"]
 [ext_resource type="Script" uid="uid://d0x1refitwo8i" path="res://Scripts/Globals.gd" id="12_xk54o"]
 
 [node name="World" type="Node2D"]
@@ -72,4 +72,4 @@ position = Vector2(866, -615)
 script = ExtResource("12_xk54o")
 
 [node name="Enemy_Runner" parent="." instance=ExtResource("12_ti1bm")]
-position = Vector2(1716, 822)
+position = Vector2(1772, 875)
