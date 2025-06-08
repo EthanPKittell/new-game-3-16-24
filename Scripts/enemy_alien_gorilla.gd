@@ -4,11 +4,11 @@ extends CharacterBody2D
 #@onready var player_global_pos = player.global_position
 #var target_position
 @onready var anim = $Blink
-var health = 12
-var speed = 200
+var health = 30
+var speed = 320
 var accuracyValue = 0.4
 var canFire = true #I set it to false because when You start you have no gun
-var fireRate = 2.5
+var fireRate = 1.8
 var inRange = false
 var attackAble = false
 var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
@@ -28,7 +28,7 @@ enum {
 	IDLE, #unused state
 	WANDER, #unused state
 	CHASE,
-	ATTACK, #state for when enemy is attempting to attack
+	ATTACK, #state for when enemy is attempting to attackds
 	ATTACKING #state for when enemy is currently issuing an attack
 }
 
@@ -70,7 +70,7 @@ func _physics_process(_delta: float) -> void:
 			if softCollision.is_colliding():
 				velocity += softCollision.get_push_vector() * 20
 			move_and_slide()
-			boxerSprite.play("boxer_run")
+			boxerSprite.play("gorilla_run")
 			
 			if player.global_position.x > self.global_position.x:
 				boxerSprite.flip_h = false
@@ -113,7 +113,7 @@ func _physics_process(_delta: float) -> void:
 			var dropPickup = drop.instantiate()
 			world.add_child(dropPickup)
 			dropPickup.global_position = global_position
-		drop = preload("res://Scenes/enemy_boxer_corpse.tscn")
+		drop = preload("res://Scenes/enemy_gorilla_corpse.tscn")
 		var dropCorpse = drop.instantiate()
 		world.add_child(dropCorpse)
 		dropCorpse.global_position = global_position
@@ -155,12 +155,12 @@ func _on_attack_range_body_entered(body):
 		attackAble = true
 		if state != ATTACK && state != ATTACKING && inRange == true:
 			state = ATTACK
-			boxerSprite.play("boxer_idle")
+			boxerSprite.play("gorilla_idle")
 
 
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("Player"):
-		chaseTimer.wait_time = 1.2
+		chaseTimer.wait_time = 0.8
 		if chaseTimer != null:
 			await get_tree().physics_frame
 			chaseTimer.start()
@@ -169,17 +169,30 @@ func _on_attack_range_body_exited(body):
 func shoot():
 	state = ATTACKING
 	canFire = false
-	boxerSprite.play("boxer_spitting")
+	boxerSprite.play("gorilla_attacking")
 	#create bullet
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.4).timeout
 	var world = get_tree().current_scene
 	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
-	var bullet = preload("res://Scenes/enemy_spit.tscn")
+	var bullet = preload("res://Scenes/gorilla_smash.tscn")
 	var shot = bullet.instantiate()
 	
 	world.add_child(shot)
-	shot.global_position = global_position + shootingOffset
-	shot.direction = (player.global_position - self.global_position).normalized() + accuracy
+	
+	#shot.global_position = global_position + shootingOffset
+	#shot.direction = (player.global_position - self.global_position).normalized() + accuracy
+	
+	# Get the direction from the gorilla to the player
+	var direction_to_player = (player.global_position - self.global_position).normalized()
+	
+	# Choose an offset distance (e.g., 100 pixels toward the player)
+	var spawn_offset = direction_to_player * 50
+	
+	# Set the smash's position toward the player
+	shot.global_position = self.global_position + spawn_offset
+	
+	# Optional: give it direction/accuracy if needed (or ignore this for stationary)
+	shot.direction = direction_to_player + accuracy
 	
 	shotTimer.wait_time = fireRate
 	shotTimer.start()
@@ -202,7 +215,7 @@ func _on_chase_timer_timeout():
 
 #This is a function for when the spit animation is finished
 func _on_animated_sprite_2d_animation_finished() -> void:
-	boxerSprite.play("boxer_idle")
+	boxerSprite.play("gorilla_idle")
 	state = ATTACK
 	#pretty much a timer after spitting makes the enemy go into idle animation
 	#while waiting for the shot timer to be done

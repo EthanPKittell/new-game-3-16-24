@@ -1,10 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwa6a5tj8jpsr"]
+[gd_scene load_steps=32 format=3 uid="uid://bwa6a5tj8jpsr"]
 
-[ext_resource type="Script" uid="uid://c2ofxwhjrmlmt" path="res://Scripts/enemy_runner.gd" id="1_q1rwi"]
+[ext_resource type="Script" uid="uid://chmgvkips3kol" path="res://Scripts/enemy_alien_gorilla.gd" id="1_i03gt"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="2_p7bgc"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="3_3o4s6"]
 [ext_resource type="Shader" uid="uid://djex6djj71rmc" path="res://WhiteColor.gdshader" id="4_b6qms"]
-[ext_resource type="Texture2D" uid="uid://c014rnafgi6ur" path="res://Stuff for my game/enemy_runner_attack.png" id="5_1e7s8"]
+[ext_resource type="Texture2D" uid="uid://dxo2vvm4185b4" path="res://Stuff for my game/alien_gorilla_smash.png" id="5_i03gt"]
 [ext_resource type="Texture2D" uid="uid://3cjwog5oq4sp" path="res://Stuff for my game/alien_gorilla.png" id="6_i03gt"]
 [ext_resource type="Texture2D" uid="uid://djrt2jc0x7w7j" path="res://Stuff for my game/alien_gorilla_run.png" id="7_q1rwi"]
 
@@ -90,29 +90,37 @@ radius = 61.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mo8et"]
 radius = 372.005
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aalko"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1rwi"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8re01"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cow08"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sa333"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(128, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5atv"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfut1"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(192, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlupe"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mhtn"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(256, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d6ow"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4whvi"]
-atlas = ExtResource("5_1e7s8")
-region = Rect2(320, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uortl"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s66e"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swwrx"]
+atlas = ExtResource("5_i03gt")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7bgc"]
 atlas = ExtResource("6_i03gt")
@@ -138,25 +146,31 @@ region = Rect2(384, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aalko")
+"texture": SubResource("AtlasTexture_q1rwi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8re01")
+"texture": SubResource("AtlasTexture_cow08")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sa333")
+"texture": SubResource("AtlasTexture_k5atv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wfut1")
+"texture": SubResource("AtlasTexture_nlupe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3mhtn")
+"texture": SubResource("AtlasTexture_1d6ow")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4whvi")
+"texture": SubResource("AtlasTexture_uortl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s66e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swwrx")
 }],
 "loop": false,
-"name": &"runner_attacking",
+"name": &"gorilla_attacking",
 "speed": 11.0
 }, {
 "frames": [{
@@ -164,7 +178,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_p7bgc")
 }],
 "loop": true,
-"name": &"runner_idle",
+"name": &"gorilla_idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -181,15 +195,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_gcddh")
 }],
 "loop": true,
-"name": &"runner_run",
+"name": &"gorilla_run",
 "speed": 11.0
 }]
 
-[node name="Enemy_Runner" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Enemy_alien_gorilla" type="CharacterBody2D" groups=["Enemy"]]
 visibility_layer = 4
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_q1rwi")
+script = ExtResource("1_i03gt")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
@@ -257,7 +271,7 @@ metadata/_edit_lock_ = true
 material = SubResource("ShaderMaterial_6e6yc")
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_d3k3w")
-animation = &"runner_idle"
+animation = &"gorilla_run"
 metadata/_edit_lock_ = true
 
 [node name="ChaseTimer" type="Timer" parent="."]
