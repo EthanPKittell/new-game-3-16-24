@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-var speed = 3
+var speed = 2.3
 var accuracyValue = 0.2#0.01 is pretty accurate 2.0 is insanely inaccurate
 var canFire = false #I set it to false because when You start you have no gun
 var fireRate = 0.2

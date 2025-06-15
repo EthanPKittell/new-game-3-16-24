@@ -1,10 +1,9 @@
-res://Scenes/enemy_gorilla_corpse.tscn
+res://Scenes/World.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
-res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Stage1.tscn
@@ -21,6 +20,8 @@ res://Scenes/enemy_runner_corpse.tscn
 res://Scenes/enemy_alien_gorilla.tscn
 res://Scenes/enemy_boxer.tscn
 res://Scenes/gorilla_smash.tscn
-res://Scripts/enemy_alien_gorilla.gd
-res://Scripts/enemy_boxer_corpse.gd
-res://Scripts/wave_spawner_stage1_STATE_VER.gd
+res://Scenes/enemy_gorilla_corpse.tscn
+res://Scenes/gun_type.tscn
+res://Scenes/player_bullet.tscn
+res://Scenes/Mini_pickup.tscn
+res://Scripts/Mini_pickup.gd

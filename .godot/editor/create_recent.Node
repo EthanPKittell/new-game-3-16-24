@@ -1,3 +1,5 @@
+DirectionalLight2D
+PointLight2D
 Node2D
 GPUParticles2D
 Sprite2D
@@ -11,4 +13,3 @@ Line2D
 RayCast2D
 NavigationRegion2D
 NavigationAgent2D
-Label

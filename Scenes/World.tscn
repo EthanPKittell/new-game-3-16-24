@@ -28,6 +28,9 @@ tile_set = ExtResource("2_j88b8")
 [node name="Y_Sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Enemy_Runner" parent="Y_Sort" instance=ExtResource("12_ti1bm")]
+position = Vector2(1772, 875)
+
 [node name="Player" parent="Y_Sort" instance=ExtResource("4_kk7oo")]
 position = Vector2(872, 442)
 
@@ -45,10 +48,10 @@ position_smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="gun_type" parent="CanvasLayer" instance=ExtResource("5_8g1hb")]
-offset_left = 1014.0
-offset_top = 34.0
-offset_right = 1014.0
-offset_bottom = 34.0
+offset_left = 1251.0
+offset_top = 33.0
+offset_right = 1251.0
+offset_bottom = 33.0
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("6_tg2gp")]
 metadata/_edit_use_anchors_ = true
@@ -71,5 +74,6 @@ position = Vector2(866, -615)
 [node name="Initializer" type="Node" parent="."]
 script = ExtResource("12_xk54o")
 
-[node name="Enemy_Runner" parent="." instance=ExtResource("12_ti1bm")]
-position = Vector2(1772, 875)
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.2
+blend_mode = 1

@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2hhk2ijp5jl0"]
+[gd_scene load_steps=6 format=3 uid="uid://d2hhk2ijp5jl0"]
 
 [ext_resource type="Script" uid="uid://bnbmad4q0kwpu" path="res://Scripts/player_bullet.gd" id="1_0flci"]
 [ext_resource type="Texture2D" uid="uid://pxypjnxpy023" path="res://Game assets for demo/bullet_player.png" id="2_svjyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tntsh"]
 size = Vector2(42, 18.5)
+
+[sub_resource type="Gradient" id="Gradient_dewec"]
+offsets = PackedFloat32Array(0, 0.68386)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3m2mg"]
+gradient = SubResource("Gradient_dewec")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Area2D" type="Area2D" groups=["PlayerProjectile"]]
 collision_layer = 2
@@ -23,6 +32,13 @@ enable_node_path = NodePath("../CollisionShape2D")
 texture = ExtResource("2_svjyf")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.19209e-06, 0)
+scale = Vector2(1.4375, 1.29688)
+color = Color(1, 1, 0.584314, 1)
+energy = 1.68
+texture = SubResource("GradientTexture2D_3m2mg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

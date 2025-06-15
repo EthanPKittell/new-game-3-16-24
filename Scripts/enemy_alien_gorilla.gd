@@ -13,6 +13,7 @@ var inRange = false
 var attackAble = false
 var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
 
+
 #@export var player: Node2D
 @onready var sceneName = get_parent().get_parent().name
 @onready var player = Globals.playerRef#get_node("/root/"+ sceneName +"/Y_Sort/Player")
@@ -165,34 +166,35 @@ func _on_attack_range_body_exited(body):
 			await get_tree().physics_frame
 			chaseTimer.start()
 			attackAble = false
-		
+
+func spawn_smash(world: Node, direction: Vector2, distance: float, accuracy: Vector2):
+	var bullet = preload("res://Scenes/gorilla_smash.tscn")
+	var shot = bullet.instantiate()
+	world.add_child(shot)
+	
+	var offset = direction * distance
+	shot.global_position = self.global_position + offset
+	shot.direction = direction + accuracy
+
 func shoot():
 	state = ATTACKING
 	canFire = false
 	boxerSprite.play("gorilla_attacking")
-	#create bullet
+
 	await get_tree().create_timer(0.4).timeout
-	var world = get_tree().current_scene
-	var accuracy = Vector2(randf_range(-accuracyValue,accuracyValue), randf_range(-accuracyValue,accuracyValue))
-	var bullet = preload("res://Scenes/gorilla_smash.tscn")
-	var shot = bullet.instantiate()
-	
-	world.add_child(shot)
-	
-	#shot.global_position = global_position + shootingOffset
-	#shot.direction = (player.global_position - self.global_position).normalized() + accuracy
-	
-	# Get the direction from the gorilla to the player
+	var world = find_parent("Y_Sort")  # or get_parent() if you're sure
 	var direction_to_player = (player.global_position - self.global_position).normalized()
+	var accuracy = Vector2(randf_range(-accuracyValue, accuracyValue), randf_range(-accuracyValue, accuracyValue))
 	
-	# Choose an offset distance (e.g., 100 pixels toward the player)
-	var spawn_offset = direction_to_player * 50
-	
-	# Set the smash's position toward the player
-	shot.global_position = self.global_position + spawn_offset
-	
-	# Optional: give it direction/accuracy if needed (or ignore this for stationary)
-	shot.direction = direction_to_player + accuracy
+	spawn_smash(world, direction_to_player, 50, accuracy)
+	await get_tree().create_timer(0.2).timeout
+	spawn_smash(world, direction_to_player, 100, accuracy)
+	await get_tree().create_timer(0.2).timeout
+	spawn_smash(world, direction_to_player, 150, accuracy)
+	await get_tree().create_timer(0.2).timeout
+	spawn_smash(world, direction_to_player, 200, accuracy)
+	await get_tree().create_timer(0.2).timeout
+	spawn_smash(world, direction_to_player, 250, accuracy)
 	
 	shotTimer.wait_time = fireRate
 	shotTimer.start()
