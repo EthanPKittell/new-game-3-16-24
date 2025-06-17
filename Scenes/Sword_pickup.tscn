@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://blvhdbn53hxvj"]
+
+[ext_resource type="Script" uid="uid://tx6am6r13bjw" path="res://Scripts/Sword_pickup.gd" id="1_erijp"]
+[ext_resource type="Texture2D" uid="uid://bqgkkatjdqn30" path="res://Game assets for demo/Sword_pickup.png" id="2_erijp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
+size = Vector2(35, 36)
+
+[node name="Sword_pickup" type="Area2D"]
+script = ExtResource("1_erijp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wh5sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_erijp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

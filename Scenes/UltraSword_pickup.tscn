@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg3yvlvibh4ag"]
+
+[ext_resource type="Script" uid="uid://brsgs6k3q1hg4" path="res://Scripts/UltraSword_pickup.gd" id="1_mrwap"]
+[ext_resource type="Texture2D" uid="uid://cvmmnuyvqixvv" path="res://Game assets for demo/UltraSword_pickup.png" id="2_mrwap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
+size = Vector2(35, 36)
+
+[node name="UltraSword_pickup" type="Area2D"]
+script = ExtResource("1_mrwap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wh5sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mrwap")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8honi0v7pb4p"]
+[gd_scene load_steps=5 format=3 uid="uid://b8honi0v7pb4p"]
 
 [ext_resource type="Script" uid="uid://corm3wdayoiqx" path="res://Scripts/smoke.gd" id="1_3h1yx"]
 [ext_resource type="SpriteFrames" uid="uid://c4hk2b3432nue" path="res://smoke.tres" id="2_yeo0w"]
 
+[sub_resource type="Gradient" id="Gradient_dewec"]
+offsets = PackedFloat32Array(0, 0.68386)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nvqdy"]
+gradient = SubResource("Gradient_dewec")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Smoke" type="Node2D"]
 script = ExtResource("1_3h1yx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(49.5, 0.5)
+scale = Vector2(1.51563, 1.51563)
+color = Color(1, 1, 0.584314, 1)
+energy = 5.17
+texture = SubResource("GradientTexture2D_nvqdy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
