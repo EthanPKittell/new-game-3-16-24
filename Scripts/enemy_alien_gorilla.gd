@@ -114,6 +114,16 @@ func _physics_process(_delta: float) -> void:
 			var dropPickup = drop.instantiate()
 			world.add_child(dropPickup)
 			dropPickup.global_position = global_position
+		elif pick == 4 || pick == 5 || pick == 6:
+			drop = preload("res://Scenes/coinPickup.tscn")
+			var dropPickup = drop.instantiate()
+			world.add_child(dropPickup)
+			dropPickup.global_position = global_position
+		elif pick == 7 || pick == 8:
+			drop = preload("res://Scenes/gemPickup.tscn")
+			var dropPickup = drop.instantiate()
+			world.add_child(dropPickup)
+			dropPickup.global_position = global_position
 		drop = preload("res://Scenes/enemy_gorilla_corpse.tscn")
 		var dropCorpse = drop.instantiate()
 		world.add_child(dropCorpse)

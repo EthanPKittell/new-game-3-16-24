@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://dd5npjvlwcj5r"]
+
+[ext_resource type="Script" uid="uid://cajk51x0gs62k" path="res://Scripts/coin_pickup.gd" id="1_r32xo"]
+[ext_resource type="Texture2D" uid="uid://cna6ui8fwag7l" path="res://Stuff for my game/coinPickup.png" id="2_r32xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
+size = Vector2(35, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t8fl"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyyqo"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkdco"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqfrj"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjld8"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4wxa"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sar2"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfk36"]
+atlas = ExtResource("2_r32xo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxwj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t8fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkdco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqfrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjld8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4wxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sar2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfk36")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djl45"]
+radius = 195.003
+
+[node name="coin_pickup" type="Node2D"]
+z_index = 1
+script = ExtResource("1_r32xo")
+
+[node name="ammo_pickup_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ammo_pickup_area"]
+shape = SubResource("RectangleShape2D_wh5sm")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rxwj7")
+frame_progress = 0.753202
+
+[node name="AttractZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractZone"]
+shape = SubResource("CircleShape2D_djl45")
+debug_color = Color(0, 0.6, 0.701961, 0.329412)
+
+[connection signal="body_entered" from="ammo_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]

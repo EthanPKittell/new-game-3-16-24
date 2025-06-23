@@ -19,7 +19,7 @@ func _on_area_2d_body_exited(body):
 	
 func _physics_process(delta):
 	if entered == true:
-		if Input.is_action_just_pressed("ui_accept") && purchaseLevel < 5:
+		if Input.is_action_just_pressed("ACCEPT_BUTTON") && purchaseLevel < 5:
 			itemAnimation.frame += 1
 			purchaseLevel += 1
 			match state:

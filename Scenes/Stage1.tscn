@@ -77,13 +77,4 @@ position = Vector2(544, 531)
 position = Vector2(-1031, 733)
 
 [node name="health_pickup" parent="." instance=ExtResource("13_hps8j")]
-position = Vector2(676, 708)
-
-[node name="health_pickup2" parent="." instance=ExtResource("13_hps8j")]
-position = Vector2(816, 717)
-
-[node name="health_pickup3" parent="." instance=ExtResource("13_hps8j")]
-position = Vector2(673, 784)
-
-[node name="health_pickup4" parent="." instance=ExtResource("13_hps8j")]
-position = Vector2(819, 796)
+position = Vector2(548, 708)

@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://qfjy7hb85qjc"]
+
+[ext_resource type="Texture2D" uid="uid://qj3crijjcl6n" path="res://Stuff for my game/gemPickup.png" id="2_bukuo"]
+[ext_resource type="Script" uid="uid://cajk51x0gs62k" path="res://Scripts/coin_pickup.gd" id="2_gwh34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
+size = Vector2(35, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwh34"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eav1b"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh5hi"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ssu"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br3yr"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p03f6"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgj2b"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke6xy"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xe4e"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8eov"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ymtl"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olkm3"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weldn"]
+atlas = ExtResource("2_bukuo")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxwj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwh34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eav1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh5hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ssu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br3yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p03f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgj2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke6xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xe4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8eov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ymtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olkm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weldn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djl45"]
+radius = 195.003
+
+[node name="gem_pickup" type="Node2D"]
+z_index = 1
+script = ExtResource("2_gwh34")
+
+[node name="ammo_pickup_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ammo_pickup_area"]
+shape = SubResource("RectangleShape2D_wh5sm")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rxwj7")
+frame_progress = 0.756682
+
+[node name="AttractZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractZone"]
+shape = SubResource("CircleShape2D_djl45")
+debug_color = Color(0, 0.6, 0.701961, 0.329412)
+
+[connection signal="body_entered" from="ammo_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]

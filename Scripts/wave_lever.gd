@@ -20,7 +20,7 @@ func _on_area_2d_body_exited(body):
 	
 func _physics_process(delta):
 	if entered == true:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ACCEPT_BUTTON"):
 			leverAnimation.play("default")
 		
 
