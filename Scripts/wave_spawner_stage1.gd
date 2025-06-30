@@ -20,10 +20,10 @@ const ENEMY_BOXER = preload("res://Scenes/enemy_boxer.tscn")
 #Modify this to change the contents of the wave
 var wave_data = {
 	1: {"enemyRunners": 5, "enemyBoxers": 0, "spawnTimer": 5},
-	2: {"enemyRunners": 20, "enemyBoxers": 0, "spawnTimer": 2},
-	3: {"enemyRunners": 0, "enemyBoxers": 10, "spawnTimer": 1},
-	4: {"enemyRunners": 40, "enemyBoxers": 20, "spawnTimer": 0.2},
-	5: {"enemyRunners": 100, "enemyBoxers": 30, "spawnTimer": 0.1},
+	2: {"enemyRunners": 20, "enemyBoxers": 0, "spawnTimer": 3},
+	3: {"enemyRunners": 0, "enemyBoxers": 10, "spawnTimer": 2},
+	4: {"enemyRunners": 40, "enemyBoxers": 20, "spawnTimer": 1},
+	5: {"enemyRunners": 100, "enemyBoxers": 30, "spawnTimer": 1},
 	}
 
 

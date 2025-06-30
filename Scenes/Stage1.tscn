@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d3ayarfqsgv3s"]
+[gd_scene load_steps=13 format=4 uid="uid://d3ayarfqsgv3s"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_v565l"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_rlcvl"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c6m4cc6kra845" path="res://Scenes/Pistol_pickup.tscn" id="7_c2ykn"]
 [ext_resource type="PackedScene" uid="uid://igq6fdow6cbu" path="res://Scenes/AR_pickup.tscn" id="8_4e16u"]
 [ext_resource type="PackedScene" uid="uid://bsd8m8rlqypw4" path="res://Scenes/Shot_pickup.tscn" id="9_t5lj5"]
-[ext_resource type="PackedScene" uid="uid://b5s0fv1w3gij0" path="res://Scenes/wave_lever.tscn" id="10_6kop3"]
 [ext_resource type="PackedScene" uid="uid://bsr4uhy58u3io" path="res://Scenes/Mini_pickup.tscn" id="10_7ypsa"]
 [ext_resource type="PackedScene" uid="uid://dfhaal0w7ywna" path="res://Scenes/ammoPickup.tscn" id="11_8kfdi"]
 [ext_resource type="PackedScene" uid="uid://b3ls8yyy0kxsg" path="res://Scenes/healthPickup.tscn" id="13_hps8j"]
@@ -32,9 +31,6 @@ position = Vector2(874, 443)
 
 [node name="Y_Sort" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="WaveLever" parent="Y_Sort" instance=ExtResource("10_6kop3")]
-position = Vector2(879, 246)
 
 [node name="Player" parent="Y_Sort" instance=ExtResource("4_fcd30")]
 position = Vector2(872, 442)

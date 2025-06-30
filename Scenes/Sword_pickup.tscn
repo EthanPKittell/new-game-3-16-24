@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blvhdbn53hxvj"]
 
-[ext_resource type="Script" uid="uid://tx6am6r13bjw" path="res://Scripts/Sword_pickup.gd" id="1_erijp"]
+[ext_resource type="Script" uid="uid://brsgs6k3q1hg4" path="res://Scripts/Weapon_Unlock.gd" id="1_erijp"]
 [ext_resource type="Texture2D" uid="uid://bqgkkatjdqn30" path="res://Game assets for demo/Sword_pickup.png" id="2_erijp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
@@ -8,6 +8,16 @@ size = Vector2(35, 36)
 
 [node name="Sword_pickup" type="Area2D"]
 script = ExtResource("1_erijp")
+weapon_name = "Sword"
+weapon_id = 5
+
+[node name="Item Cost" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -43.0
+offset_right = 40.0
+offset_bottom = -20.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wh5sm")
@@ -16,3 +26,4 @@ shape = SubResource("RectangleShape2D_wh5sm")
 texture = ExtResource("2_erijp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

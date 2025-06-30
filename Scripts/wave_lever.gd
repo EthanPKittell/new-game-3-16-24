@@ -72,33 +72,34 @@ func _ready():
 func _on_add_shop_timeout():
 	shopTimer.stop()
 	var world = get_tree().current_scene
+	print("This should only happen once")
 	
 	var item = preload("res://Scenes/item_upgrade.tscn")
 	var item_upgrade = item.instantiate()
 	itemRef = item_upgrade
 	world.add_child.call_deferred(item_upgrade)
-	item_upgrade.global_position = global_position + Vector2(-150, -100)
+	item_upgrade.global_position = global_position + Vector2(-170, -100)
 	item_upgrade.state = 0
 	
 	var item1 = preload("res://Scenes/item_upgrade.tscn")
 	var item_upgrade1 = item1.instantiate()
 	itemRef1 = item_upgrade1
 	world.add_child.call_deferred(item_upgrade1)
-	item_upgrade1.global_position = global_position + Vector2(-50, -100)
+	item_upgrade1.global_position = global_position + Vector2(-60, -100)
 	item_upgrade1.state = 1
 	
 	var item2 = preload("res://Scenes/item_upgrade.tscn")
 	var item_upgrade2 = item2.instantiate()
 	itemRef2 = item_upgrade2
 	world.add_child.call_deferred(item_upgrade2)
-	item_upgrade2.global_position = global_position + Vector2(50, -100)
+	item_upgrade2.global_position = global_position + Vector2(60, -100)
 	item_upgrade2.state = 2
 	
 	var item3 = preload("res://Scenes/item_upgrade.tscn")
 	var item_upgrade3 = item3.instantiate()
 	itemRef3 = item_upgrade3
 	world.add_child.call_deferred(item_upgrade3)
-	item_upgrade3.global_position = global_position + Vector2(150, -100)
+	item_upgrade3.global_position = global_position + Vector2(170, -100)
 	item_upgrade3.state = 3
 	
 	world = get_tree().current_scene.get_node("Y_Sort")

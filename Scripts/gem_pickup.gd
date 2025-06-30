@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 		##	velocity += softCollision.get_push_vector() * 20
 
 
-func _on_coin_pickup_area_body_entered(body: Node2D) -> void:
+func _on_gem_pickup_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		Globals.emit_signal("coin_picked", Globals.playerCoins+1)
+		Globals.emit_signal("gem_picked", Globals.playerGems+1)
 		queue_free()

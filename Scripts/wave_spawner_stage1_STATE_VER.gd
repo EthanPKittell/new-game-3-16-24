@@ -21,10 +21,10 @@ const LEVER_SCENE = preload("res://Scenes/wave_lever.tscn")
 
 var wave_data = {
 	1: {"enemyRunners": 5, "enemyBoxers": 0,"enemyGorillas": 0, "spawnTimer": 5},
-	2: {"enemyRunners": 15, "enemyBoxers": 0,"enemyGorillas": 1, "spawnTimer": 2},
-	3: {"enemyRunners": 0, "enemyBoxers": 10,"enemyGorillas": 0, "spawnTimer": 1},
-	4: {"enemyRunners": 40, "enemyBoxers": 20,"enemyGorillas": 5, "spawnTimer": 0.2},
-	5: {"enemyRunners": 100, "enemyBoxers": 30,"enemyGorillas": 15, "spawnTimer": 0.1},
+	2: {"enemyRunners": 15, "enemyBoxers": 0,"enemyGorillas": 1, "spawnTimer": 4},
+	3: {"enemyRunners": 0, "enemyBoxers": 10,"enemyGorillas": 0, "spawnTimer": 3},
+	4: {"enemyRunners": 40, "enemyBoxers": 20,"enemyGorillas": 5, "spawnTimer": 2},
+	5: {"enemyRunners": 50, "enemyBoxers": 30,"enemyGorillas": 15, "spawnTimer": 1},
 }
 
 func _ready():

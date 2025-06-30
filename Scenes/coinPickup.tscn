@@ -77,9 +77,9 @@ radius = 195.003
 z_index = 1
 script = ExtResource("1_r32xo")
 
-[node name="ammo_pickup_area" type="Area2D" parent="."]
+[node name="coin_pickup_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ammo_pickup_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin_pickup_area"]
 shape = SubResource("RectangleShape2D_wh5sm")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -92,5 +92,6 @@ frame_progress = 0.753202
 shape = SubResource("CircleShape2D_djl45")
 debug_color = Color(0, 0.6, 0.701961, 0.329412)
 
-[connection signal="body_entered" from="ammo_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="coin_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="coin_pickup_area" to="." method="_on_coin_pickup_area_body_entered"]
 [connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]

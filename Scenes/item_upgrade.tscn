@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhmgyqidg5tul"]
+[gd_scene load_steps=12 format=3 uid="uid://bhmgyqidg5tul"]
 
 [ext_resource type="Texture2D" uid="uid://dvfsk7xrmwmkh" path="res://Game assets for demo/ItemLevels.png" id="1_6ys78"]
 [ext_resource type="Script" uid="uid://cpqmptnfqwm1k" path="res://Scripts/item_upgrade.gd" id="1_a0teo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pa8hm"]
+font_size = 12
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0hgu"]
 radius = 34.0588
@@ -59,6 +62,17 @@ animations = [{
 [node name="ItemUpgrade" type="Node2D"]
 script = ExtResource("1_a0teo")
 
+[node name="Item description" type="Label" parent="."]
+offset_left = -49.0
+offset_top = -81.0
+offset_right = 49.0
+offset_bottom = -35.0
+label_settings = SubResource("LabelSettings_pa8hm")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -67,6 +81,16 @@ shape = SubResource("CircleShape2D_u0hgu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qtc2b")
 metadata/_edit_lock_ = true
+
+[node name="Item Cost" type="Label" parent="."]
+offset_left = -49.0
+offset_top = 34.0
+offset_right = 49.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_pa8hm")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

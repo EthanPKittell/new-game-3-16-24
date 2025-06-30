@@ -5,9 +5,17 @@ var globalMaxhealth = 5
 var globalCurrentGun = 0
 var ammo = 0
 var playerDamage = 1
+var playerCoins = 500
+var playerGems = 500
+var unlocked_items := {}
 
 var playerRef: Node2D = null
 
+func unlock_item(item_name: String) -> void:
+	unlocked_items[item_name] = true
+	
+func is_item_unlocked(item_name: String) -> bool:
+	return unlocked_items.get(item_name, false)
 
 #for ammo packs with varying ammo additions
 signal ammo_picked(value)
@@ -23,3 +31,7 @@ signal health_picked(value)
 signal weapon_picked(value)
 
 signal poisoned()
+
+#signals for currency (coin and gem)
+signal coin_picked(value)
+signal gem_picked(value)

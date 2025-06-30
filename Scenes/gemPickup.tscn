@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://qfjy7hb85qjc"]
 
+[ext_resource type="Script" uid="uid://boy7ykydwmyt1" path="res://Scripts/gem_pickup.gd" id="1_bukuo"]
 [ext_resource type="Texture2D" uid="uid://qj3crijjcl6n" path="res://Stuff for my game/gemPickup.png" id="2_bukuo"]
-[ext_resource type="Script" uid="uid://cajk51x0gs62k" path="res://Scripts/coin_pickup.gd" id="2_gwh34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
 size = Vector2(35, 36)
@@ -110,16 +110,16 @@ radius = 195.003
 
 [node name="gem_pickup" type="Node2D"]
 z_index = 1
-script = ExtResource("2_gwh34")
+script = ExtResource("1_bukuo")
 
-[node name="ammo_pickup_area" type="Area2D" parent="."]
+[node name="gem_pickup_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ammo_pickup_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gem_pickup_area"]
 shape = SubResource("RectangleShape2D_wh5sm")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rxwj7")
-frame_progress = 0.756682
+frame_progress = 0.280277
 
 [node name="AttractZone" type="Area2D" parent="."]
 
@@ -127,5 +127,6 @@ frame_progress = 0.756682
 shape = SubResource("CircleShape2D_djl45")
 debug_color = Color(0, 0.6, 0.701961, 0.329412)
 
-[connection signal="body_entered" from="ammo_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="gem_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
+[connection signal="body_entered" from="gem_pickup_area" to="." method="_on_gem_pickup_area_body_entered"]
 [connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]

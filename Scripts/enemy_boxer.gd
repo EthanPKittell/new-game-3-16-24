@@ -40,6 +40,12 @@ func _ready():
 	player = Globals.playerRef
 	state = CHASE
 
+func spawn_coin(world: Node):
+	var drop = preload("res://Scenes/coinPickup.tscn")
+	var dropPickup = drop.instantiate()
+	world.add_child(dropPickup)
+	dropPickup.global_position = global_position + Vector2(randf_range(-10,10),randf_range(-10,10))
+
 func _physics_process(_delta: float) -> void:
 	if Globals.playerRef == null:
 		state = null
@@ -101,9 +107,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if health < 1:
 		var world = get_tree().current_scene.get_node("Y_Sort")
+		randomize()
 		var pick = randi_range(1,10)
 		var drop
-		if pick == 1 || 2:
+		if pick == 1 || pick == 2:
 			drop = preload("res://Scenes/ammoPickup.tscn")
 			var dropPickup = drop.instantiate()
 			world.add_child(dropPickup)
@@ -114,10 +121,8 @@ func _physics_process(_delta: float) -> void:
 			world.add_child(dropPickup)
 			dropPickup.global_position = global_position
 		elif pick == 4 || pick == 5 || pick == 6:
-			drop = preload("res://Scenes/coinPickup.tscn")
-			var dropPickup = drop.instantiate()
-			world.add_child(dropPickup)
-			dropPickup.global_position = global_position
+			spawn_coin(world)
+			spawn_coin(world)
 		elif pick == 7 || pick == 8:
 			drop = preload("res://Scenes/gemPickup.tscn")
 			var dropPickup = drop.instantiate()
