@@ -58,14 +58,25 @@ sprite_frames = SubResource("SpriteFrames_q77uq")
 frame = 2
 frame_progress = 0.830252
 
-[node name="Ammo" type="Label" parent="."]
+[node name="Clip" type="RichTextLabel" parent="."]
+offset_left = -77.0
+offset_top = 33.0
+offset_right = 25.0
+offset_bottom = 68.0
+text = "30/30
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Ammo" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -13.0
-offset_top = 30.0
-offset_right = 27.0
+offset_left = -41.0
+offset_top = 61.0
+offset_right = 25.0
 offset_bottom = 85.0
-theme_override_font_sizes/font_size = 23
-text = "XX"
+text = "X"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="CoinIcon" type="Sprite2D" parent="."]
 position = Vector2(-71, -17)
@@ -94,3 +105,11 @@ offset_right = -84.0
 offset_bottom = 47.0
 theme_override_font_sizes/font_size = 23
 text = "XX"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = 87.0
+offset_right = 27.0
+offset_bottom = 306.0
+fill_mode = 3
+show_percentage = false

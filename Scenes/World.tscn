@@ -30,6 +30,24 @@ tile_set = ExtResource("2_j88b8")
 [node name="Y_Sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Pistol_pickup" parent="Y_Sort" instance=ExtResource("7_r6elw")]
+position = Vector2(2, 392)
+
+[node name="AR_pickup" parent="Y_Sort" instance=ExtResource("8_uruvm")]
+position = Vector2(176, 392)
+
+[node name="Shot_pickup" parent="Y_Sort" instance=ExtResource("9_dngxm")]
+position = Vector2(90, 392)
+
+[node name="Mini_pickup" parent="Y_Sort" instance=ExtResource("10_ygna2")]
+position = Vector2(261, 392)
+
+[node name="Sword_pickup" parent="Y_Sort" instance=ExtResource("13_op4cu")]
+position = Vector2(-160, 392)
+
+[node name="UltraSword_pickup" parent="Y_Sort" instance=ExtResource("14_8l3nt")]
+position = Vector2(-81, 393)
+
 [node name="Player" parent="Y_Sort" instance=ExtResource("4_kk7oo")]
 position = Vector2(870, 619)
 
@@ -55,18 +73,6 @@ offset_bottom = 33.0
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("6_tg2gp")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Pistol_pickup" parent="." instance=ExtResource("7_r6elw")]
-position = Vector2(2, 392)
-
-[node name="AR_pickup" parent="." instance=ExtResource("8_uruvm")]
-position = Vector2(176, 392)
-
-[node name="Shot_pickup" parent="." instance=ExtResource("9_dngxm")]
-position = Vector2(90, 392)
-
-[node name="Mini_pickup" parent="." instance=ExtResource("10_ygna2")]
-position = Vector2(261, 392)
-
 [node name="RoomChange" parent="." instance=ExtResource("11_r82w0")]
 position = Vector2(866, -615)
 
@@ -78,10 +84,4 @@ energy = 0.2
 blend_mode = 1
 
 [node name="Shop_Keeper" parent="." instance=ExtResource("12_ti1bm")]
-position = Vector2(51, 305)
-
-[node name="Sword_pickup" parent="." instance=ExtResource("13_op4cu")]
-position = Vector2(-160, 392)
-
-[node name="UltraSword_pickup" parent="." instance=ExtResource("14_8l3nt")]
-position = Vector2(-81, 393)
+position = Vector2(50, 284)

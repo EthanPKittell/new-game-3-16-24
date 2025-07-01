@@ -1,3 +1,5 @@
+ProgressBar
+RichTextLabel
 Label
 Sprite2D
 AnimatedSprite2D
@@ -11,4 +13,3 @@ Timer
 StaticBody2D
 Node
 Line2D
-RayCast2D

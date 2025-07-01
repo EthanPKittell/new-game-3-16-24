@@ -1,9 +1,10 @@
-res://Scenes/World.tscn
+res://Scenes/AR_pickup.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
+res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Stage1.tscn
@@ -28,7 +29,6 @@ res://Scenes/shop_keeper.tscn
 res://Scenes/smoke_evaporate.tscn
 res://Scenes/smoke.tscn
 res://Scenes/playerHands.tscn
-res://Scenes/AR_pickup.tscn
 res://Scenes/Sword_pickup.tscn
 res://Scenes/UltraSword_pickup.tscn
 res://Scenes/coinPickup.tscn
@@ -37,10 +37,9 @@ res://Scenes/player_stats.tscn
 res://Scenes/health_ui.tscn
 res://Scenes/item_upgrade.tscn
 res://Scenes/wave_lever.tscn
-res://Scripts/item_upgrade.gd
-res://Scripts/UltraSword_pickup.gd
-res://Scripts/Globals.gd
-res://Scripts/gun_type.gd
-res://Scripts/Weapon_Unlock.gd
 res://Scenes/Pistol_pickup.tscn
 res://Scenes/Shot_pickup.tscn
+res://Scripts/Player.gd
+res://Scripts/Weapon_Unlock.gd
+res://Scripts/Globals.gd
+res://Scripts/gun_type.gd

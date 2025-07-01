@@ -1,22 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg3yvlvibh4ag"]
+[gd_scene load_steps=5 format=3 uid="uid://bg3yvlvibh4ag"]
 
 [ext_resource type="Script" uid="uid://brsgs6k3q1hg4" path="res://Scripts/Weapon_Unlock.gd" id="1_mrwap"]
 [ext_resource type="Texture2D" uid="uid://cvmmnuyvqixvv" path="res://Game assets for demo/UltraSword_pickup.png" id="2_mrwap"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrwap"]
+font_size = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh5sm"]
 size = Vector2(35, 36)
 
 [node name="UltraSword_Unlock" type="Area2D"]
 script = ExtResource("1_mrwap")
+weapon_name = "Gut's Sword"
+description = "Sword but... bigger"
 cost = 30
 
-[node name="Item Cost" type="Label" parent="."]
-offset_left = -40.0
-offset_top = -43.0
-offset_right = 40.0
-offset_bottom = -20.0
+[node name="Item description" type="RichTextLabel" parent="."]
+offset_left = -49.0
+offset_top = -81.0
+offset_right = 49.0
+offset_bottom = -35.0
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Item Cost" type="Label" parent="."]
+offset_left = -49.0
+offset_top = 34.0
+offset_right = 49.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_mrwap")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wh5sm")

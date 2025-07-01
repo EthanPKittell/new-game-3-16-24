@@ -90,9 +90,8 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	
 	if Input.is_action_pressed("BUTTON_LEFT") && state == MOVING:
-		if canFire == true and Globals.ammo > 0:
+		if canFire == true and Globals.bullets > 0:
 			if isShotgun == true: #shotgun has multiple projectiles
 				shoot()
 				shoot()
@@ -112,16 +111,23 @@ func _physics_process(delta):
 				playerSprite.play("player_idle")
 			else:
 				shoot()
-			Globals.ammo -=1
-			emit_signal("ammo_changed", Globals.ammo)
+			Globals.bullets -=1
+			Globals.emit_signal("clip_change", Globals.bullets)
 			canFire = false
 			
 			shotTimer.wait_time = fireRate
 			shotTimer.start()
-	
+		elif Globals.bullets == 0:
+			#ammount I will reload
+			var to_reload = min(Globals.clip, Globals.ammo)
+			Globals.bullets += to_reload
+			Globals.ammo -= to_reload
+			emit_signal("ammo_changed", Globals.ammo)
+			Globals.emit_signal("clip_change", Globals.bullets)
+			
 	var mouse_position = get_global_mouse_position()
 	
-	if state == MOVING:
+	if state == MOVING || state == SWORDSLASH:
 		if mouse_position.x > self.global_position.x:
 			playerSprite.flip_h = false
 		elif mouse_position.x < self.global_position.x:
