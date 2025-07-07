@@ -15,6 +15,7 @@ weapon_name = "Shotgun"
 description = "Good for big crowds"
 weapon_id = 3
 cost = 100
+reload_time = 5
 starting_clip = 6
 starting_ammo = 30
 

@@ -15,6 +15,7 @@ weapon_name = "Pistol"
 description = "Better than nothing"
 weapon_id = 1
 cost = 50
+reload_time = 3
 starting_clip = 20
 starting_ammo = 200
 

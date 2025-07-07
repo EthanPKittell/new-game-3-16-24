@@ -15,6 +15,7 @@ weapon_name = "Minigun"
 description = "Bring bullets LOL"
 weapon_id = 4
 cost = 250
+reload_time = 8
 starting_clip = 200
 starting_ammo = 1000
 

@@ -14,6 +14,7 @@ script = ExtResource("1_erijp")
 weapon_name = "Sword"
 description = "For you half price"
 weapon_id = 5
+reload_time = -1
 
 [node name="Item description" type="RichTextLabel" parent="."]
 offset_left = -49.0

@@ -78,7 +78,7 @@ shape = SubResource("CircleShape2D_e1k3p")
 reset_on_save = false
 root_node = NodePath("../Hurtbox")
 libraries = {
-"": SubResource("AnimationLibrary_x6xkd")
+&"": SubResource("AnimationLibrary_x6xkd")
 }
 speed_scale = 3.0
 

@@ -8,6 +8,7 @@ var AR_stat = 1
 @export var description: String = "temp"
 @export var weapon_id: int = 6
 @export var cost: int = 15
+@export var reload_time: int = 15
 @export var starting_clip: int = -1 # -1 means infinite, any positive number is finite
 @export var starting_ammo: int = -1  # -1 means infinite, any positive number is finite
 var entered = false
@@ -35,6 +36,8 @@ func setupAmmo():
 	else:
 		Globals.clip = starting_clip
 		Globals.bullets = starting_clip
+		
+	Globals.reload_time = reload_time
 
 func _on_body_entered(body):
 	entered = true

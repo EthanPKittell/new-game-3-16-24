@@ -1,1 +1,4 @@
+Resource
+Texture2DRD
+CircleShape2D
 TileSet

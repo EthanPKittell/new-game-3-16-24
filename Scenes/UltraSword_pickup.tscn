@@ -14,6 +14,7 @@ script = ExtResource("1_mrwap")
 weapon_name = "Gut's Sword"
 description = "Sword but... bigger"
 cost = 30
+reload_time = -1
 
 [node name="Item description" type="RichTextLabel" parent="."]
 offset_left = -49.0

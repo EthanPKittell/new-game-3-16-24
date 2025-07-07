@@ -6,9 +6,10 @@ var globalCurrentGun = 0
 var ammo = 0
 var clip = 0
 var bullets = 0
+var reload_time = 0
 var playerDamage = 1
-var playerCoins = 500
-var playerGems = 500
+var playerCoins = 999
+var playerGems = 999
 var unlocked_items := {}
 
 var playerRef: Node2D = null

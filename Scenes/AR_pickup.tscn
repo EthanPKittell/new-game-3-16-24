@@ -15,6 +15,7 @@ weapon_name = "AR"
 description = "A real weapon"
 weapon_id = 2
 cost = 150
+reload_time = 4
 starting_clip = 40
 starting_ammo = 300
 

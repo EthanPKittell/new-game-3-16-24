@@ -19,6 +19,7 @@ var isPoisoned = false
 @onready var hurtBox = $Hurtbox
 
 signal ammo_changed(value)
+signal start_reload()
 
 signal roll_started()
 signal roll_ended()
@@ -42,6 +43,25 @@ func _ready():
 	
 	Globals.playerRef = self
 	
+
+func spawn_shell():
+	var mouse_position = get_global_mouse_position()
+	var shell_scene = preload("res://Scenes/bullet_shell.tscn")
+	var shell = shell_scene.instantiate()
+
+	var eject_offset = Vector2(10, -5)
+	shell.facing_dir = 1 # +1 for right, -1 for left
+	if mouse_position.x > self.global_position.x:
+		eject_offset.x *= -1
+		shell.facing_dir = -1 # +1 for right, -1 for left
+
+	shell.global_position = global_position + eject_offset
+
+	# Send player facing direction to shell
+	
+
+	get_tree().current_scene.add_child(shell)
+
 
 func _physics_process(delta):
 	
@@ -98,6 +118,7 @@ func _physics_process(delta):
 				shoot()
 				shoot()
 				shoot()
+				spawn_shell()
 			elif Globals.globalCurrentGun == 5:
 				playerHandsWeapon.play("sword")
 				slash()
@@ -111,6 +132,7 @@ func _physics_process(delta):
 				playerSprite.play("player_idle")
 			else:
 				shoot()
+				spawn_shell()
 			Globals.bullets -=1
 			Globals.emit_signal("clip_change", Globals.bullets)
 			canFire = false
@@ -118,12 +140,8 @@ func _physics_process(delta):
 			shotTimer.wait_time = fireRate
 			shotTimer.start()
 		elif Globals.bullets == 0:
-			#ammount I will reload
-			var to_reload = min(Globals.clip, Globals.ammo)
-			Globals.bullets += to_reload
-			Globals.ammo -= to_reload
-			emit_signal("ammo_changed", Globals.ammo)
-			Globals.emit_signal("clip_change", Globals.bullets)
+			pass #START RELOAD HERE
+			emit_signal("start_reload")
 			
 	var mouse_position = get_global_mouse_position()
 	

@@ -109,7 +109,6 @@ text = "XX"
 
 [node name="ReloadBar" type="ProgressBar" parent="."]
 visible = false
-modulate = Color(0.956977, 0.956977, 4.62055e-06, 1)
 layout_mode = 0
 offset_top = 87.0
 offset_right = 27.0
@@ -117,11 +116,3 @@ offset_bottom = 306.0
 max_value = 1.0
 fill_mode = 3
 show_percentage = false
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ReloadBar"]
-layout_mode = 0
-offset_left = -76.0
-offset_top = 220.0
-offset_right = 45.0
-offset_bottom = 260.0
-text = "RELOADING..."
