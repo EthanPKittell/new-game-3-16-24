@@ -44,13 +44,14 @@ func _ready():
 	Globals.playerRef = self
 	
 
-func spawn_shell():
+func spawn_shell(shell_type):
 	var mouse_position = get_global_mouse_position()
 	var shell_scene = preload("res://Scenes/bullet_shell.tscn")
 	var shell = shell_scene.instantiate()
 
 	var eject_offset = Vector2(10, -5)
 	shell.facing_dir = 1 # +1 for right, -1 for left
+	shell.casing_type = shell_type
 	if mouse_position.x > self.global_position.x:
 		eject_offset.x *= -1
 		shell.facing_dir = -1 # +1 for right, -1 for left
@@ -59,7 +60,7 @@ func spawn_shell():
 
 	# Send player facing direction to shell
 	
-
+	
 	get_tree().current_scene.add_child(shell)
 
 
@@ -118,7 +119,7 @@ func _physics_process(delta):
 				shoot()
 				shoot()
 				shoot()
-				spawn_shell()
+				spawn_shell(1)
 			elif Globals.globalCurrentGun == 5:
 				playerHandsWeapon.play("sword")
 				slash()
@@ -132,7 +133,7 @@ func _physics_process(delta):
 				playerSprite.play("player_idle")
 			else:
 				shoot()
-				spawn_shell()
+				spawn_shell(0)
 			Globals.bullets -=1
 			Globals.emit_signal("clip_change", Globals.bullets)
 			canFire = false

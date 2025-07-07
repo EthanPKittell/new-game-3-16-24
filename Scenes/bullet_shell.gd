@@ -1,11 +1,13 @@
 extends Node2D
 
+@onready var shellSprite = $Sprite2D
+
 @export var eject_speed := 100.0
 @export var arc_height := -30.0
 @export var landing_y_offset := 17.0  # how much lower the shell lands than it starts
 @export var lifetime := 5.0
 @export var facing_dir := 1  # 1 for right, -1 for left
-
+@export var casing_type := 0  #0 for regular #1 for shotgun
 
 var velocity := Vector2.ZERO
 var start_y := 0.0
@@ -15,6 +17,11 @@ var spin_velocity := 0.0
 
 func _ready():
 	randomize()
+
+	if casing_type == 0:
+		shellSprite.play("default")
+	else:
+		shellSprite.play("shot_gun")
 
 	start_y = global_position.y
 
@@ -44,3 +51,7 @@ func _process(delta):
 
 	if t >= lifetime:
 		queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	queue_free()

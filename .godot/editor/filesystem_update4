@@ -39,10 +39,8 @@ res://Scenes/item_upgrade.tscn
 res://Scenes/wave_lever.tscn
 res://Scenes/Pistol_pickup.tscn
 res://Scenes/Shot_pickup.tscn
-res://Scripts/gun_type.gd
-res://Scripts/Globals.gd
-res://Scripts/Player.gd
-res://Scripts/Weapon_Unlock.gd
 res://Scenes/bullet_shell.tscn
-res://Scenes/bullet_shell.gd
 res://Scenes/enemy.tscn
+res://Scripts/Player.gd
+res://Scenes/bullet_shell.gd
+res://Scenes/poison_puddle.tscn

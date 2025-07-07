@@ -1,10 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqr3xrvshwis8"]
+[gd_scene load_steps=8 format=3 uid="uid://dqr3xrvshwis8"]
 
 [ext_resource type="Script" uid="uid://kbvfk07fw555" path="res://Scenes/bullet_shell.gd" id="1_40y2m"]
 [ext_resource type="Texture2D" uid="uid://b4oekaxhcornr" path="res://Stuff for my game/bullet_shell.png" id="1_422do"]
+[ext_resource type="Texture2D" uid="uid://drjh6q5ky1smk" path="res://Stuff for my game/bullet_shell_shot.png" id="3_5eljh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wr2o"]
+atlas = ExtResource("1_422do")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mg4w"]
+atlas = ExtResource("3_5eljh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ady8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wr2o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mg4w")
+}],
+"loop": false,
+"name": &"shot_gun",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5eljh"]
+radius = 2.23607
 
 [node name="Shell" type="Node2D"]
+z_index = -1
 script = ExtResource("1_40y2m")
+lifetime = 15.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_422do")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ady8m")
+animation = &"shot_gun"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5eljh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
