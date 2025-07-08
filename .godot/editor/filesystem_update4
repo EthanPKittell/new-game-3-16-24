@@ -1,9 +1,11 @@
-res://Scenes/World.tscn
+res://Scenes/water_barrier.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
+res://Scenes/water_effect.gdshader
+res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Stage1.tscn
@@ -41,6 +43,5 @@ res://Scenes/Pistol_pickup.tscn
 res://Scenes/Shot_pickup.tscn
 res://Scenes/bullet_shell.tscn
 res://Scenes/enemy.tscn
-res://Scripts/Player.gd
-res://Scenes/bullet_shell.gd
 res://Scenes/poison_puddle.tscn
+res://Scenes/enemy_seeker.tscn

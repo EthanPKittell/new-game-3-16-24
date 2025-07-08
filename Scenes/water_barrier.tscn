@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://i0rma54rq8tf"]
+
+[ext_resource type="Shader" uid="uid://37xf7aosh7kk" path="res://Scenes/water_effect.gdshader" id="1_f3s1g"]
+[ext_resource type="Texture2D" uid="uid://caedn1s0vulip" path="res://Game assets for demo/Water.png" id="2_f3s1g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3s1g"]
+shader = ExtResource("1_f3s1g")
+shader_parameter/speed = 2.0
+shader_parameter/amplitude = 10.0
+shader_parameter/frequency = 18.0
+shader_parameter/transparency = 0.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26v04"]
+size = Vector2(32, 32)
+
+[node name="WaterBarrier" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_f3s1g")
+texture = ExtResource("2_f3s1g")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 512)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_26v04")

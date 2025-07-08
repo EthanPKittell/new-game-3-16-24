@@ -102,7 +102,7 @@ metadata/_edit_lock_ = true
 reset_on_save = false
 root_node = NodePath("../Hurtbox")
 libraries = {
-"": SubResource("AnimationLibrary_x6xkd")
+&"": SubResource("AnimationLibrary_x6xkd")
 }
 speed_scale = 3.0
 

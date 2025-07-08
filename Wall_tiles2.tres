@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bdsob4xbij6pp"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bdsob4xbij6pp"]
 
 [ext_resource type="Texture2D" uid="uid://bviypssjqskgc" path="res://Game assets for demo/wallTile.png" id="1_g66qa"]
 
@@ -16,6 +16,18 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-7.3125, -6.5, 7.6875, 
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ps7yv"]
+vertices = PackedVector2Array(7.32813, 6.6875, -5.73438, 7.64844, -6.05469, -6.05469, 7.32813, -6.375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-6.05398, -6.05398, 7.32851, -6.37262, 7.32851, 6.69125, -5.73535, 7.64714)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ajats"]
+vertices = PackedVector2Array(6.6875, -7.00781, 7.00781, 7.32813, -7.64844, 7.00781, -8.60156, -7.32813)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8.60303, -7.32851, 6.69125, -7.00988, 7.00988, 7.32851, -7.64714, 7.00988)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfbpg"]
 texture = ExtResource("1_g66qa")
 texture_region_size = Vector2i(32, 32)
@@ -27,6 +39,26 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 1.91179, -16, 1.59315)
 1:1/0 = 0
 1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_m67of")
+3:1/0 = 0
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ajats")
+5:1/0 = 0
+7:1/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ps7yv")
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.63726, -16, 0.31863)
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -0.31863, -16, -0.63726)
+7:0/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.31863, -16, 0)
 
 [resource]
 tile_size = Vector2i(32, 32)
