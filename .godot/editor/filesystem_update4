@@ -1,14 +1,14 @@
-res://Scenes/water_barrier.tscn
+res://Scenes/Stage1.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
 res://Scenes/water_effect.gdshader
+res://Scenes/water_barrier.tscn
 res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
-res://Scenes/Stage1.tscn
 res://Scenes/player_slash.tscn
 res://Scenes/enemy_boxer_corpse.tscn
 res://Scenes/poison_effect.tscn
