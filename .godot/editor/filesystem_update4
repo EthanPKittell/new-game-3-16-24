@@ -5,7 +5,8 @@ res://BulletEffect.tres
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
 res://Scenes/water_effect.gdshader
-res://Scenes/water_barrier.tscn
+res://player_only_barrier.tres
+res://Scripts/Player.gd
 res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
@@ -45,3 +46,4 @@ res://Scenes/bullet_shell.tscn
 res://Scenes/enemy.tscn
 res://Scenes/poison_puddle.tscn
 res://Scenes/enemy_seeker.tscn
+res://Scenes/water_submerge_player.gdshader

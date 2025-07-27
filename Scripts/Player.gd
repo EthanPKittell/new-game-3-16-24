@@ -11,7 +11,11 @@ var stats = PlayerStats
 var rollingVector = Vector2.ZERO
 var can_roll = true
 var isPoisoned = false
+var in_water := false
+var water_move_multiplier := 0.5  # slower in water\
 
+
+@onready var water_tilemap := $"/root/World/TileMap/Layer1"  # your below-water tilemap
 @onready var shotTimer = $Timer
 @onready var rollTimer = $RollActive
 @onready var playerSprite = $AnimatedSprite2D
@@ -32,6 +36,28 @@ enum {
 }
 
 var state = MOVING
+
+
+func is_on_water_tile(position: Vector2) -> bool:
+	if water_tilemap == null:
+		return false
+	# 1. Get global position.
+	var global_pos = global_position
+	# 2. Convert player global position to be local to $TileMap
+	var local_pos = water_tilemap.to_local(global_pos)
+	# 3. Convert the local $TileMap position to coordinates
+	var coords = water_tilemap.local_to_map(local_pos)
+	# 4. Get tile data with coords
+	var data = water_tilemap.get_cell_tile_data(coords)
+	# 5. Check if data is not null
+	if data:
+		# 6. Get custom data
+		var has_water = data.get_custom_data("is_water_tile")
+		# 7. Handle water
+		if has_water:
+			print("Has water!")
+			return true
+	return false
 
 func _ready():
 	stats.no_health.connect(death)
@@ -65,6 +91,16 @@ func spawn_shell(shell_type):
 
 
 func _physics_process(delta):
+	
+	var on_water = is_on_water_tile(global_position)
+
+	if on_water:
+		speed = 1
+		playerSprite.material.set_shader_parameter("cut_in_half", true)
+		# Maybe call spawn_splash_effect()
+	else:
+		speed = 2.3
+		playerSprite.material.set_shader_parameter("cut_in_half", false)
 	
 	if state == MOVING:
 		if Input.is_action_pressed(("MOVE_RIGHT")): #Change logic for rolling movement later

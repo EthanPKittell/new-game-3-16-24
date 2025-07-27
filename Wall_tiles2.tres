@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bdsob4xbij6pp"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bdsob4xbij6pp"]
 
 [ext_resource type="Texture2D" uid="uid://bviypssjqskgc" path="res://Game assets for demo/wallTile.png" id="1_g66qa"]
 
@@ -34,6 +34,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8.60303, -7.32851, 6.69125, -7.00988, 7.00988, 7.32851, -7.64714, 7.00988)])
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8tqju"]
+vertices = PackedVector2Array(6.6875, 6.375, -9.24219, 6.375, -8.92188, -6.6875, 7.00781, -7.00781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8.92166, -6.69125, 7.00988, -7.00988, 6.69125, 6.37262, -9.24029, 6.37262)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfbpg"]
 texture = ExtResource("1_g66qa")
 texture_region_size = Vector2i(32, 32)
@@ -64,13 +70,15 @@ texture_region_size = Vector2i(32, 32)
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -0.31863, -16, -0.63726)
 7:0/0 = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.31863, -16, 0)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 9.55892, -16, 9.24029)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5yexa")
+3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_8tqju")
 
 [resource]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 5
+physics_layer_0/collision_layer = 6
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_cfbpg")

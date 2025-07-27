@@ -1,0 +1,34 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b1d6yj42sj8fc"]
+
+[ext_resource type="Texture2D" uid="uid://bviypssjqskgc" path="res://Game assets for demo/wallTile.png" id="1_0b20c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0b20c"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mkcja"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkcja"]
+texture = ExtResource("1_0b20c")
+texture_region_size = Vector2i(32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.2502, -15.6129, 15.2943, -15.9315, 15.6129, 15.2943, -16.2502, 15.2943)
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0b20c")
+2:2/0/custom_data_0 = true
+3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mkcja")
+3:2/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 2
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "is_water_tile"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_mkcja")
