@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://badrhxfsljep4"]
+
+[ext_resource type="Texture2D" uid="uid://d058rpgy0prs4" path="res://Game assets for demo/blood_effect.png" id="1_my2bc"]
+[ext_resource type="Script" uid="uid://b38hq3gveye6e" path="res://Scenes/splash_effect.gd" id="2_gb5f5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gb5f5"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_my2bc"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 19.021
+initial_velocity_min = 32.71
+initial_velocity_max = 65.64
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -4.0
+linear_accel_max = -4.0
+color = Color(0.668662, 0.845073, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = -0.99
+anim_speed_min = 0.41
+anim_speed_max = 1.49
+
+[node name="SplashEffect" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_gb5f5")
+amount = 18
+sub_emitter = NodePath(".")
+texture = ExtResource("1_my2bc")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_my2bc")
+script = ExtResource("2_gb5f5")

@@ -127,6 +127,6 @@ frame_progress = 0.280277
 shape = SubResource("CircleShape2D_djl45")
 debug_color = Color(0, 0.6, 0.701961, 0.329412)
 
-[connection signal="body_entered" from="gem_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
 [connection signal="body_entered" from="gem_pickup_area" to="." method="_on_gem_pickup_area_body_entered"]
+[connection signal="body_entered" from="gem_pickup_area" to="." method="_on_ammo_pickup_area_body_entered"]
 [connection signal="body_entered" from="AttractZone" to="." method="_on_attract_zone_body_entered"]

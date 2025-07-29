@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c66jnigbwsp2o"]
+[gd_scene load_steps=12 format=3 uid="uid://c66jnigbwsp2o"]
 
 [ext_resource type="Script" uid="uid://ci8g5apw4mql8" path="res://Scripts/Player.gd" id="1_ml8ai"]
+[ext_resource type="PackedScene" uid="uid://badrhxfsljep4" path="res://Scenes/splash_effect.tscn" id="2_nn08x"]
 [ext_resource type="Shader" uid="uid://dcsgrrsbwol6l" path="res://Scenes/water_submerge_player.gdshader" id="3_5ixxa"]
 [ext_resource type="PackedScene" uid="uid://vuwkik87hph6" path="res://Scenes/playerHands.tscn" id="3_61yc3"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="4_0ecuo"]
@@ -9,6 +10,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nn08x"]
 shader = ExtResource("3_5ixxa")
 shader_parameter/cut_in_half = false
+shader_parameter/sink_amount = 0.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akhj4"]
 radius = 8.01561
@@ -29,6 +31,7 @@ fill_from = Vector2(0.5, 0.5)
 visibility_layer = 4
 collision_mask = 2
 script = ExtResource("1_ml8ai")
+splash_scene = ExtResource("2_nn08x")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(-2, 10)
@@ -69,7 +72,10 @@ color = Color(1, 1, 0.584314, 1)
 energy = 1.68
 texture = SubResource("GradientTexture2D_5ixxa")
 
+[node name="SplashTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="RollActive" to="." method="_on_roll_active_timeout"]
+[connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]

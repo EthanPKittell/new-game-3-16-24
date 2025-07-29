@@ -82,7 +82,7 @@ position = Vector2(866, -615)
 script = ExtResource("12_xk54o")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.2
+energy = 0.5
 blend_mode = 1
 
 [node name="Shop_Keeper" parent="." instance=ExtResource("12_ti1bm")]

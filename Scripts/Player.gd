@@ -13,14 +13,24 @@ var can_roll = true
 var isPoisoned = false
 var in_water := false
 var water_move_multiplier := 0.5  # slower in water\
+var rollingAccel = 400
+var movingAround = false
 
+var splash_time = 0.0
+var canSplash = true
+var maxSplash = 0.5
 
+@onready var splash_timer = $SplashTimer
 @onready var water_tilemap := $"/root/World/TileMap/Layer1"  # your below-water tilemap
 @onready var shotTimer = $Timer
 @onready var rollTimer = $RollActive
 @onready var playerSprite = $AnimatedSprite2D
 @onready var playerHandsWeapon = $playerHands/AnimatedSprite2D
+@onready var playerShadow = $Shadow
 @onready var hurtBox = $Hurtbox
+
+@export var splash_scene: PackedScene
+
 
 signal ammo_changed(value)
 signal start_reload()
@@ -97,50 +107,74 @@ func _physics_process(delta):
 	if on_water:
 		speed = 1
 		playerSprite.material.set_shader_parameter("cut_in_half", true)
-		# Maybe call spawn_splash_effect()
+		playerSprite.material.set_shader_parameter("sink_amount", 0.2) # You can increase this to sink more
+		playerShadow.visible = false
+		rollingAccel = 250
+		
+		
+		if canSplash == true && movingAround == true:
+			canSplash = false
+			splash_time = randf_range(0.1,maxSplash)
+			splash_timer.wait_time = splash_time
+			splash_timer.start()
+			var splash = splash_scene.instantiate()
+			splash.global_position = global_position + Vector2(0, 10)  # adjust Y to match feet
+			get_tree().current_scene.add_child(splash)
+			# Maybe call spawn_splash_effect()
 	else:
 		speed = 2.3
 		playerSprite.material.set_shader_parameter("cut_in_half", false)
+		playerShadow.visible = true
+		rollingAccel = 400
 	
 	if state == MOVING:
 		if Input.is_action_pressed(("MOVE_RIGHT")): #Change logic for rolling movement later
 			position.x += speed
 			rollingVector.x = 1 
+			movingAround = true
 			if !(Input.is_action_pressed("MOVE_UP") || Input.is_action_pressed("MOVE_DOWN")):
 				rollingVector.y = 0
 			playerSprite.play("player_run")
+			movingAround = true
 		if Input.is_action_pressed(("MOVE_LEFT")):
 			position.x -= speed
 			rollingVector.x = -1
+			movingAround = true
 			if !(Input.is_action_pressed("MOVE_UP") || Input.is_action_pressed("MOVE_DOWN")):
 				rollingVector.y = 0
 			playerSprite.play("player_run")
 		if Input.is_action_pressed(("MOVE_UP")):
 			position.y -= speed
 			rollingVector.y = -1
+			movingAround = true
 			if !(Input.is_action_pressed("MOVE_LEFT") || Input.is_action_pressed("MOVE_RIGHT")):
 				rollingVector.x = 0
 			playerSprite.play("player_run")
 		if Input.is_action_pressed(("MOVE_DOWN")):
 			position.y += speed
 			rollingVector.y = 1
+			movingAround = true
 			if !(Input.is_action_pressed("MOVE_LEFT") || Input.is_action_pressed("MOVE_RIGHT")):
 				rollingVector.x = 0
 			playerSprite.play("player_run")
 		if !Input.is_action_pressed(("MOVE_RIGHT")) && !Input.is_action_pressed(("MOVE_LEFT")) && !Input.is_action_pressed(("MOVE_UP")) && !Input.is_action_pressed(("MOVE_DOWN")):
 			playerSprite.play("player_idle")
+			movingAround = false
+			
 		if Input.is_action_just_pressed("ROLL_BUTTON") && can_roll == true: #this is going to be an implementation of a roll (need to figure out vectoring and roll ability)
 			state = ROLLING
 			hurtBox.monitorable = false
 			hurtBox.monitoring = false
 			can_roll = false
+			movingAround = true
+			maxSplash = 0.15
 			emit_signal("roll_started")
 			playerSprite.play("player_roll")
 			
 			
 	
 	if state == ROLLING: 
-		position = position.move_toward(global_position + (rollingVector * 100), delta * 400)
+		position = position.move_toward(global_position + (rollingVector * 100), delta * rollingAccel)
 		##explaination for these values the rolling vector multiplication is the target position and the delta mult is acceleration
 	
 	
@@ -337,6 +371,7 @@ func death():
 #not using this anymore
 func _on_roll_active_timeout() -> void:
 	can_roll = true
+	maxSplash = 0.5
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -365,3 +400,8 @@ func poisonEffect():
 		playerSprite.modulate = Color(1, 1, 1)
 		playerHandsWeapon.modulate = Color(1, 1, 1)
 		
+
+
+func _on_splash_timer_timeout() -> void:
+	canSplash = true
+	splash_timer.stop()
