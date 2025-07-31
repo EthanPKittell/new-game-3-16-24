@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="2_12brg"]
 [ext_resource type="PackedScene" uid="uid://badrhxfsljep4" path="res://Scenes/splash_effect.tscn" id="2_kguor"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="3_kguor"]
+[ext_resource type="Shader" uid="uid://dcsgrrsbwol6l" path="res://Scenes/water_submerge_player.gdshader" id="4_12brg"]
 [ext_resource type="Shader" uid="uid://djex6djj71rmc" path="res://WhiteColor.gdshader" id="4_aalko"]
 [ext_resource type="Texture2D" uid="uid://lklpqwq6eyy4" path="res://Game assets for demo/enemy_boxer_dead.png" id="5_8re01"]
 [ext_resource type="Texture2D" uid="uid://c014rnafgi6ur" path="res://Stuff for my game/enemy_runner_attack.png" id="5_aa6vh"]
-[ext_resource type="Shader" uid="uid://usnjcyb8xuas" path="res://water_submerge_blink.gdshader" id="5_kguor"]
 [ext_resource type="Texture2D" uid="uid://b7cxv0d6ewjhb" path="res://Stuff for my game/enemy_runner.png" id="7_12brg"]
 [ext_resource type="Texture2D" uid="uid://dfqmw6t015bd" path="res://Stuff for my game/enemy_runner_run.png" id="8_kguor"]
 
@@ -18,10 +18,9 @@ size = Vector2(59, 61)
 radius = 16.1245
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6e6yc"]
-shader = ExtResource("5_kguor")
+shader = ExtResource("4_12brg")
 shader_parameter/cut_in_half = false
 shader_parameter/sink_amount = 0.1
-shader_parameter/blink_active = false
 
 [sub_resource type="Animation" id="Animation_bbmd2"]
 length = 0.001
