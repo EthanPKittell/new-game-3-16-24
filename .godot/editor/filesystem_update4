@@ -1,15 +1,17 @@
-res://Scenes/Stage1.tscn
+res://Scenes/enemy_alien_gorilla.tscn
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
 res://Scenes/water_submerge_player.gdshader
 res://Scenes/player_animation.tres
 res://WhiteColor.gdshader
+res://water_submerge_blink.gdshader
 res://Scenes/water_effect.gdshader
 res://player_only_barrier.tres
-res://Scenes/World.tscn
 res://Scenes/Player.tscn
+res://Scenes/World.tscn
 res://Scenes/wave_spawner_stage1.tscn
+res://Scenes/Stage1.tscn
 res://Scenes/player_slash.tscn
 res://Scenes/enemy_boxer_corpse.tscn
 res://Scenes/poison_effect.tscn
@@ -17,6 +19,5 @@ res://Scenes/blood_effect.tscn
 res://Scenes/splash_effect.tscn
 res://Scenes/enemy_runner_corpse.tscn
 res://Scenes/enemy_runner.tscn
-res://Scripts/enemy_runner.gd
 res://Scenes/enemy_boxer.tscn
-res://water_submerge_blink.gdshader
+res://Scripts/Player.gd

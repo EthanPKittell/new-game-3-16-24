@@ -9,6 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nn08x"]
 shader = ExtResource("3_5ixxa")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
 shader_parameter/cut_in_half = false
 shader_parameter/sink_amount = 0.1
 

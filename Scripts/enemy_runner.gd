@@ -97,11 +97,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if Globals.playerRef == null:
 		state = null
-		
-	
-	
-		
-		
+
 	#detecting if the player is actually able to be shot at
 	if player != null:
 		var direction_to_player = (player.global_position - self.global_position)

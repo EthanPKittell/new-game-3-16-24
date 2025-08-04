@@ -13,16 +13,24 @@ var inRange = false
 var attackAble = false
 var shootingOffset = Vector2(0,-20) #offset for where the bullets are starting
 
+var splash_time = 0.0
+var canSplash = true
+var maxSplash = 0.5
+
 #@export var player: Node2D
 @onready var sceneName = get_parent().get_parent().name
 @onready var player = Globals.playerRef#get_node("/root/"+ sceneName +"/Y_Sort/Player")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var shotTimer = $ShotTimer
 @onready var softCollision = $SoftCollision
+@onready var boxerShadow = $Shadow
 @onready var playerSight = $RayCast2D
 @onready var boxerSprite = $AnimatedSprite2D
 @onready var chaseTimer = $ChaseTimer
+@onready var splash_timer = $splashTimer
+@onready var water_tilemap := $"/root/World/TileMap/Layer1"  # your below-water tilemap
 
+@export var splash_scene: PackedScene
 
 enum {
 	IDLE, #unused state
@@ -46,7 +54,45 @@ func spawn_coin(world: Node):
 	world.add_child(dropPickup)
 	dropPickup.global_position = global_position + Vector2(randf_range(-10,10),randf_range(-10,10))
 
+func is_on_water_tile(position: Vector2) -> void:
+	if water_tilemap == null:
+		return
+	# 1. Get global position.
+	var global_pos = global_position
+	# 2. Convert player global position to be local to $TileMap
+	var local_pos = water_tilemap.to_local(global_pos)
+	# 3. Convert the local $TileMap position to coordinates
+	var coords = water_tilemap.local_to_map(local_pos)
+	# 4. Get tile data with coords
+	var data = water_tilemap.get_cell_tile_data(coords)
+	# 5. Check if data is not null
+	if data:
+		# 6. Get custom data
+		var has_water = data.get_custom_data("is_water_tile")
+		# 7. Handle water
+		if has_water:
+			speed = 140
+			boxerSprite.material.set_shader_parameter("cut_in_half", true)
+			boxerSprite.material.set_shader_parameter("sink_amount", 0.2) # You can increase this to sink more
+			boxerShadow.visible = false
+		
+			if canSplash == true:
+				canSplash = false
+				splash_time = randf_range(0.1,maxSplash)
+				splash_timer.wait_time = splash_time
+				splash_timer.start()
+				var splash = splash_scene.instantiate()
+				splash.global_position = global_position + Vector2(0, 10)  # adjust Y to match feet
+				get_tree().current_scene.add_child(splash)
+		return
+	speed = 280
+	boxerSprite.material.set_shader_parameter("cut_in_half", false)
+	boxerShadow.visible = true
+
+
 func _physics_process(_delta: float) -> void:
+	is_on_water_tile(global_position)
+	
 	if Globals.playerRef == null:
 		state = null
 	#detecting if the player is actually able to be shot at
@@ -145,7 +191,13 @@ func _physics_process(_delta: float) -> void:
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("PlayerProjectile"):
 		health = health - Globals.playerDamage
-		anim.play("blink")
+		# Enable blink
+		boxerSprite.material.set_shader_parameter("blink_active", true)
+
+		# Disable blink after short delay
+		await get_tree().create_timer(0.1).timeout
+		boxerSprite.material.set_shader_parameter("blink_active", false)
+		#anim.play("blink")
 		#if state != CHASE:
 		#	state = CHASE
 
@@ -221,3 +273,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	state = ATTACK
 	#pretty much a timer after spitting makes the enemy go into idle animation
 	#while waiting for the shot timer to be done
+
+
+func _on_splash_timer_timeout() -> void:
+	canSplash = true
+	splash_timer.stop()

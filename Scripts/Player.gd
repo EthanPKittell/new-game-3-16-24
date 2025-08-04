@@ -101,9 +101,8 @@ func spawn_shell(shell_type):
 
 
 func _physics_process(delta):
-	
 	var on_water = is_on_water_tile(global_position)
-
+	
 	if on_water:
 		speed = 1
 		playerSprite.material.set_shader_parameter("cut_in_half", true)
@@ -385,7 +384,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func poisonEffect():
 	if isPoisoned == false:
 		isPoisoned = true
-		playerSprite.modulate = Color(0.376, 1, 0.153)
+		playerSprite.material.set_shader_parameter("modulate_color", Color(0.376, 1, 0.153, 1))
 		playerHandsWeapon.modulate = Color(0.376, 1, 0.153)
 		var poison = preload("res://Scenes/poison_effect.tscn")
 		var poisonEffect = poison.instantiate()
@@ -397,7 +396,7 @@ func poisonEffect():
 		await get_tree().create_timer(5).timeout
 		poisonEffect.queue_free()
 		isPoisoned = false
-		playerSprite.modulate = Color(1, 1, 1)
+		playerSprite.material.set_shader_parameter("modulate_color", Color(1, 1, 1, 1))
 		playerHandsWeapon.modulate = Color(1, 1, 1)
 		
 

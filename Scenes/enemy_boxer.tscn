@@ -1,12 +1,14 @@
-[gd_scene load_steps=36 format=3 uid="uid://cit58do7s84dv"]
+[gd_scene load_steps=39 format=3 uid="uid://cit58do7s84dv"]
 
 [ext_resource type="Script" uid="uid://l1r8w7bhyhdi" path="res://Scripts/enemy_boxer.gd" id="1_t6wtl"]
+[ext_resource type="PackedScene" uid="uid://badrhxfsljep4" path="res://Scenes/splash_effect.tscn" id="2_5x826"]
 [ext_resource type="PackedScene" uid="uid://cm5on2wh0fj5p" path="res://Scenes/soft_collision.tscn" id="2_qsqvp"]
 [ext_resource type="Shader" uid="uid://djex6djj71rmc" path="res://WhiteColor.gdshader" id="3_jg37k"]
 [ext_resource type="Texture2D" uid="uid://dp0foiaww5e81" path="res://Game assets for demo/enemy_boxer.png" id="4_btppj"]
 [ext_resource type="Texture2D" uid="uid://dxgrl0od7630j" path="res://Game assets for demo/enemy_boxer_run.png" id="5_a0qpx"]
 [ext_resource type="Texture2D" uid="uid://lklpqwq6eyy4" path="res://Game assets for demo/enemy_boxer_dead.png" id="5_wrc7e"]
 [ext_resource type="Texture2D" uid="uid://bgj0wq6sk3u6n" path="res://Game assets for demo/shadow.png" id="6_b6gdb"]
+[ext_resource type="Shader" uid="uid://usnjcyb8xuas" path="res://water_submerge_blink.gdshader" id="6_bmk6l"]
 [ext_resource type="Texture2D" uid="uid://cwymbrdigmn17" path="res://Game assets for demo/enemy_boxer_spitting.png" id="7_fpen2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uvs"]
@@ -90,6 +92,12 @@ radius = 184.003
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mo8et"]
 radius = 372.005
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4cmyc"]
+shader = ExtResource("6_bmk6l")
+shader_parameter/cut_in_half = false
+shader_parameter/sink_amount = 0.1
+shader_parameter/blink_active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uuos"]
 atlas = ExtResource("5_wrc7e")
@@ -233,6 +241,7 @@ collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_t6wtl")
+splash_scene = ExtResource("2_5x826")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
@@ -297,13 +306,15 @@ shape = SubResource("CircleShape2D_mo8et")
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_6e6yc")
+material = SubResource("ShaderMaterial_4cmyc")
 position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_d3k3w")
 animation = &"boxer_corpse"
 metadata/_edit_lock_ = true
 
 [node name="ChaseTimer" type="Timer" parent="."]
+
+[node name="splashTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
@@ -313,3 +324,4 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="timeout" from="splashTimer" to="." method="_on_splash_timer_timeout"]
