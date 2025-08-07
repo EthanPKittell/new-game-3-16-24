@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-var speed = 2.3
+var speed = 60#2.3
 var accuracyValue = 0.2#0.01 is pretty accurate 2.0 is insanely inaccurate
 var canFire = false #I set it to false because when You start you have no gun
 var fireRate = 0.2
@@ -21,7 +21,8 @@ var canSplash = true
 var maxSplash = 0.5
 
 @onready var splash_timer = $SplashTimer
-@onready var water_tilemap := $"/root/World/TileMap/Layer1"  # your below-water tilemap
+#@onready var water_tilemap := $"/root/World/TileMap/Layer1"  # your below-water tilemap
+var water_tilemap  # Declare it up top
 @onready var shotTimer = $Timer
 @onready var rollTimer = $RollActive
 @onready var playerSprite = $AnimatedSprite2D
@@ -65,11 +66,11 @@ func is_on_water_tile(position: Vector2) -> bool:
 		var has_water = data.get_custom_data("is_water_tile")
 		# 7. Handle water
 		if has_water:
-			print("Has water!")
 			return true
 	return false
 
 func _ready():
+	water_tilemap = get_node_or_null("/root/World/TileMap/Layer1")
 	stats.no_health.connect(death)
 	Globals.ammo_picked.connect(ammo_picked_up)
 	Globals.weapon_picked.connect(change_gun)
@@ -121,7 +122,7 @@ func _physics_process(delta):
 			get_tree().current_scene.add_child(splash)
 			# Maybe call spawn_splash_effect()
 	else:
-		speed = 2.3
+		speed = 7#2.3
 		playerSprite.material.set_shader_parameter("cut_in_half", false)
 		playerShadow.visible = true
 		rollingAccel = 400

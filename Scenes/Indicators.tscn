@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://blout5kp70nqm"]
+
+[ext_resource type="Script" uid="uid://cj3hacb10du0x" path="res://Scenes/indicators.gd" id="1_5nfag"]
+[ext_resource type="PackedScene" uid="uid://jla0sx0113ex" path="res://Scenes/EnemyIndicator.tscn" id="2_xwb3x"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_5nfag")
+marker_scene = ExtResource("2_xwb3x")

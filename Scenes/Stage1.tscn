@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3ayarfqsgv3s"]
+[gd_scene load_steps=10 format=4 uid="uid://d3ayarfqsgv3s"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_v565l"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_rlcvl"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://b1d6yj42sj8fc" path="res://player_only_barrier.tres" id="4_wawdp"]
 [ext_resource type="PackedScene" uid="uid://baojgffpvq38c" path="res://Scenes/gun_type.tscn" id="5_8ldkt"]
 [ext_resource type="PackedScene" uid="uid://cibkb84fmspum" path="res://Scenes/health_ui.tscn" id="6_3odaw"]
+[ext_resource type="PackedScene" uid="uid://blout5kp70nqm" path="res://Scenes/Indicators.tscn" id="7_b22km"]
 
 [node name="World" type="Node2D"]
 
@@ -57,7 +58,7 @@ limit_right = 2500
 limit_bottom = 1600
 position_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" parent="." instance=ExtResource("7_b22km")]
 
 [node name="gun_type" parent="CanvasLayer" instance=ExtResource("5_8ldkt")]
 offset_left = 1251.0
@@ -66,4 +67,3 @@ offset_right = 1251.0
 offset_bottom = 35.0
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("6_3odaw")]
-metadata/_edit_use_anchors_ = true

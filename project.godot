@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://Scenes/player_stats.tscn"
 Globals="*res://Scripts/Globals.gd"
+Indicators="*res://Scenes/Indicators.tscn"
 
 [display]
 

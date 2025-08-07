@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://jla0sx0113ex"]
+
+[ext_resource type="Texture2D" uid="uid://bt467m78va06c" path="res://Game assets for demo/enemyIndicator.png" id="1_udg53"]
+
+[node name="EnemyIndicator" type="Sprite2D"]
+self_modulate = Color(1, 0.346577, 0.280009, 1)
+texture = ExtResource("1_udg53")

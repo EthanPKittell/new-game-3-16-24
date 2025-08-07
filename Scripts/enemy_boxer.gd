@@ -44,9 +44,11 @@ var state = null
 
 func _ready():
 	randomize()
+	Indicators.add_enemy(self)
 	await get_tree().create_timer(0.1).timeout
 	player = Globals.playerRef
 	state = CHASE
+	boxerSprite.material = boxerSprite.material.duplicate()
 
 func spawn_coin(world: Node):
 	var drop = preload("res://Scenes/coinPickup.tscn")
@@ -152,6 +154,7 @@ func _physics_process(_delta: float) -> void:
 	#print(chase)
 	
 	if health < 1:
+		Indicators.remove_enemy(self)
 		var world = get_tree().current_scene.get_node("Y_Sort")
 		randomize()
 		var pick = randi_range(1,10)

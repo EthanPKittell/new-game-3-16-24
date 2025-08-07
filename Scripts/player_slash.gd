@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2.RIGHT
-var speed = 440
+var speed = 500
 
 func _ready():
 	$Timer.wait_time = 0.09
