@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://e3uxkslaljhm"]
+[gd_scene load_steps=4 format=3 uid="uid://e3uxkslaljhm"]
 
 [ext_resource type="Script" uid="uid://bqowldtt6s07q" path="res://Scripts/room_change.gd" id="1_kdkoi"]
+[ext_resource type="PackedScene" uid="uid://d3ayarfqsgv3s" path="res://Scenes/Stage1.tscn" id="2_d0svy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcfad"]
+size = Vector2(190, 23)
 
 [node name="RoomChange" type="Area2D"]
 script = ExtResource("1_kdkoi")
+roomPath = ExtResource("2_d0svy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_lcfad")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

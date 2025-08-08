@@ -1,8 +1,7 @@
 extends Area2D
 
 
-@export var roomPath = "res://Scenes/Stage1.tscn"
-
+@export var roomPath: PackedScene
 
 
 func _on_body_entered(body):
@@ -10,4 +9,4 @@ func _on_body_entered(body):
 
 	
 func _change_room():
-	get_tree().change_scene_to_file(roomPath)
+	get_tree().change_scene_to_packed(roomPath)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bpfonkpugm3yi"]
+[gd_scene load_steps=16 format=4 uid="uid://bpfonkpugm3yi"]
 
 [ext_resource type="PackedScene" uid="uid://bsbk6murmo4el" path="res://Scenes/player_stats.tscn" id="1_hyavj"]
 [ext_resource type="TileSet" uid="uid://bdsob4xbij6pp" path="res://Wall_tiles2.tres" id="2_j88b8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://e3uxkslaljhm" path="res://Scenes/room_change.tscn" id="11_r82w0"]
 [ext_resource type="PackedScene" uid="uid://vid5liu0ymkg" path="res://Scenes/shop_keeper.tscn" id="12_ti1bm"]
 [ext_resource type="Script" uid="uid://d0x1refitwo8i" path="res://Scripts/Globals.gd" id="12_xk54o"]
+[ext_resource type="PackedScene" uid="uid://cjyjwi6ji8udl" path="res://Scenes/Stage2.tscn" id="13_kwl8l"]
 [ext_resource type="PackedScene" uid="uid://blvhdbn53hxvj" path="res://Scenes/Sword_pickup.tscn" id="13_op4cu"]
 [ext_resource type="PackedScene" uid="uid://bg3yvlvibh4ag" path="res://Scenes/UltraSword_pickup.tscn" id="14_8l3nt"]
 
@@ -77,6 +78,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RoomChange" parent="." instance=ExtResource("11_r82w0")]
 position = Vector2(866, -615)
+
+[node name="RoomChange2" parent="." instance=ExtResource("11_r82w0")]
+position = Vector2(1733, -606)
+roomPath = ExtResource("13_kwl8l")
 
 [node name="Initializer" type="Node" parent="."]
 script = ExtResource("12_xk54o")

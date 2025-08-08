@@ -1,3 +1,5 @@
+res://Scenes/World.tscn
+res://Scenes/indicators.gd
 res://Wall_tiles2.tres
 res://smoke.tres
 res://BulletEffect.tres
@@ -7,11 +9,6 @@ res://WhiteColor.gdshader
 res://water_submerge_blink.gdshader
 res://Scenes/water_effect.gdshader
 res://player_only_barrier.tres
-res://Scenes/EnemyIndicator.tscn
-res://Scenes/enemy_alien_gorilla.tscn
-res://Scenes/indicators.gd
-res://Scenes/Indicators.tscn
-res://Scenes/World.tscn
 res://Scenes/Player.tscn
 res://Scenes/wave_spawner_stage1.tscn
 res://Scenes/Stage1.tscn
@@ -23,7 +20,8 @@ res://Scenes/splash_effect.tscn
 res://Scenes/enemy_runner_corpse.tscn
 res://Scenes/enemy_runner.tscn
 res://Scenes/enemy_boxer.tscn
-res://Scripts/enemy_alien_gorilla.gd
-res://Scripts/enemy_boxer.gd
-res://Scripts/enemy_runner.gd
-res://Scripts/Player.gd
+res://Scenes/enemy_alien_gorilla.tscn
+res://Scenes/EnemyIndicator.tscn
+res://Scenes/Indicators.tscn
+res://Scenes/room_change.tscn
+res://Scenes/Stage2.tscn

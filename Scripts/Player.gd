@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-var speed = 60#2.3
+var speed = 2.3
 var accuracyValue = 0.2#0.01 is pretty accurate 2.0 is insanely inaccurate
 var canFire = false #I set it to false because when You start you have no gun
 var fireRate = 0.2
@@ -122,7 +122,7 @@ func _physics_process(delta):
 			get_tree().current_scene.add_child(splash)
 			# Maybe call spawn_splash_effect()
 	else:
-		speed = 7#2.3
+		speed = 2.3
 		playerSprite.material.set_shader_parameter("cut_in_half", false)
 		playerShadow.visible = true
 		rollingAccel = 400
