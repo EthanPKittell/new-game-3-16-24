@@ -15,6 +15,8 @@ var reload_time = 1.5  # seconds
 var reload_elapsed = 0.0
 var reloading = false
 
+signal finished_reload()
+
 func gun_change(value):
 	gunIcon.frame = value
 
@@ -47,11 +49,16 @@ func _process(delta):
 
 func do_reload():
 	#ammount I will reload
-	var to_reload = min(Globals.clip, Globals.ammo)
+	var to_reload 
+	if Globals.bullets > 0:
+		to_reload = Globals.clip - Globals.bullets
+	else:
+		to_reload = min(Globals.clip, Globals.ammo)
 	Globals.bullets += to_reload
 	Globals.ammo -= to_reload
 	Player.emit_signal("ammo_changed", Globals.ammo)
 	Globals.emit_signal("clip_change", Globals.bullets)
+	emit_signal("finished_reload")
 	
 func bullets_change(value):
 	if value == -1:

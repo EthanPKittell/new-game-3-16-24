@@ -29,7 +29,7 @@ var water_tilemap  # Declare it up top
 @onready var playerHandsWeapon = $playerHands/AnimatedSprite2D
 @onready var playerShadow = $Shadow
 @onready var hurtBox = $Hurtbox
-
+@onready var GunUI = $"/root/World/CanvasLayer/gun_type"
 @export var splash_scene: PackedScene
 
 
@@ -74,6 +74,7 @@ func _ready():
 	stats.no_health.connect(death)
 	Globals.ammo_picked.connect(ammo_picked_up)
 	Globals.weapon_picked.connect(change_gun)
+	GunUI.finished_reload.connect(can_fire_after_reload)
 	randomize()
 	change_gun(Globals.globalCurrentGun)
 	Globals.poisoned.connect(poisonEffect)
@@ -213,6 +214,9 @@ func _physics_process(delta):
 		elif Globals.bullets == 0:
 			pass #START RELOAD HERE
 			emit_signal("start_reload")
+	elif Input.is_action_pressed("RELOAD_BUTTON") and Globals.globalCurrentGun != 5 and Globals.globalCurrentGun != 6:
+		canFire = false
+		emit_signal("start_reload")
 			
 	var mouse_position = get_global_mouse_position()
 	
@@ -405,3 +409,8 @@ func poisonEffect():
 func _on_splash_timer_timeout() -> void:
 	canSplash = true
 	splash_timer.stop()
+
+func can_fire_after_reload():
+	print("DID THIS RUN???")
+	canFire = true #literally just added this to stop
+	#the player from being able to fire while reloading

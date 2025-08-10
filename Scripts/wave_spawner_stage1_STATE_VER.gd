@@ -20,11 +20,16 @@ const LEVER_SCENE = preload("res://Scenes/wave_lever.tscn")
 @onready var waveTimer = $Timer
 
 var wave_data = {
-	1: {"enemyRunners": 5, "enemyBoxers": 1,"enemyGorillas": 1, "spawnTimer": 5},
+	1: {"enemyRunners": 5, "enemyBoxers": 0,"enemyGorillas": 0, "spawnTimer": 5},
 	2: {"enemyRunners": 15, "enemyBoxers": 0,"enemyGorillas": 1, "spawnTimer": 4},
-	3: {"enemyRunners": 0, "enemyBoxers": 10,"enemyGorillas": 0, "spawnTimer": 3},
+	3: {"enemyRunners": 0, "enemyBoxers": 10,"enemyGorillas": 3, "spawnTimer": 3},
 	4: {"enemyRunners": 40, "enemyBoxers": 20,"enemyGorillas": 5, "spawnTimer": 2},
 	5: {"enemyRunners": 50, "enemyBoxers": 30,"enemyGorillas": 15, "spawnTimer": 1},
+	6: {"enemyRunners": 0, "enemyBoxers": 50,"enemyGorillas": 20, "spawnTimer": 1},
+	7: {"enemyRunners": 80, "enemyBoxers": 20,"enemyGorillas": 30, "spawnTimer": 1},
+	8: {"enemyRunners": 100, "enemyBoxers": 30,"enemyGorillas": 35, "spawnTimer": 1},
+	9: {"enemyRunners": 120, "enemyBoxers": 40,"enemyGorillas": 40, "spawnTimer": 1},
+	10: {"enemyRunners": 140, "enemyBoxers": 50,"enemyGorillas": 50, "spawnTimer": 1},
 }
 
 func _ready():
